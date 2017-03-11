@@ -34,7 +34,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" pref="526" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="538" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -152,7 +152,7 @@
         <Component class="javax.swing.JButton" name="dashbord">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/dashboard.png"/>
+              <Image iconType="3" name="/Ui/Icons/dashboard.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tableau de bord"/>
           </Properties>
@@ -165,7 +165,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Ui/icons/candidates.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="candidat en cours"/>
+            <Property name="text" type="java.lang.String" value="Offres d&apos;emploi"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cndEnCoursActionPerformed"/>
@@ -199,7 +199,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Ui/icons/plus-button.png"/>
+          <Image iconType="3" name="/Ui/Icons/plus-button.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Ajouter Entreprise"/>
       </Properties>
