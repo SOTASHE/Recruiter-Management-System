@@ -90,7 +90,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tCandidat);
 
-        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
+        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
         inviter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
+        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,10 +120,10 @@ public class AfficheCandidat extends javax.swing.JFrame {
 
         jLabel4.setText("Competences principaux");
 
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
+        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
 
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/work-parteners.png"))); // NOI18N
+        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/work-parteners.png"))); // NOI18N
         clients.setText("  Clients");
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employes.png"))); // NOI18N
+        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/employes.png"))); // NOI18N
         employes.setText("  Employes");
         employes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
+        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +147,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/candidates.png"))); // NOI18N
+        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/candidates.png"))); // NOI18N
         cndEnCours.setText("candidat en cours");
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,16 +159,16 @@ public class AfficheCandidat extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cndEnCours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(employes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(dashbord, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(statistics, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cndEnCours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(employes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(clients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(statistics, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -182,12 +182,12 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 .addComponent(employes)
                 .addGap(40, 40, 40)
                 .addComponent(clients)
-                .addGap(40, 40, 40)
+                .addGap(34, 34, 34)
                 .addComponent(statistics)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/logo.PNG"))); // NOI18N
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);

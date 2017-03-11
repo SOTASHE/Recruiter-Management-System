@@ -175,7 +175,7 @@
     <Component class="javax.swing.JButton" name="inviter">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Ui/icons/envelope.png"/>
+          <Image iconType="3" name="/Ui/Icons/envelope.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Inviter a passer l&apos;entretien"/>
       </Properties>
@@ -186,7 +186,7 @@
     <Component class="javax.swing.JButton" name="chercher">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Ui/icons/search.png"/>
+          <Image iconType="3" name="/Ui/Icons/search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Chercher"/>
       </Properties>
@@ -233,17 +233,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cndEnCours" alignment="0" max="32767" attributes="0"/>
-                      <Component id="employes" alignment="0" max="32767" attributes="0"/>
-                      <Component id="clients" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="dashbord" min="-2" pref="145" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="dashbord" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="cndEnCours" alignment="0" max="32767" attributes="0"/>
+                              <Component id="employes" alignment="0" max="32767" attributes="0"/>
+                              <Component id="clients" alignment="0" max="32767" attributes="0"/>
+                              <Component id="statistics" alignment="1" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="statistics" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -260,9 +261,9 @@
                   <Component id="employes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="clients" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="statistics" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="113" max="32767" attributes="0"/>
+                  <EmptySpace pref="119" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -271,7 +272,7 @@
         <Component class="javax.swing.JButton" name="statistics">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/statistics.png"/>
+              <Image iconType="3" name="/Ui/Icons/statistics.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Statistiques"/>
           </Properties>
@@ -279,7 +280,7 @@
         <Component class="javax.swing.JButton" name="clients">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/work-parteners.png"/>
+              <Image iconType="3" name="/Ui/Icons/work-parteners.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Clients"/>
           </Properties>
@@ -290,7 +291,7 @@
         <Component class="javax.swing.JButton" name="employes">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/employes.png"/>
+              <Image iconType="3" name="/Ui/Icons/employes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Employes"/>
           </Properties>
@@ -301,7 +302,7 @@
         <Component class="javax.swing.JButton" name="dashbord">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/dashboard.png"/>
+              <Image iconType="3" name="/Ui/Icons/dashboard.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tableau de bord"/>
           </Properties>
@@ -312,7 +313,7 @@
         <Component class="javax.swing.JButton" name="cndEnCours">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/candidates.png"/>
+              <Image iconType="3" name="/Ui/Icons/candidates.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="candidat en cours"/>
           </Properties>
@@ -325,7 +326,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Ui/icons/logo.PNG"/>
+          <Image iconType="3" name="/Ui/Icons/logo.PNG"/>
         </Property>
       </Properties>
     </Component>
