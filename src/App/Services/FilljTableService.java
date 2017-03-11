@@ -8,10 +8,9 @@ package App.Services;
 import App.Orm.DaoJobs;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
-import java.math.BigDecimal;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,6 +34,29 @@ public class FilljTableService {
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(J.getId());
             oneRow.add(J.getProfil());
+            tableData.add(oneRow);
+        }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders));
+    }
+    
+    public static void displaySearchCandidates(JTable T,List L ){
+        
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("id");
+        tableHeaders.add("name");
+        tableHeaders.add("age");
+        tableHeaders.add("ville");
+        tableHeaders.add("email");
+
+        for (Object o : L) {
+            Candidates C = (Candidates) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(C.getId());
+            oneRow.add(C.getName());
+            oneRow.add(C.getAge());
+            oneRow.add(C.getVille());
+            oneRow.add(C.getEmail());
             tableData.add(oneRow);
         }
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
