@@ -188,7 +188,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/logo.PNG"))); // NOI18N
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
