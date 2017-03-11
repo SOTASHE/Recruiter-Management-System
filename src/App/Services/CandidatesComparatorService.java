@@ -6,9 +6,13 @@
 package App.Services;
 
 import OrmMapping.Candidates;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import org.json.JSONException;
 
 /**
@@ -32,13 +36,26 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
         try {
             rateC1 = LinkedinService.rateLinkedinProfil(c1, principalSkillsC, secondarySkillsC);
         } catch (JSONException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+           
+        } catch (IOException ex) {
+           JDialog J = new JDialog() ;
+            J.setVisible(true);
+        } catch (InterruptedException ex) {
+           JDialog J = new JDialog() ;
+            J.setVisible(true);
         }
         int rateC2 = 0;
         try {
             rateC2 = LinkedinService.rateLinkedinProfil(c2, principalSkillsC, secondarySkillsC);
         } catch (JSONException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+            JDialog J = new JDialog() ;
+            J.setVisible(true);
+        } catch (IOException ex) {
+            JDialog J = new JDialog() ;
+            J.setVisible(true);
+        } catch (InterruptedException ex) {
+            JDialog J = new JDialog() ;
+            J.setVisible(true);
         }
         if(rateC1 > rateC2)
             return 1;

@@ -38,13 +38,8 @@ public class PatternService {
         return matcher.matches() ;
     }
     
-     public static boolean validateVille(String VilleStr) {
-        Matcher matcher = VALID_SKILLS_REGEX.matcher(VilleStr);
+    public static boolean validateVille(String VilleStr) {
+        Matcher matcher = VALID_VILLE_REGEX.matcher(VilleStr);
         return matcher.matches() ;
     }
-    public static boolean validate(String emailstr)
-    {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailstr);
-        return matcher.matches();
-    }  
 }

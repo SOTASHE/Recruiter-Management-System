@@ -8,6 +8,7 @@ package Ui.Frames;
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Services.CandidatesSortByRateService;
+import App.Services.FilljTableService;
 import App.Services.MailService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
@@ -295,7 +296,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
     }//GEN-LAST:event_inviterActionPerformed
 
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
-        displayResult();
+        FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
     }//GEN-LAST:event_chercherActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
@@ -336,33 +337,14 @@ public class AfficheCandidat extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void displayResult(){
-         //wont work
-        //int id = jobs.getSelectedItem(); // only select id of this object 
+    private List getCandidat() {
         Jobs j = (Jobs) jobs.getSelectedItem();
         int idJob = j.getId();
         List L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
-        
-        Vector<String> tableHeaders = new Vector<String>();
-        Vector tableData = new Vector();
-        tableHeaders.add("id");
-        tableHeaders.add("name");
-        tableHeaders.add("age");
-        tableHeaders.add("ville");
-        tableHeaders.add("email");
-
-        for (Object o : L) {
-            Candidates C = (Candidates) o;
-            Vector<Object> oneRow = new Vector<Object>();
-            oneRow.add(C.getId());
-            oneRow.add(C.getName());
-            oneRow.add(C.getAge());
-            oneRow.add(C.getVille());
-            oneRow.add(C.getEmail());
-            tableData.add(oneRow);
-        }
-        tCandidat.setModel(new DefaultTableModel(tableData, tableHeaders));
-    }
+        return L ;
+    } 
+    
+    
     
  
     
