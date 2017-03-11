@@ -9,12 +9,14 @@ import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Services.CandidatesSortByRateService;
 import App.Services.MailService;
+import App.Services.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import com.alee.laf.WebLookAndFeel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author youpi
@@ -215,7 +217,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(inviter))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 40, Short.MAX_VALUE)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
@@ -230,8 +232,9 @@ public class AfficheCandidat extends javax.swing.JFrame {
                         .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(chercher))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chercher)
+                        .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jLabel3)
@@ -240,8 +243,8 @@ public class AfficheCandidat extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,8 +297,18 @@ public class AfficheCandidat extends javax.swing.JFrame {
         
     }//GEN-LAST:event_inviterActionPerformed
 
+    public static void infoBox(String infoMessage)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage);
+    }
+    
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
+        if(PatternService.validateSkills(principale.getText()))
         displayResult();
+        else {
+            //infoBox("veuillez respecter la format ");
+            principale.setText("");
+        }
     }//GEN-LAST:event_chercherActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
