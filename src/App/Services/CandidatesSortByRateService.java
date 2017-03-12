@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author youpi
+ * @author Ilias Naamane
  */
 public class CandidatesSortByRateService  {
         

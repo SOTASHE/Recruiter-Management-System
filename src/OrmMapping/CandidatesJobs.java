@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 12, 2017 2:39:06 AM by Hibernate Tools 4.3.1
+// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,12 +12,12 @@ public class CandidatesJobs  implements java.io.Serializable {
      private CandidatesJobsId id;
      private Candidates candidates;
      private Jobs jobs;
-     private boolean satisfaction;
+     private int satisfaction;
 
     public CandidatesJobs() {
     }
 
-    public CandidatesJobs(CandidatesJobsId id, Candidates candidates, Jobs jobs, boolean satisfaction) {
+    public CandidatesJobs(CandidatesJobsId id, Candidates candidates, Jobs jobs, int satisfaction) {
        this.id = id;
        this.candidates = candidates;
        this.jobs = jobs;
@@ -45,11 +45,11 @@ public class CandidatesJobs  implements java.io.Serializable {
     public void setJobs(Jobs jobs) {
         this.jobs = jobs;
     }
-    public boolean isSatisfaction() {
+    public int getSatisfaction() {
         return this.satisfaction;
     }
     
-    public void setSatisfaction(boolean satisfaction) {
+    public void setSatisfaction(int satisfaction) {
         this.satisfaction = satisfaction;
     }
 

@@ -12,7 +12,7 @@ import org.hibernate.Query;
 
 /**
  *
- * @author youpi
+ * @author Ilias Naamane
  */
 public class DaoCandidates extends DaoAbstract{
     
@@ -22,7 +22,7 @@ public class DaoCandidates extends DaoAbstract{
     }
    
     public List getAllByJob(int idJob){
-        List result = getHqlQuery("select c from Candidates c join c.jobses j where j.id="+idJob);
+        List result = getHqlQuery("select c from Candidates c join c.candidatesJobses cj  where cj.id.jobsid ="+idJob);
         return result;
     }
     
@@ -35,8 +35,8 @@ public class DaoCandidates extends DaoAbstract{
     }
     
     public List getAllEmployees(){
-       List result = getHqlQuery("select c,cj from Candidates c join c.jobses cj where c.id = cj.id");
-        return result;
+        List result = getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
+         return result;
     }
     
 }

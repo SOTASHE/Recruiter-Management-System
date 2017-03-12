@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Feb 5, 2017 3:24:05 PM by Hibernate Tools 4.3.1
+// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,15 +11,14 @@ import java.util.Set;
 public class Candidates  implements java.io.Serializable {
 
 
-     private Integer id ;
+     private Integer id;
      private String name;
      private int age;
      private String ville;
      private String email;
      private String linkedinUrl;
-     private Set jobses = new HashSet(0);
+     private Set candidatesJobses = new HashSet(0);
      private Set candidatesEntretiens = new HashSet(0);
-     private Set jobses_1 = new HashSet(0);
 
     public Candidates() {
     }
@@ -31,15 +30,14 @@ public class Candidates  implements java.io.Serializable {
         this.ville = ville;
         this.email = email;
     }
-    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set jobses, Set candidatesEntretiens, Set jobses_1) {
+    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesJobses, Set candidatesEntretiens) {
        this.name = name;
        this.age = age;
        this.ville = ville;
        this.email = email;
        this.linkedinUrl = linkedinUrl;
-       this.jobses = jobses;
+       this.candidatesJobses = candidatesJobses;
        this.candidatesEntretiens = candidatesEntretiens;
-       this.jobses_1 = jobses_1;
     }
    
     public Integer getId() {
@@ -84,12 +82,12 @@ public class Candidates  implements java.io.Serializable {
     public void setLinkedinUrl(String linkedinUrl) {
         this.linkedinUrl = linkedinUrl;
     }
-    public Set getJobses() {
-        return this.jobses;
+    public Set getCandidatesJobses() {
+        return this.candidatesJobses;
     }
     
-    public void setJobses(Set jobses) {
-        this.jobses = jobses;
+    public void setCandidatesJobses(Set candidatesJobses) {
+        this.candidatesJobses = candidatesJobses;
     }
     public Set getCandidatesEntretiens() {
         return this.candidatesEntretiens;
@@ -98,15 +96,8 @@ public class Candidates  implements java.io.Serializable {
     public void setCandidatesEntretiens(Set candidatesEntretiens) {
         this.candidatesEntretiens = candidatesEntretiens;
     }
-    public Set getJobses_1() {
-        return this.jobses_1;
-    }
-    
-    public void setJobses_1(Set jobses_1) {
-        this.jobses_1 = jobses_1;
-    }
 
-
+   
 
 
 }
