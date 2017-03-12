@@ -67,7 +67,7 @@ public class Clients extends javax.swing.JFrame {
             }
         });
 
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
+        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class Clients extends javax.swing.JFrame {
         });
 
         cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/candidates.png"))); // NOI18N
-        cndEnCours.setText("candidat en cours");
+        cndEnCours.setText("Offres d'emploi");
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cndEnCoursActionPerformed(evt);
@@ -130,7 +130,7 @@ public class Clients extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/plus-button.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/plus-button.png"))); // NOI18N
         jButton1.setText("Ajouter Entreprise");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class Clients extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                         .addGap(24, 24, 24))))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)

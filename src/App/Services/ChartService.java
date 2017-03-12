@@ -31,10 +31,10 @@ public class ChartService {
             String nom = (String)(o[0]);
             BigDecimal  valeur = (BigDecimal)(o[1]);
             autre = autre.subtract(valeur);
-            pieDataset.setValue(nom,valeur) ;
+            pieDataset.setValue(nom+" " + valeur.multiply(new BigDecimal(100)).setScale(2)+"%",valeur) ;
         }
         if(!autre.equals(new BigDecimal(0))) {
-            pieDataset.setValue("autre",autre) ;
+            pieDataset.setValue("autre"+" "+autre.multiply(new BigDecimal(100)).setScale(2)+"%",autre) ;
         }
         JFreeChart pieChart = ChartFactory.createPieChart3D(nomGraphe, 
         pieDataset, true, true, true); 

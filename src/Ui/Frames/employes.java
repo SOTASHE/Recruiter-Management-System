@@ -5,6 +5,8 @@
  */
 package Ui.Frames;
 
+import com.alee.laf.WebLookAndFeel;
+
 /**
  *
  * @author Sony
@@ -220,6 +222,8 @@ public class employes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new employes().setVisible(true);
             }
         });

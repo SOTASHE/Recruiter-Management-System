@@ -7,9 +7,11 @@ package Ui.Frames;
 
 import App.Services.ChartService;
 import App.Services.StatsService;
+import com.alee.laf.WebLookAndFeel;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -224,17 +226,18 @@ public class statistics extends javax.swing.JFrame {
     private JDialog StatisticsFrame(List L,List L1,String nomGraph,String horisontalName,String VerticalName ) {
         JDialog JD1 =new JDialog() ;
         JD1.setLayout(new GridLayout());
-        JD1.setSize(1000,450); 
+        JD1.setSize(1200,450); 
         JD1.add(ChartService.CamembertJob(L, nomGraph)) ;
         JD1.add(ChartService.HistogrammeJob(L1, nomGraph,horisontalName,VerticalName)) ;
         JD1.setLocationRelativeTo(null);
         return JD1 ;
-    }
+   }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         List L = StatsService.getStatsPorcentage() ;
         List L1 = StatsService.getStats() ;   
         StatisticsFrame(L,L1,"Les Profils les plus demandés","Job","Nombre de demande").setVisible(true);    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -268,6 +271,8 @@ public class statistics extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new statistics().setVisible(true);
             }
         });
