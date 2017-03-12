@@ -30,7 +30,7 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
     
    
     
-    public static void SolutionException(Candidates c1) throws JSONException, IOException, InterruptedException {
+    public static void TestRuby(Candidates c1) throws JSONException, IOException, InterruptedException {
         LinkedinService.rateLinkedinProfil(c1, "", "");
     }
     
@@ -41,7 +41,7 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
             rateC2 = LinkedinService.rateLinkedinProfil(c2, principalSkillsC, secondarySkillsC);
             rateC1 = LinkedinService.rateLinkedinProfil(c1, principalSkillsC, secondarySkillsC);
         } catch (JSONException ex) {
-        
+             
         } catch (IOException ex) {
          
         } catch (InterruptedException ex) {

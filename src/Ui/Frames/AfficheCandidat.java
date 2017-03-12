@@ -11,6 +11,7 @@ import App.Services.CandidatesComparatorService;
 import App.Services.CandidatesSortByRateService;
 import App.Services.FilljTableService;
 import App.Services.MailService;
+import App.Services.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.util.List;
@@ -29,8 +30,7 @@ import org.json.JSONException;
  */
 public class AfficheCandidat extends javax.swing.JFrame {
     
-    DaoCandidates candidates = new DaoCandidates();
-   
+    DaoCandidates candidates = new DaoCandidates(); 
     /**
      * Creates new form jFrame
      */
@@ -41,7 +41,6 @@ public class AfficheCandidat extends javax.swing.JFrame {
         initComponents();
         Refresh();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,7 +61,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         secondaire = new javax.swing.JTextField();
         principale = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jtxtVille = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jobs = new javax.swing.JComboBox<>();
@@ -236,7 +235,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtVille, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -269,7 +268,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chercher))))
@@ -302,19 +301,27 @@ public class AfficheCandidat extends javax.swing.JFrame {
             String name = (String) tCandidat.getValueAt(rowid, 1);
             MailService.sendMail("test", "Bonjour Mr" + name, email);
         }
-        
     }//GEN-LAST:event_inviterActionPerformed
 
+    private boolean FieldValidate() {
+        boolean b1,b2,b3 ;
+        if(!(b1=PatternService.validateVille(jtxtVille.getText()))) jtxtVille.setText("");
+        if(!(b2=PatternService.validateSkills(principale.getText()))) principale.setText("");
+        if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
+        return b1 && b2 && b3 ;
+    }
+    
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            CandidatesComparatorService.SolutionException(new Candidates()) ;
-            FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+            //CandidatesComparatorService.TestRuby(new Candidates()) ;  
+            if(FieldValidate()) {
+                FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+            }
+            else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }
         catch(Exception e) {
-            JOptionPane.showMessageDialog(tCandidat, "Veuillez Instaler Ruby et suivre les etapes du fichier README.txt","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(tCandidat, e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
-       
-       //JOptionPane.showMessageDialog(principale, "AAAA");
     }//GEN-LAST:event_chercherActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
@@ -341,7 +348,6 @@ public class AfficheCandidat extends javax.swing.JFrame {
         new Clients().setVisible(true);
     }//GEN-LAST:event_clientsActionPerformed
     public void Refresh(){
-       // displayResult();
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
        List L = dj.getAll();
@@ -361,11 +367,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         List L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
         return L ;
     } 
-    
-    
-    
- 
-    
+       
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -402,7 +404,6 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chercher;
     private javax.swing.JButton clients;
@@ -423,13 +424,12 @@ public class AfficheCandidat extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JComboBox<Jobs> jobs;
+    private javax.swing.JTextField jtxtVille;
     private javax.swing.JTextField principale;
     private javax.swing.JTextField secondaire;
     private javax.swing.JButton statistics;
     private javax.swing.JTable tCandidat;
     // End of variables declaration//GEN-END:variables
-
 }

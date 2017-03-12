@@ -14,8 +14,7 @@ package App.Services;
  * and open the template in the editor.
  */
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.regex.*;
 
 /**
  *
@@ -24,7 +23,7 @@ import java.util.regex.Pattern;
 public class PatternService {
     
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",Pattern.CASE_INSENSITIVE);
-    private static final Pattern VALID_VILLE_REGEX = Pattern.compile("[A-Z]+'?+[A-Z]+",Pattern.CASE_INSENSITIVE);
+    private static final Pattern VALID_VILLE_REGEX = Pattern.compile("([A-Z]+( |')?+[A-Z]+)+",Pattern.CASE_INSENSITIVE);
     private static final Pattern VALID_SKILLS_REGEX = Pattern.compile("([A-Z0-9#.,])+",Pattern.CASE_INSENSITIVE);
     
     public static boolean validateEmail(String EmailStr)
