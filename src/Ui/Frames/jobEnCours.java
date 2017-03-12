@@ -10,6 +10,7 @@ import App.Services.CandidatesSortByRateService;
 import App.Services.FilljTableService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -232,7 +233,9 @@ public class jobEnCours extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                new jobEnCours().setVisible(true);
+                    WebLookAndFeel.install(true);
+                    WebLookAndFeel.setDecorateAllWindows(true);
+                    new jobEnCours().setVisible(true);
             }
         });
     }

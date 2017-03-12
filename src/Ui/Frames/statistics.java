@@ -7,6 +7,7 @@ package Ui.Frames;
 
 import App.Services.ChartService;
 import App.Services.StatsService;
+import com.alee.laf.WebLookAndFeel;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JDialog;
@@ -270,6 +271,8 @@ public class statistics extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new statistics().setVisible(true);
             }
         });

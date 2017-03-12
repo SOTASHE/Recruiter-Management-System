@@ -8,6 +8,7 @@ package Ui.Frames;
 import App.Orm.DaoCandidates;
 import App.Services.FilljTableService;
 import OrmMapping.Candidates;
+import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 
 /**
@@ -229,6 +230,8 @@ public class employes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new employes().setVisible(true);
             }
         });

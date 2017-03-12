@@ -6,6 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
+import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 
 /**
@@ -244,6 +245,8 @@ public class Clients extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new Clients().setVisible(true);
             }
         });

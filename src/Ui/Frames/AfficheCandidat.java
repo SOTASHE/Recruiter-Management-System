@@ -130,6 +130,8 @@ public class AfficheCandidat extends javax.swing.JFrame {
 
         jTextField4.setToolTipText("");
 
+      
+
         jLabel2.setText("Ville");
 
         jLabel3.setText("Job");
