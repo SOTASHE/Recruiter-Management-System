@@ -39,4 +39,7 @@ public class DaoCandidates extends DaoAbstract{
          return result;
     }
     
+    
+    // add function to get all current candidat by job with details phase entretien etc..
+    
 }
