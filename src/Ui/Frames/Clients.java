@@ -6,6 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
+import App.Services.FilljTableService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class Clients extends javax.swing.JFrame {
      */
     public Clients() {
         initComponents();
-        //Refresh();
+        FilljTableService.displayClients(clientsTable);
     }
 
     /**
@@ -128,7 +129,7 @@ public class Clients extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(clientsTable);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/plus-button.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
         jButton1.setText("Ajouter Entreprise");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

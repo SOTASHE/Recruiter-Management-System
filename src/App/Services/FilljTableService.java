@@ -6,7 +6,9 @@
 package App.Services;
 
 import App.Orm.DaoCandidates;
+import App.Orm.DaoClients;
 import App.Orm.DaoJobs;
+import App.Orm.DaoRecruiter;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesJobs;
 import OrmMapping.Jobs;
@@ -21,7 +23,33 @@ import javax.swing.table.DefaultTableModel;
  * @author Ilias Naamane
  */
 public class FilljTableService {
-    // 
+    
+    public static void displayClients(JTable T){
+        DaoClients dc = new DaoClients();
+        List L = dc.getClientsWithStats();
+        Vector<String> tableHeaders = new Vector<String>();
+        tableHeaders.add("Id");
+        tableHeaders.add("Entreprise");
+        tableHeaders.add("Email");
+        tableHeaders.add("Nb d'employes recrutés");
+        tableHeaders.add("Satisfaction");
+        Vector tableData = new Vector();
+        for (Iterator it = L.iterator(); it.hasNext();) {
+            Vector<Object> oneRow = new Vector<Object>();
+            Object[] o = (Object[]) it.next();
+            oneRow.add((int)o[0]);
+            oneRow.add((String)o[1]);
+            oneRow.add((String)o[2]);
+            oneRow.add((long)o[3]);
+            oneRow.add((double)o[4]);
+            tableData.add(oneRow);
+
+        }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders));
+    }
+
+
+// 
     public static void displayEmployees(JTable T){
         DaoCandidates dc = new DaoCandidates();
         List L = dc.getAllEmployees();

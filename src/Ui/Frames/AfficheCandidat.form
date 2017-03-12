@@ -323,7 +323,7 @@
         <Component class="javax.swing.JButton" name="cndEnCours">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/clients.png"/>
+              <Image iconType="3" name="/Ui/icons/jobsearch.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="candidat en cours"/>
           </Properties>

@@ -5,12 +5,27 @@
  */
 package App.Services;
 
+import App.Orm.DaoRecruiter;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author Ilias Naamane
  */
 public class loginAgencyService {
+    
+    /**
+     * 
+     * @param email
+     * @param password
+     * @return boolean true if connected, false if not
+     */
     public static boolean getConnected(String email, String password){
-        return true;
+        DaoRecruiter DR = new DaoRecruiter();
+        String pass = DR.getPasswordByLogin(email);
+        if(pass.equals(password) )
+            return true;
+        return false;       
     }
 }

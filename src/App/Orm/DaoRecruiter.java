@@ -18,7 +18,8 @@ public class DaoRecruiter extends DaoAbstract{
         super(Recruiters.class);
     }
     
-    public List getPasswordByLogin(String login){
-       return super.getHqlQuery("select password from Recruiters where login ="+login);
+    public String getPasswordByLogin(String userEmail){
+        List<String> obj = super.getHqlQuery("select r.password from Recruiters r where email= '"+userEmail+"'" );       
+        return obj.get(0);
     }
 }
