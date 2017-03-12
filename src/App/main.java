@@ -6,10 +6,13 @@
 import static App.Services.LinkedinService.profileToJson;
 import App.Services.ChartService;
 import App.Services.StatsService;
+import Ui.Services.StarRater;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,7 +24,15 @@ import org.json.JSONObject;
 public class main {
    
     public static void main(String[] args) {
-        
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        StarRater starRater = new StarRater(5, 2, 1);       
+        panel.add(starRater);
+        frame.getContentPane().add(panel);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        /*   
       List L = StatsService.getStatsPorcentage();
       
         ChartService.CamembertJob(L,"Job");

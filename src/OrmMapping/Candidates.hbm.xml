@@ -1,48 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 5, 2017 3:24:05 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 12, 2017 1:35:19 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="Java" name="OrmMapping.Candidates" optimistic-lock="version" table="Candidates">
-    <id name="id" type="java.lang.Integer">
-      <column name="id"/>
-      <generator class="identity"/>
-    </id>
-    <property name="name" type="string">
-      <column length="50" name="name" not-null="true"/>
-    </property>
-    <property name="age" type="int">
-      <column name="age" not-null="true"/>
-    </property>
-    <property name="ville" type="string">
-      <column length="50" name="Ville" not-null="true"/>
-    </property>
-    <property name="email" type="string">
-      <column length="50" name="email" not-null="true" unique="true"/>
-    </property>
-    <property name="linkedinUrl" type="string">
-      <column length="50" name="linkedinUrl"/>
-    </property>
-    <set fetch="select" inverse="false" lazy="true" name="jobses" table="Candidates_Jobs">
-      <key>
-        <column name="Candidatesid" not-null="true"/>
-      </key>
-      <many-to-many entity-name="OrmMapping.Jobs">
-        <column name="Jobsid" not-null="true"/>
-      </many-to-many>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="candidatesEntretiens" table="Candidates_Entretien">
-      <key>
-        <column name="Candidatesid" not-null="true"/>
-      </key>
-      <one-to-many class="OrmMapping.CandidatesEntretien"/>
-    </set>
-    <set fetch="select" inverse="false" lazy="true" name="jobses_1" table="Candidates_worked_jobs">
-      <key>
-        <column name="Candidatesid" not-null="true"/>
-      </key>
-      <many-to-many entity-name="OrmMapping.Jobs">
-        <column name="Jobsid" not-null="true"/>
-      </many-to-many>
-    </set>
-  </class>
+    <class name="OrmMapping.Candidates" table="Candidates" catalog="Java" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" not-null="true" />
+        </property>
+        <property name="ville" type="string">
+            <column name="Ville" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="linkedinUrl" type="string">
+            <column name="linkedinUrl" length="100" />
+        </property>
+        <set name="candidatesJobses" table="Candidates_Jobs" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Candidatesid" not-null="true" />
+            </key>
+            <one-to-many class="OrmMapping.CandidatesJobs" />
+        </set>
+        <set name="candidatesEntretiens" table="Candidates_Entretien" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Candidatesid" not-null="true" />
+            </key>
+            <one-to-many class="OrmMapping.CandidatesEntretien" />
+        </set>
+    </class>
 </hibernate-mapping>

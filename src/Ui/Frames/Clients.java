@@ -40,7 +40,7 @@ public class Clients extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        clientsTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -114,7 +114,7 @@ public class Clients extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -125,7 +125,7 @@ public class Clients extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(clientsTable);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/plus-button.png"))); // NOI18N
         jButton1.setText("Ajouter Entreprise");
@@ -251,6 +251,7 @@ public class Clients extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clients;
+    private javax.swing.JTable clientsTable;
     private javax.swing.JButton cndEnCours;
     private javax.swing.JButton dashbord;
     private javax.swing.JButton employes;
@@ -261,7 +262,6 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton statistics;
     // End of variables declaration//GEN-END:variables
 

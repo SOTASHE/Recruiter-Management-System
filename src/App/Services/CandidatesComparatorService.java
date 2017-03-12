@@ -16,7 +16,7 @@ import org.json.JSONException;
 
 /**
  *
- * @author youpi
+ * @author Ilias Naamane
  */
 public class CandidatesComparatorService implements Comparator<Candidates> {
 

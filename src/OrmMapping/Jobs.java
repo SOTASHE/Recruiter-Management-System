@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Feb 5, 2017 3:24:05 PM by Hibernate Tools 4.3.1
+// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,10 +15,9 @@ public class Jobs  implements java.io.Serializable {
      private Clients clients;
      private String profil;
      private int status;
-     private Set candidateses = new HashSet(0);
-     private Set candidateses_1 = new HashSet(0);
-     private Set entretiens = new HashSet(0);
      private Set jobDescriptions = new HashSet(0);
+     private Set candidatesJobses = new HashSet(0);
+     private Set entretiens = new HashSet(0);
 
     public Jobs() {
     }
@@ -29,14 +28,13 @@ public class Jobs  implements java.io.Serializable {
         this.profil = profil;
         this.status = status;
     }
-    public Jobs(Clients clients, String profil, int status, Set candidateses, Set candidateses_1, Set entretiens, Set jobDescriptions) {
+    public Jobs(Clients clients, String profil, int status, Set jobDescriptions, Set candidatesJobses, Set entretiens) {
        this.clients = clients;
        this.profil = profil;
        this.status = status;
-       this.candidateses = candidateses;
-       this.candidateses_1 = candidateses_1;
-       this.entretiens = entretiens;
        this.jobDescriptions = jobDescriptions;
+       this.candidatesJobses = candidatesJobses;
+       this.entretiens = entretiens;
     }
    
     public Integer getId() {
@@ -67,19 +65,19 @@ public class Jobs  implements java.io.Serializable {
     public void setStatus(int status) {
         this.status = status;
     }
-    public Set getCandidateses() {
-        return this.candidateses;
+    public Set getJobDescriptions() {
+        return this.jobDescriptions;
     }
     
-    public void setCandidateses(Set candidateses) {
-        this.candidateses = candidateses;
+    public void setJobDescriptions(Set jobDescriptions) {
+        this.jobDescriptions = jobDescriptions;
     }
-    public Set getCandidateses_1() {
-        return this.candidateses_1;
+    public Set getCandidatesJobses() {
+        return this.candidatesJobses;
     }
     
-    public void setCandidateses_1(Set candidateses_1) {
-        this.candidateses_1 = candidateses_1;
+    public void setCandidatesJobses(Set candidatesJobses) {
+        this.candidatesJobses = candidatesJobses;
     }
     public Set getEntretiens() {
         return this.entretiens;
@@ -88,20 +86,13 @@ public class Jobs  implements java.io.Serializable {
     public void setEntretiens(Set entretiens) {
         this.entretiens = entretiens;
     }
-    public Set getJobDescriptions() {
-        return this.jobDescriptions;
-    }
     
-    public void setJobDescriptions(Set jobDescriptions) {
-        this.jobDescriptions = jobDescriptions;
+     @Override
+    public String toString(){
+        return profil+"-"+this.getClients().getName();
     }
 
-    @Override
-    public String toString() {
-        return profil;
-    }
 
-    
 
 }
 
