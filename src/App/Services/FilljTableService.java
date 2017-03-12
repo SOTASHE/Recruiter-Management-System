@@ -10,15 +10,11 @@ import App.Orm.DaoJobs;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesJobs;
 import OrmMapping.Jobs;
-import Ui.Services.StarRater;
-import java.awt.Component;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -47,6 +43,9 @@ public class FilljTableService {
             oneRow.add(C.getName());
             oneRow.add(C.getAge());
             oneRow.add(CJ.getJobs().getProfil());
+            if(CJ.getSatisfaction() == 0)
+                oneRow.add("-");
+            else
             oneRow.add(CJ.getSatisfaction());
             tableData.add(oneRow);
           
