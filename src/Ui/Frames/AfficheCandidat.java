@@ -169,7 +169,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/candidates.png"))); // NOI18N
+        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
         cndEnCours.setText("candidat en cours");
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
