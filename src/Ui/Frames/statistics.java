@@ -140,7 +140,7 @@ public class statistics extends javax.swing.JFrame {
         jButton2.setText("    Statistiques de feedbacks fournipar les entreprises clientes");
 
         searchCandidat.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
-        searchCandidat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/search.png"))); // NOI18N
+        searchCandidat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
         searchCandidat.setText("Chercher candidat");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,7 +157,7 @@ public class statistics extends javax.swing.JFrame {
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 91, Short.MAX_VALUE)

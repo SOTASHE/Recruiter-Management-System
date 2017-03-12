@@ -48,12 +48,13 @@ Contributor(s):
     <property name="hibernate.connection.password"/>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping resource="OrmMapping/Candidates.hbm.xml"/>
-    <mapping resource="OrmMapping/CandidatesEntretien.hbm.xml"/>
-    <mapping resource="OrmMapping/Jobs.hbm.xml"/>
-    <mapping resource="OrmMapping/Recruiters.hbm.xml"/>
-    <mapping resource="OrmMapping/Clients.hbm.xml"/>
-    <mapping resource="OrmMapping/Entretien.hbm.xml"/>
     <mapping resource="OrmMapping/JobDescription.hbm.xml"/>
+    <mapping resource="OrmMapping/Entretien.hbm.xml"/>
+    <mapping resource="OrmMapping/CandidatesJobs.hbm.xml"/>
+    <mapping resource="OrmMapping/Jobs.hbm.xml"/>
+    <mapping resource="OrmMapping/Clients.hbm.xml"/>
+    <mapping resource="OrmMapping/Recruiters.hbm.xml"/>
+    <mapping resource="OrmMapping/CandidatesEntretien.hbm.xml"/>
+    <mapping resource="OrmMapping/Candidates.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

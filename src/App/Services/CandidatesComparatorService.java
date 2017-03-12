@@ -8,6 +8,8 @@ package App.Services;
 import OrmMapping.Candidates;
 import java.io.IOException;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.JSONException;
@@ -43,9 +45,9 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
         } catch (JSONException ex) {
              
         } catch (IOException ex) {
-         
+            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InterruptedException ex) {
-           
+            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(rateC1 > rateC2)
             return 1;
