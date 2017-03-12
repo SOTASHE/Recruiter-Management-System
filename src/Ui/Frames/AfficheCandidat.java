@@ -130,8 +130,6 @@ public class AfficheCandidat extends javax.swing.JFrame {
 
         jTextField4.setToolTipText("");
 
-      
-
         jLabel2.setText("Ville");
 
         jLabel3.setText("Job");
@@ -147,7 +145,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
 
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/work-parteners.png"))); // NOI18N
+        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
         clients.setText("  Clients");
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +153,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employes.png"))); // NOI18N
+        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
         employes.setText("  Employes");
         employes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,8 +205,8 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(clients)
                 .addGap(40, 40, 40)
-                .addComponent(statistics)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
