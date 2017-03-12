@@ -5,6 +5,10 @@
  */
 package Ui.Frames;
 
+import App.Orm.DaoCandidates;
+import OrmMapping.Candidates;
+import java.util.List;
+
 /**
  *
  * @author Sony
@@ -16,8 +20,17 @@ public class employes extends javax.swing.JFrame {
      */
     public employes() {
         initComponents();
+        init();
     }
-
+    
+    public void init(){
+        DaoCandidates dc = new DaoCandidates();
+        List L = dc.getAllEmployees();
+        for(Object o : L){
+            Candidates C = (Candidates) o;
+            System.out.println(C.getName());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

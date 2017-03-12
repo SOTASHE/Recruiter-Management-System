@@ -11,7 +11,7 @@ import java.util.Set;
 public class Candidates  implements java.io.Serializable {
 
 
-     private Integer id;
+     private Integer id ;
      private String name;
      private int age;
      private String ville;

@@ -45,7 +45,6 @@ Contributor(s):
   <table-filter match-name="Candidates"/>
   <table-filter match-name="JobDescription"/>
   <table-filter match-name="Recruiters"/>
-  <table-filter match-name="Candidates_worked_jobs"/>
   <table-filter match-name="Entretien"/>
   <table-filter match-name="Candidates_Entretien"/>
   <table-filter match-name="Jobs"/>

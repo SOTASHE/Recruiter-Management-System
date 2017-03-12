@@ -196,7 +196,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/logo.PNG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -306,13 +306,10 @@ public class AfficheCandidat extends javax.swing.JFrame {
     }//GEN-LAST:event_inviterActionPerformed
 
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
-        try {
-            CandidatesComparatorService.SolutionException(new Candidates()) ;
+      
+           // CandidatesComparatorService.SolutionException(new Candidates()) ;
             FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
-        }
-        catch(Exception e) {
-            JOptionPane.showMessageDialog(tCandidat, "Veuillez Instaler Ruby et suivre les etapes du fichier README.txt","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+        
        
        //JOptionPane.showMessageDialog(principale, "AAAA");
     }//GEN-LAST:event_chercherActionPerformed
@@ -344,7 +341,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
        // displayResult();
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
-       List L = dj.getAll();
+       List L = dj.getCurrentJobs();
        for(Object o : L){
            Jobs j = (Jobs) o;
            jobs.addItem(j);
