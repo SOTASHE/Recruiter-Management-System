@@ -34,8 +34,9 @@ public class DaoCandidates extends DaoAbstract{
         //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
     }
     
-    public List getAllEmployees(int idJob){
-        return null;
+    public List getAllEmployees(){
+       List result = getHqlQuery("select c,cj from Candidates c join c.jobses cj where c.id = cj.id");
+        return result;
     }
     
 }

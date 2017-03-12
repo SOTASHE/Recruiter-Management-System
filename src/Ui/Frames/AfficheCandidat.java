@@ -406,7 +406,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
     public void Refresh(){
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
-       List L = dj.getAll();
+       List L = dj.getCurrentJobs();
        for(Object o : L){
            Jobs j = (Jobs) o;
            jobs.addItem(j);   
