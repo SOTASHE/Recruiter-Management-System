@@ -38,7 +38,6 @@ public class loginRec extends javax.swing.JFrame {
     private void initComponents() {
 
         center = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,12 +53,6 @@ public class loginRec extends javax.swing.JFrame {
 
         center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/left-arrow.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        center.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, -1));
-
         email.setBackground(new java.awt.Color(240, 240, 240));
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -69,10 +62,10 @@ public class loginRec extends javax.swing.JFrame {
         });
         center.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 250, 216, 41));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/user (1).png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/username.png"))); // NOI18N
         center.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 259, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/padlock.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/padlock.png"))); // NOI18N
         center.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 332, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
@@ -80,7 +73,7 @@ public class loginRec extends javax.swing.JFrame {
         jLabel1.setText("RECRUTEUR LOGIN");
         center.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 172, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/user.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/user.png"))); // NOI18N
         center.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 26, -1, -1));
 
         login.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
@@ -186,7 +179,6 @@ public class loginRec extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel center;
     private javax.swing.JTextField email;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
