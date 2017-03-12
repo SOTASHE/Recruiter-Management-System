@@ -18,9 +18,13 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import com.alee.laf.WebLookAndFeel;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.json.JSONException;
@@ -30,7 +34,9 @@ import org.json.JSONException;
  */
 public class AfficheCandidat extends javax.swing.JFrame {
     
-    DaoCandidates candidates = new DaoCandidates(); 
+    DaoCandidates candidates = new DaoCandidates();
+    DaoJobs daoJobs = new DaoJobs() ;
+    int idJob ;
     /**
      * Creates new form jFrame
      */
@@ -61,7 +67,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         secondaire = new javax.swing.JTextField();
         principale = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jtxtVille = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jobs = new javax.swing.JComboBox<>();
@@ -96,10 +102,16 @@ public class AfficheCandidat extends javax.swing.JFrame {
 
             }
         ));
+        tCandidat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tCandidatMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tCandidat);
 
         inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
+        inviter.setEnabled(false);
         inviter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inviterActionPerformed(evt);
@@ -115,6 +127,8 @@ public class AfficheCandidat extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Competences secondaires");
+
+        jTextField4.setToolTipText("");
 
         jLabel2.setText("Ville");
 
@@ -209,49 +223,50 @@ public class AfficheCandidat extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inviter)
+                                .addGap(30, 30, 30))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(inviter))
-                                    .addComponent(jScrollPane1)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtxtVille, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chercher))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel3)
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel2)
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1)))))
-                .addGap(12, 12, 12))
+                                .addComponent(jScrollPane1)
+                                .addContainerGap())))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(chercher))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel3)
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel2)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +283,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chercher))))
@@ -291,21 +306,54 @@ public class AfficheCandidat extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean EnvoiMessge() {
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        return  JOptionPane.showConfirmDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")
+                ,"Message",dialogButton) == JOptionPane.YES_OPTION ;
+       
+    }
+    
+    /**
+     * 
+     * @param idJob
+     * @return 
+     */
+    private String getJobName(int idJob) {
+        List L = daoJobs.findById(idJob) ;
+        return ((Jobs)L.get(0)).getProfil() ;
+    }
+    
+    private void ActivateButton(boolean b) {
+        inviter.setEnabled(b);
+    }
+    
+    
+    
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed
-        // TODO add your handling code here:
-         // TODO add your handling code here:
-        int[] Rows;
-        Rows = tCandidat.getSelectedRows();
-        for(int rowid = 0;rowid < Rows.length;rowid++){
-            String email = (String) tCandidat.getValueAt(rowid, 4);
-            String name = (String) tCandidat.getValueAt(rowid, 1);
-            MailService.sendMail("test", "Bonjour Mr" + name, email);
+        if(EnvoiMessge()){
+            int[] Rows;
+            Rows = tCandidat.getSelectedRows();
+            for(int rowid = 0;rowid < Rows.length;rowid++){
+                String email = (String) tCandidat.getValueAt(rowid, 4);
+                String name = (String) tCandidat.getValueAt(rowid, 1);
+                try{
+                    MailService.sendMail("Convocation pour passage d'entretien",
+                            MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                    JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }   
+                catch(MessagingException Me){
+                    JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr/MMe/Mlle "+name+"\n" +
+                            "Veullez Verifier la connexion internet","Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_inviterActionPerformed
 
     private boolean FieldValidate() {
         boolean b1,b2,b3 ;
-        if(!(b1=PatternService.validateVille(jtxtVille.getText()))) jtxtVille.setText("");
+        if(!(b1=PatternService.validateVille(jTextField4.getText()))) jTextField4.setText("");
         if(!(b2=PatternService.validateSkills(principale.getText()))) principale.setText("");
         if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
         return b1 && b2 && b3 ;
@@ -315,6 +363,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         try {
             //CandidatesComparatorService.TestRuby(new Candidates()) ;  
             if(FieldValidate()) {
+                ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
             }
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
@@ -347,14 +396,20 @@ public class AfficheCandidat extends javax.swing.JFrame {
         dispose();
         new Clients().setVisible(true);
     }//GEN-LAST:event_clientsActionPerformed
+
+    private void tCandidatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tCandidatMouseClicked
+        if(tCandidat.getSelectedRow() != -1) {
+            ActivateButton(true);
+        } 
+        else ActivateButton(false) ;
+    }//GEN-LAST:event_tCandidatMouseClicked
     public void Refresh(){
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
        List L = dj.getAll();
        for(Object o : L){
            Jobs j = (Jobs) o;
-           jobs.addItem(j);
-           
+           jobs.addItem(j);   
        }
     }
     
@@ -363,7 +418,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
      */
     private List getCandidat() {
         Jobs j = (Jobs) jobs.getSelectedItem();
-        int idJob = j.getId();
+        idJob = j.getId();
         List L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
         return L ;
     } 
@@ -424,9 +479,9 @@ public class AfficheCandidat extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JComboBox<Jobs> jobs;
-    private javax.swing.JTextField jtxtVille;
     private javax.swing.JTextField principale;
     private javax.swing.JTextField secondaire;
     private javax.swing.JButton statistics;

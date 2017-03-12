@@ -3,15 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import static App.Services.LinkedinService.profileToJson;
-import App.Services.ChartService;
-import App.Services.StatsService;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -20,9 +14,12 @@ import org.json.JSONObject;
  */
 public class main {
    
+    
     public static void main(String[] args) {
-        
-      List L = StatsService.getStatsPorcentage();
+     
+  
+    System.out.println( new SimpleDateFormat("d MMM YYYY 'à' h:mm a").format(new Date().getTime()+604800000));
+  /*    List L = StatsService.getStatsPorcentage();
       
         ChartService.CamembertJob(L,"Job");
         

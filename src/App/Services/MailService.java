@@ -5,6 +5,8 @@
  */
 package App.Services;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.MessagingException;
@@ -23,7 +25,25 @@ public class MailService {
      * @param text
      * @param destinataire
      */
-    public static String sendMail(String subject, String text, String destinataire) {
+    /**
+     * 
+     * @param name
+     * @param Job
+     * @return 
+     */
+    
+    public static String BodyMessage(String name,String Job) {
+        String BodyMessage = "Madame/Mademoiselle/Monsieur "+name+",\n\n" +
+            "Votre candidature au poste "+Job+" au sein de notre société a retenu toute notre attention \n" +
+            "et nous souhaiterions vous rencontrer. Nous vous proposons un entretien avec M. Dupont,\n" +
+            "le "+new SimpleDateFormat("d MMM YYYY 'à' h:mm a").format(new Date().getTime()+604800000)  +
+            " dans nos locaux situés à Hay Ryad, Mahaj Ryad imm.6, 10100 - Rabat.\n" +
+            "Nous vous prions de bien vouloir nous confirmer votre présence à ce rendez-vous par email/par "+
+            "teléphone au +212 5372-64382.\n\nDans l’attente de vous rencontrer,\nCordialement."    ;    
+        return BodyMessage ;
+    }
+    
+    public static void sendMail(String subject, String text, String destinataire) throws MessagingException {
         Properties properties = new Properties();
         properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -33,30 +53,17 @@ public class MailService {
 
         Session session = Session.getInstance(properties);
         MimeMessage message = new MimeMessage(session);
-        try {
-            message.setText(text);
-            message.setSubject(subject);
+        message.setText(text);
+        message.setSubject(subject);
             //message.addRecipients(Message.RecipientType.TO, destinataire);
             //message.addRecipients(Message.RecipientType.CC, copyDest);
-        } catch (MessagingException e) {
-            return "Impossible de crée le message" ;
-        }
+  
         Transport transport = null;
-        try {
-            transport = session.getTransport("smtp");
-            transport.connect("UtilisateurJava@gmail.com", "JavaProject");
-            transport.sendMessage(message, new Address[]{new InternetAddress(destinataire)});
-        } catch (MessagingException e) {
-            return "Verifier la connexion internet" ;
-        } finally {
-            try {
-                if (transport != null) {
-                    transport.close();
-                }
-            } catch (MessagingException e) {
-                return "Impossible de fermer la connexion" ;
-            }
-            return "Message envoyé" ;
+        transport = session.getTransport("smtp");
+        transport.connect("UtilisateurJava@gmail.com", "JavaProject");
+        transport.sendMessage(message, new Address[]{new InternetAddress(destinataire)});
+        if (transport != null) {
+            transport.close();
         }
     }
 }
