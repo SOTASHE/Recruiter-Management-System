@@ -48,10 +48,10 @@ public class Clients extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/work-parteners.png"))); // NOI18N
+        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
 
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/work-parteners.png"))); // NOI18N
+        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
         clients.setText("  Clients");
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +59,7 @@ public class Clients extends javax.swing.JFrame {
             }
         });
 
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/employes.png"))); // NOI18N
+        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
         employes.setText("  Employes");
         employes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class Clients extends javax.swing.JFrame {
             }
         });
 
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/dashboard.png"))); // NOI18N
+        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +75,7 @@ public class Clients extends javax.swing.JFrame {
             }
         });
 
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/candidates.png"))); // NOI18N
+        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/jobsearch.png"))); // NOI18N
         cndEnCours.setText("Offres d'emploi");
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class Clients extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Clients");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Icons/logo.PNG"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
