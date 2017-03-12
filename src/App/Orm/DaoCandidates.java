@@ -36,7 +36,7 @@ public class DaoCandidates extends DaoAbstract{
     
     public List getAllEmployees(){
        List result = getHqlQuery("select c,cj from Candidates c join c.jobses cj where c.id = cj.id");
-        return result;
+       return result;
     }
     
 }

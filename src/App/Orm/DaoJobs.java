@@ -29,7 +29,6 @@ public class DaoJobs extends DaoAbstract {
        return super.getHqlQuery("select j from Jobs j where id = "+id);
    }
    
-   
    public List getRelevantJobsPourcentage(){
        session.beginTransaction(); 
        Query query = session.createSQLQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
@@ -49,6 +48,4 @@ public class DaoJobs extends DaoAbstract {
    public List getCurrentJobs(){
        return super.getHqlQuery("from Jobs j where j.status = 1");
    }
-   
-   
 }
