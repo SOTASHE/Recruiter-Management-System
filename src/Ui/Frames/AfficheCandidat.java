@@ -361,7 +361,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
     
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            //CandidatesComparatorService.TestRuby(new Candidates()) ;  
+           // CandidatesComparatorService.TestRuby(new Candidates()) ;  
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
