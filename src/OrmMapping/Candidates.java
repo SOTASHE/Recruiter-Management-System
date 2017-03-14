@@ -22,14 +22,18 @@ public class Candidates  implements java.io.Serializable {
 
     public Candidates() {
     }
+    
+    public Candidates(String url) {
+        this.linkedinUrl = url ;
+    }
 
-	
     public Candidates(String name, int age, String ville, String email) {
         this.name = name;
         this.age = age;
         this.ville = ville;
         this.email = email;
     }
+    
     public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesJobses, Set candidatesEntretiens) {
        this.name = name;
        this.age = age;
@@ -47,6 +51,7 @@ public class Candidates  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    
     public String getName() {
         return this.name;
     }
@@ -54,6 +59,7 @@ public class Candidates  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    
     public int getAge() {
         return this.age;
     }
@@ -61,6 +67,7 @@ public class Candidates  implements java.io.Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+    
     public String getVille() {
         return this.ville;
     }
@@ -68,6 +75,7 @@ public class Candidates  implements java.io.Serializable {
     public void setVille(String ville) {
         this.ville = ville;
     }
+    
     public String getEmail() {
         return this.email;
     }
@@ -82,6 +90,7 @@ public class Candidates  implements java.io.Serializable {
     public void setLinkedinUrl(String linkedinUrl) {
         this.linkedinUrl = linkedinUrl;
     }
+    
     public Set getCandidatesJobses() {
         return this.candidatesJobses;
     }
@@ -96,10 +105,6 @@ public class Candidates  implements java.io.Serializable {
     public void setCandidatesEntretiens(Set candidatesEntretiens) {
         this.candidatesEntretiens = candidatesEntretiens;
     }
-
-   
-
-
 }
 
 

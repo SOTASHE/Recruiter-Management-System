@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import App.Orm.DaoCandidates;
+import App.Orm.DaoJobs;
 import App.Orm.DaoRecruiter;
 import static App.Services.LinkedinService.profileToJson;
 import App.Services.ChartService;
@@ -34,14 +35,9 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-        DaoCandidates dc = new DaoCandidates();
-        List L = dc.getAllByJob(1);
-        for (Object o : L){
-            Candidates c = (Candidates)o;
-            System.out.println(LinkedinService.rateLinkedinProfil(c, "c#,php,laravel", "git#,node")) ;
-            //System.out.println(c);   
-        }
-       // LinkedinService.rateLinkedinProfil(c, "", secondarySkills)
+       
+        /*List<Object> L = new DaoCandidates().ge
+        LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
         /* JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         StarRater starRater = new StarRater(5, 2, 1);       
@@ -99,6 +95,13 @@ public class main {
           System.out.println("hahouwa");
       }*/
    // Test("fff","xxx") ;
+   int rate= 0 ;
+    DaoCandidates D = new DaoCandidates() ;
+    List L = D.getAllByJob(1) ;
+    for(Object o : L) {
+         rate = LinkedinService.rateLinkedinProfil((Candidates)o,"c#,f#","");
+    }
+        System.out.println(rate);
     }   
     
     public static void Test(String... argc) {
