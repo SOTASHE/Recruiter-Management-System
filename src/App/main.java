@@ -3,9 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import App.Orm.DaoCandidates;
+import App.Orm.DaoRecruiter;
+import static App.Services.LinkedinService.profileToJson;
+import App.Services.ChartService;
+import App.Services.LinkedinService;
+import App.Services.StatsService;
+import App.Services.loginAgencyService;
+import OrmMapping.Candidates;
+import Ui.Services.StarRater;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -15,11 +33,25 @@ import java.util.Date;
 public class main {
    
     
-    public static void main(String[] args) {
-     
-  
-    System.out.println( new SimpleDateFormat("d MMM YYYY 'à' h:mm a").format(new Date().getTime()+604800000));
-  /*    List L = StatsService.getStatsPorcentage();
+    public static void main(String[] args) throws JSONException, IOException, InterruptedException {
+        DaoCandidates dc = new DaoCandidates();
+        List L = dc.getAllByJob(1);
+        for (Object o : L){
+            Candidates c = (Candidates)o;
+            System.out.println(LinkedinService.rateLinkedinProfil(c, "c#,php,laravel", "git#,node")) ;
+            //System.out.println(c);   
+        }
+       // LinkedinService.rateLinkedinProfil(c, "", secondarySkills)
+        /* JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        StarRater starRater = new StarRater(5, 2, 1);       
+        panel.add(starRater);
+        frame.getContentPane().add(panel);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        /*   
+      List L = StatsService.getStatsPorcentage();
       
         ChartService.CamembertJob(L,"Job");
         
@@ -59,5 +91,19 @@ public class main {
       
         
        */
-    }  
+       
+    /*  if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
+           System.out.println("je m'appelle ilias");
+      }
+      else{
+          System.out.println("hahouwa");
+      }*/
+   // Test("fff","xxx") ;
+    }   
+    
+    public static void Test(String... argc) {
+        for(int i = 0 ;i < argc.length ; i++) {
+            System.out.println(argc[i]);
+        }
+    }
 }

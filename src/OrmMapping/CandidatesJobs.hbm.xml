@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 12, 2017 2:39:06 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 12, 2017 1:35:19 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="Java" name="OrmMapping.CandidatesJobs" optimistic-lock="version" table="Candidates_Jobs">
-    <composite-id class="OrmMapping.CandidatesJobsId" name="id">
-      <key-property name="candidatesid" type="int">
-        <column name="Candidatesid"/>
-      </key-property>
-      <key-property name="jobsid" type="int">
-        <column name="Jobsid"/>
-      </key-property>
-    </composite-id>
-    <many-to-one class="OrmMapping.Candidates" fetch="select" insert="false" name="candidates" update="false">
-      <column name="Candidatesid" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="OrmMapping.Jobs" fetch="select" insert="false" name="jobs" update="false">
-      <column name="Jobsid" not-null="true"/>
-    </many-to-one>
-    <property name="satisfaction" type="boolean">
-      <column name="satisfaction" not-null="true"/>
-    </property>
-  </class>
+    <class name="OrmMapping.CandidatesJobs" table="Candidates_Jobs" catalog="Java" optimistic-lock="version">
+        <composite-id name="id" class="OrmMapping.CandidatesJobsId">
+            <key-property name="candidatesid" type="int">
+                <column name="Candidatesid" />
+            </key-property>
+            <key-property name="jobsid" type="int">
+                <column name="Jobsid" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="candidates" class="OrmMapping.Candidates" update="false" insert="false" fetch="select">
+            <column name="Candidatesid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jobs" class="OrmMapping.Jobs" update="false" insert="false" fetch="select">
+            <column name="Jobsid" not-null="true" />
+        </many-to-one>
+        <property name="satisfaction" type="int">
+            <column name="satisfaction" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

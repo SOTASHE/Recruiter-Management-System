@@ -6,7 +6,9 @@
 package Ui.Frames;
 
 import App.Orm.DaoCandidates;
+import App.Services.FilljTableService;
 import OrmMapping.Candidates;
+import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 
 /**
@@ -24,12 +26,7 @@ public class employes extends javax.swing.JFrame {
     }
     
     public void init(){
-        DaoCandidates dc = new DaoCandidates();
-        List L = dc.getAllEmployees();
-        for(Object o : L){
-            Candidates C = (Candidates) o;
-            System.out.println(C.getName());
-        }
+        FilljTableService.displayEmployees(employeesJtable);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +46,7 @@ public class employes extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        employeesJtable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -124,7 +121,7 @@ public class employes extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        employeesJtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -135,7 +132,7 @@ public class employes extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(employeesJtable);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Employes");
@@ -233,6 +230,8 @@ public class employes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new employes().setVisible(true);
             }
         });
@@ -242,6 +241,7 @@ public class employes extends javax.swing.JFrame {
     private javax.swing.JButton clients;
     private javax.swing.JButton cndEnCours;
     private javax.swing.JButton dashbord;
+    private javax.swing.JTable employeesJtable;
     private javax.swing.JButton employes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -249,7 +249,6 @@ public class employes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton statistics;
     // End of variables declaration//GEN-END:variables
 }

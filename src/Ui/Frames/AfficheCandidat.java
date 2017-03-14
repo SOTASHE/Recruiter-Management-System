@@ -145,7 +145,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
         statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
 
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/work-parteners.png"))); // NOI18N
+        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
         clients.setText("  Clients");
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employes.png"))); // NOI18N
+        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
         employes.setText("  Employes");
         employes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +169,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             }
         });
 
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/candidates.png"))); // NOI18N
+        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/jobsearch.png"))); // NOI18N
         cndEnCours.setText("candidat en cours");
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,8 +205,8 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(clients)
                 .addGap(40, 40, 40)
-                .addComponent(statistics)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
@@ -266,7 +266,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,8 +309,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
     private boolean EnvoiMessge() {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         return  JOptionPane.showConfirmDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")
-                ,"Message",dialogButton) == JOptionPane.YES_OPTION ;
-       
+                ,"Message",dialogButton) == JOptionPane.YES_OPTION ;       
     }
     
     /**
@@ -326,9 +325,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
     private void ActivateButton(boolean b) {
         inviter.setEnabled(b);
     }
-    
-    
-    
+  
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed
         if(EnvoiMessge()){
             int[] Rows;
@@ -339,7 +336,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 try{
                     MailService.sendMail("Convocation pour passage d'entretien",
                             MailService.BodyMessage(name,getJobName(idJob)),email) ;
-                    JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
+                    JOptionPane.showMessageDialog(this,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
                             JOptionPane.INFORMATION_MESSAGE);
                 }   
                 catch(MessagingException Me){
@@ -364,7 +361,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
             //CandidatesComparatorService.TestRuby(new Candidates()) ;  
             if(FieldValidate()) {
                 ActivateButton(false);
-                FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+                FilljTableService.displaySearchCandidates(tCandidat,getCandidat());
             }
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }

@@ -6,15 +6,7 @@
 package App.Services;
 
 import App.Orm.DaoJobs;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Iterator;
 import java.util.List;
-import javax.swing.JDialog;
-import org.jfree.chart.* ;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *

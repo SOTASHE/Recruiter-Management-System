@@ -16,7 +16,7 @@ import org.json.JSONException;
 
 /**
  *
- * @author youpi
+ * @author Ilias Naamane
  */
 public class CandidatesComparatorService implements Comparator<Candidates> {
 
@@ -43,11 +43,11 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
             rateC2 = LinkedinService.rateLinkedinProfil(c2, principalSkillsC, secondarySkillsC);
             rateC1 = LinkedinService.rateLinkedinProfil(c1, principalSkillsC, secondarySkillsC);
         } catch (JSONException ex) {
-             
+             System.out.println("HHHHHH");
         } catch (IOException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("HHHHHH");
         } catch (InterruptedException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println("HHHHHH");
         }
         if(rateC1 > rateC2)
             return 1;

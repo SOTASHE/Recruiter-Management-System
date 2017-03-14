@@ -5,10 +5,8 @@
  */
 package App.Services;
 
-import java.awt.GridLayout;
 import java.math.*;
 import java.util.*;
-import javax.swing.JDialog;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
