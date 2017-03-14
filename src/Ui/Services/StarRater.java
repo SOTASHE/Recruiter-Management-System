@@ -28,7 +28,9 @@ import javax.swing.JPanel;
  * @since August 30, 2010
  */
 public class StarRater extends JPanel {
-
+   public void add(){
+       
+   }
   /** The listener. */
   public static interface StarListener {
     

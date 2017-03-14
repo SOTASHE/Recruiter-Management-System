@@ -26,4 +26,8 @@ public class DaoClients extends DaoAbstract {
     public List getAllOrderByJobs(){
         return super.getHqlQuery("from Clients c order by c.id desc");
     }
+    
+    public List getClientsWithStats(){
+        return super.getHqlQuery("select c.id,c.name,c.email,count(*),avg(cj.satisfaction) from Clients c join c.jobses j   join j.candidatesJobses cj   where j.status = -1   group by c");
+    }
 }

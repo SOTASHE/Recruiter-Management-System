@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import App.Orm.DaoRecruiter;
 import static App.Services.LinkedinService.profileToJson;
 import App.Services.ChartService;
 import App.Services.StatsService;
+import App.Services.loginAgencyService;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,7 +27,7 @@ public class main {
    
     
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+       /* JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         StarRater starRater = new StarRater(5, 2, 1);       
         panel.add(starRater);
@@ -74,5 +76,12 @@ public class main {
       
         
        */
+       
+      if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
+           System.out.println("je m'appelle ilias");
+      }
+      else{
+          System.out.println("hahouwa");
+      }
     }  
 }

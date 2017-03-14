@@ -26,17 +26,13 @@ public class DaoCandidates extends DaoAbstract{
         return result;
     }
     
-    public List getRelevantJobs() {
-        session.beginTransaction();
-        Query query = session.createSQLQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
-        session.getTransaction().commit();
-        return query.list();
-        //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
-    }
     
     public List getAllEmployees(){
         List result = getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
          return result;
     }
+    
+    
+    // add function to get all current candidat by job with details phase entretien etc..
     
 }
