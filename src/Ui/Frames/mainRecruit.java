@@ -5,17 +5,55 @@
  */
 package Ui.Frames;
 
+import com.alee.laf.WebLookAndFeel;
+import java.awt.*;
+
 /**
  *
  * @author Sony
  */
 public class mainRecruit extends javax.swing.JFrame {
 
+    GridBagLayout layout = new GridBagLayout();
+    AfficheCandidat candidat;
+    Clients clt;
+    employes emp;
+    jobEnCours job;
+    statistics stat;
     /**
      * Creates new form mainRecruit
      */
     public mainRecruit() {
+        this.setResizable(false);
         initComponents();
+        candidat = new AfficheCandidat();
+        clt = new Clients();
+        emp = new employes();
+        job = new jobEnCours();
+        stat = new statistics();
+        
+        dynamic.setLayout(layout);
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(candidat,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(clt,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(emp,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(job,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(stat,c);
+        candidat.setVisible(true);
+        clt.setVisible(false);
+        emp.setVisible(false);
+        job.setVisible(false);
+        stat.setVisible(false);
     }
 
     /**
@@ -27,7 +65,7 @@ public class mainRecruit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        recruitment = new javax.swing.JPanel();
         fixMenu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         statistics = new javax.swing.JButton();
@@ -40,16 +78,26 @@ public class mainRecruit extends javax.swing.JFrame {
         dynamic = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(981, 560));
+        setMinimumSize(new java.awt.Dimension(981, 560));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        recruitment.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
+        statistics.setIconTextGap(20);
+        statistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statisticsActionPerformed(evt);
+            }
+        });
 
         clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
         clients.setText("  Clients");
+        clients.setIconTextGap(15);
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientsActionPerformed(evt);
@@ -58,6 +106,7 @@ public class mainRecruit extends javax.swing.JFrame {
 
         employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
         employes.setText("  Employes");
+        employes.setIconTextGap(15);
         employes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employesActionPerformed(evt);
@@ -66,6 +115,7 @@ public class mainRecruit extends javax.swing.JFrame {
 
         dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
+        dashbord.setIconTextGap(20);
         dashbord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dashbordActionPerformed(evt);
@@ -74,6 +124,7 @@ public class mainRecruit extends javax.swing.JFrame {
 
         cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/jobsearch.png"))); // NOI18N
         cndEnCours.setText("Job en cours");
+        cndEnCours.setIconTextGap(20);
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cndEnCoursActionPerformed(evt);
@@ -82,6 +133,13 @@ public class mainRecruit extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logout.png"))); // NOI18N
         jButton1.setText("Sign out");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton1.setIconTextGap(20);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,7 +169,7 @@ public class mainRecruit extends javax.swing.JFrame {
                 .addComponent(clients)
                 .addGap(40, 40, 40)
                 .addComponent(statistics)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(24, 24, 24))
         );
@@ -122,37 +180,53 @@ public class mainRecruit extends javax.swing.JFrame {
         fixMenu.setLayout(fixMenuLayout);
         fixMenuLayout.setHorizontalGroup(
             fixMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixMenuLayout.createSequentialGroup()
+            .addGroup(fixMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(fixMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixMenuLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixMenuLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         fixMenuLayout.setVerticalGroup(
             fixMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixMenuLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4))
         );
 
-        jPanel1.add(fixMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 530));
+        recruitment.add(fixMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 530));
+
+        dynamic.setMaximumSize(new java.awt.Dimension(780, 540));
+        dynamic.setMinimumSize(new java.awt.Dimension(780, 540));
 
         javax.swing.GroupLayout dynamicLayout = new javax.swing.GroupLayout(dynamic);
         dynamic.setLayout(dynamicLayout);
         dynamicLayout.setHorizontalGroup(
             dynamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
         dynamicLayout.setVerticalGroup(
             dynamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        jPanel1.add(dynamic, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 700, 530));
+        recruitment.add(dynamic, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 780, 540));
 
         jMenu1.setText("File");
+
+        jMenuItem1.setText("exit");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -161,35 +235,69 @@ public class mainRecruit extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(recruitment, javax.swing.GroupLayout.PREFERRED_SIZE, 981, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(recruitment, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientsActionPerformed
-        dispose();
-        new Clients().setVisible(true);
+        candidat.setVisible(false);
+        clt.setVisible(true);
+        emp.setVisible(false);
+        job.setVisible(false);
+        stat.setVisible(false);
     }//GEN-LAST:event_clientsActionPerformed
 
     private void employesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employesActionPerformed
-        dispose();
-        new employes().setVisible(true);
+        candidat.setVisible(false);
+        clt.setVisible(false);
+        emp.setVisible(true);
+        job.setVisible(false);
+        stat.setVisible(false);
     }//GEN-LAST:event_employesActionPerformed
 
     private void dashbordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbordActionPerformed
-        dispose();
-        new AfficheCandidat().setVisible(true);
+        candidat.setVisible(true);
+        clt.setVisible(false);
+        emp.setVisible(false);
+        job.setVisible(false);
+        stat.setVisible(false);
     }//GEN-LAST:event_dashbordActionPerformed
 
     private void cndEnCoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cndEnCoursActionPerformed
-        dispose();
-        new jobEnCours().setVisible(true);
+        candidat.setVisible(false);
+        clt.setVisible(false);
+        emp.setVisible(false);
+        job.setVisible(true);
+        stat.setVisible(false);
     }//GEN-LAST:event_cndEnCoursActionPerformed
+
+    private void statisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsActionPerformed
+        candidat.setVisible(false);
+        clt.setVisible(false);
+        emp.setVisible(false);
+        job.setVisible(false);
+        stat.setVisible(true);
+    }//GEN-LAST:event_statisticsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        new loginRec().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +329,8 @@ public class mainRecruit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new mainRecruit().setVisible(true);
             }
         });
@@ -237,8 +347,9 @@ public class mainRecruit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel recruitment;
     private javax.swing.JButton statistics;
     // End of variables declaration//GEN-END:variables
 }

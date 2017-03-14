@@ -133,14 +133,13 @@ public class loginRec extends javax.swing.JFrame {
             String SS = new String(password.getPassword()) ;
             if(new DaoRecruiter().getAdmin(email.getText(),SS)) {
                 dispose();
-                new AfficheCandidat().setVisible(true);        
+                new mainRecruit().setVisible(true);        
             }
             else {
                 JOptionPane.showMessageDialog(this,"Email ou Password incorrect","Erreur",JOptionPane.ERROR_MESSAGE);
             }
             } catch(Exception e) {
                 System.out.println(e.getMessage());
-                
             }
         }
     }//GEN-LAST:event_loginActionPerformed

@@ -24,7 +24,7 @@ public class DaoRecruiter extends DaoAbstract{
     } 
     
     public boolean getAdmin(String userEmaString,String Pass) {
-       List<Object> L = super.getHqlPreparedQuery(" from Recruiters r where email=:destination and password=:pass",
+       List<Object> L = super.getHqlPreparedQuery("from Recruiters r where email=:destination and password=:pass",
                 "destination",userEmaString,"pass",Pass) ;
        return !L.isEmpty() ;
     }

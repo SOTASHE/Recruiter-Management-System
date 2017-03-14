@@ -73,13 +73,14 @@ abstract public class DaoAbstract {
         try {
             session.beginTransaction() ;
             Query q = session.createQuery(query) ;
-            for(int i = 0 ; i < argc.length -  1 ; i++) {
+            for(int i = 0 ; i < argc.length -  1 ; i+=2) {
                 q.setParameter(argc[i],argc[i+1]);
             }
             resultList = q.list() ;
+            session.getTransaction().commit();
         }
         catch(HibernateException he) {
-            he.printStackTrace();
+            System.err.println(he.getMessage());
         }
         return resultList ;
     }

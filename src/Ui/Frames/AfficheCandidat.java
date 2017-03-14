@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Ui.Frames;
-
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Services.CandidatesComparatorService;
@@ -30,23 +29,21 @@ import javax.swing.JTextField;
 import org.json.JSONException;
 /**
  *
- * @author youpi
+ * @author Sony
  */
-public class AfficheCandidat extends javax.swing.JFrame {
-    
+public class AfficheCandidat extends javax.swing.JPanel {
+  
     DaoCandidates candidates = new DaoCandidates();
     DaoJobs daoJobs = new DaoJobs() ;
     int idJob ;
     /**
-     * Creates new form jFrame
+     * Creates new form AfficheCandidat
      */
     public AfficheCandidat() {
-        this.setUndecorated(true);
-        this.setAlwaysOnTop(true);
-        this.setResizable(false);
         initComponents();
         Refresh();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,40 +53,63 @@ public class AfficheCandidat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField5 = new javax.swing.JTextField();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jTextField4 = new javax.swing.JTextField();
+        secondaire = new javax.swing.JTextField();
+        chercher = new javax.swing.JButton();
+        inviter = new javax.swing.JButton();
+        jobs = new javax.swing.JComboBox<>();
+        principale = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tCandidat = new javax.swing.JTable();
-        inviter = new javax.swing.JButton();
-        chercher = new javax.swing.JButton();
-        secondaire = new javax.swing.JTextField();
-        principale = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jobs = new javax.swing.JComboBox<>();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        statistics = new javax.swing.JButton();
-        clients = new javax.swing.JButton();
-        employes = new javax.swing.JButton();
-        dashbord = new javax.swing.JButton();
-        cndEnCours = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
-        jTextField5.setText("jTextField5");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(780, 540));
+        setMinimumSize(new java.awt.Dimension(780, 540));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(780, 540));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jTextField4.setToolTipText("");
+
+        chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
+        chercher.setText("Chercher");
+        chercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chercherActionPerformed(evt);
+            }
+        });
+
+        inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
+        inviter.setText("Inviter a passer l'entretien");
+        inviter.setEnabled(false);
+        inviter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inviterActionPerformed(evt);
+            }
+        });
+
+        jobs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jobsActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel3.setText("Job");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel1.setText("Competences secondaires");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel2.setText("Ville");
 
         tCandidat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,215 +129,93 @@ public class AfficheCandidat extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tCandidat);
 
-        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
-        inviter.setText("Inviter a passer l'entretien");
-        inviter.setEnabled(false);
-        inviter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inviterActionPerformed(evt);
-            }
-        });
-
-        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
-        chercher.setText("Chercher");
-        chercher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chercherActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Competences secondaires");
-
-        jTextField4.setToolTipText("");
-
-        jLabel2.setText("Ville");
-
-        jLabel3.setText("Job");
-
-        jobs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jobsActionPerformed(evt);
-            }
-        });
-
+        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel4.setText("Competences principaux");
 
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
-        statistics.setText("Statistiques");
-
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
-        clients.setText("  Clients");
-        clients.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientsActionPerformed(evt);
-            }
-        });
-
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
-        employes.setText("  Employes");
-        employes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employesActionPerformed(evt);
-            }
-        });
-
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
-        dashbord.setText("Tableau de bord");
-        dashbord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashbordActionPerformed(evt);
-            }
-        });
-
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/jobsearch.png"))); // NOI18N
-        cndEnCours.setText("candidat en cours");
-        cndEnCours.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cndEnCoursActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cndEnCours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(employes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(dashbord, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(statistics, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(dashbord)
-                .addGap(40, 40, 40)
-                .addComponent(cndEnCours)
-                .addGap(40, 40, 40)
-                .addComponent(employes)
-                .addGap(40, 40, 40)
-                .addComponent(clients)
-                .addGap(40, 40, 40)
-                .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inviter)
-                                .addGap(30, 30, 30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1)
-                                .addContainerGap())))))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(75, 75, 75))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(chercher))
+                        .addComponent(chercher)))
+                .addGap(39, 39, 39))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel3)
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel2)
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
-                .addGap(0, 23, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inviter))))
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(9, 9, 9)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(792, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chercher))))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(inviter)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chercher)
+                    .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(inviter)
+                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(146, Short.MAX_VALUE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(23, 23, 23)))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private boolean EnvoiMessge() {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         return  JOptionPane.showConfirmDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")
-                ,"Message",dialogButton) == JOptionPane.YES_OPTION ;       
+                ,"Message",dialogButton) == JOptionPane.YES_OPTION ;
+       
     }
-    
-    /**
-     * 
-     * @param idJob
-     * @return 
-     */
-    private String getJobName(int idJob) {
+     private String getJobName(int idJob) {
         List L = daoJobs.findById(idJob) ;
         return ((Jobs)L.get(0)).getProfil() ;
     }
@@ -325,7 +223,27 @@ public class AfficheCandidat extends javax.swing.JFrame {
     private void ActivateButton(boolean b) {
         inviter.setEnabled(b);
     }
-  
+     private boolean FieldValidate() {
+        boolean b1,b2,b3 ;
+        if(!(b1=PatternService.validateVille(jTextField4.getText()))) jTextField4.setText("");
+        if(!(b2=PatternService.validateSkills(principale.getText()))) principale.setText("");
+        if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
+        return b1 && b2 && b3 ;
+    }
+    private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
+        try {
+            CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
+            if(FieldValidate()) {
+                ActivateButton(false);
+                FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+            }
+            else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
+        }
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(tCandidat, e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_chercherActionPerformed
+
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed
         if(EnvoiMessge()){
             int[] Rows;
@@ -335,72 +253,30 @@ public class AfficheCandidat extends javax.swing.JFrame {
                 String name = (String) tCandidat.getValueAt(rowid, 1);
                 try{
                     MailService.sendMail("Convocation pour passage d'entretien",
-                            MailService.BodyMessage(name,getJobName(idJob)),email) ;
-                    JOptionPane.showMessageDialog(this,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }   
+                        MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                    JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                }
                 catch(MessagingException Me){
                     JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr/MMe/Mlle "+name+"\n" +
-                            "Veullez Verifier la connexion internet","Error",
-                            JOptionPane.ERROR_MESSAGE);
+                        "Veullez Verifier la connexion internet","Error",
+                        JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
     }//GEN-LAST:event_inviterActionPerformed
 
-    private boolean FieldValidate() {
-        boolean b1,b2,b3 ;
-        if(!(b1=PatternService.validateVille(jTextField4.getText()))) jTextField4.setText("");
-        if(!(b2=PatternService.validateSkills(principale.getText()))) principale.setText("");
-        if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
-        return b1 && b2 && b3 ;
-    }
-    
-    private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
-        try {
-          //  CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/el-mehdi-regragui-76773b125")) ;  
-            if(FieldValidate()) {
-                ActivateButton(false);
-                FilljTableService.displaySearchCandidates(tCandidat,getCandidat());
-            }
-            else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
-        }
-        catch(Exception e) {
-            JOptionPane.showMessageDialog(tCandidat, e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_chercherActionPerformed
-
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
-     
+
     }//GEN-LAST:event_jobsActionPerformed
-
-    private void dashbordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbordActionPerformed
-        dispose();
-        new AfficheCandidat().setVisible(true);
-    }//GEN-LAST:event_dashbordActionPerformed
-
-    private void cndEnCoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cndEnCoursActionPerformed
-        dispose();
-        new jobEnCours().setVisible(true);
-    }//GEN-LAST:event_cndEnCoursActionPerformed
-
-    private void employesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employesActionPerformed
-        dispose();
-        new employes().setVisible(true);
-    }//GEN-LAST:event_employesActionPerformed
-
-    private void clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientsActionPerformed
-        dispose();
-        new Clients().setVisible(true);
-    }//GEN-LAST:event_clientsActionPerformed
 
     private void tCandidatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tCandidatMouseClicked
         if(tCandidat.getSelectedRow() != -1) {
             ActivateButton(true);
-        } 
+        }
         else ActivateButton(false) ;
     }//GEN-LAST:event_tCandidatMouseClicked
-    public void Refresh(){
+ public void Refresh(){
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
        List L = dj.getCurrentJobs();
@@ -409,8 +285,7 @@ public class AfficheCandidat extends javax.swing.JFrame {
            jobs.addItem(j);   
        }
     }
-    
-    /**
+  /**
      * @param args the command line arguments
      */
     private List getCandidat() {
@@ -419,69 +294,22 @@ public class AfficheCandidat extends javax.swing.JFrame {
         List L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
         return L ;
     } 
-       
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AfficheCandidat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AfficheCandidat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AfficheCandidat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AfficheCandidat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+      
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                WebLookAndFeel.install(true);
-                WebLookAndFeel.setDecorateAllWindows(true);
-                new AfficheCandidat().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chercher;
-    private javax.swing.JButton clients;
-    private javax.swing.JButton cndEnCours;
-    private javax.swing.JButton dashbord;
-    private javax.swing.JButton employes;
     private javax.swing.JButton inviter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JComboBox<Jobs> jobs;
     private javax.swing.JTextField principale;
     private javax.swing.JTextField secondaire;
-    private javax.swing.JButton statistics;
     private javax.swing.JTable tCandidat;
     // End of variables declaration//GEN-END:variables
 }
