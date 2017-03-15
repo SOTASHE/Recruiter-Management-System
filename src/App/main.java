@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 import App.Orm.DaoCandidates;
-import App.Orm.DaoRecruiter;
-import static App.Services.LinkedinService.profileToJson;
+import App.Services.CandidatesSortByRateService;
 import App.Services.ChartService;
 import App.Services.LinkedinService;
 import App.Services.StatsService;
-import App.Services.loginAgencyService;
 import OrmMapping.Candidates;
 import Ui.Services.StarRater;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
@@ -32,18 +29,19 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-       JFrame frame = new JFrame();
+      /* JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         StarRater starRater = new StarRater(5, 2);       
         panel.add(starRater);
         frame.getContentPane().add(panel);
         frame.pack();
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
          
-      List L = StatsService.getStatsPorcentage();
-      
-        ChartService.CamembertJob(L,"Job");
+       // List L = StatsService.getStatsPorcentage();
+        String test = LinkedinService.profileToJson("https://www.linkedin.com/in/chaabi-abdelkader-75706a130/");
+        System.out.println(test);
+//ChartService.CamembertJob(L,"Job");
         
       /* StringBuffer output = new StringBuffer();
 
@@ -90,5 +88,10 @@ public class main {
       }*/
       
         
-
+        DaoCandidates dc = new DaoCandidates();
+        List c = CandidatesSortByRateService.sortCandidates(1, "C#", "php");
+        for(Object o : c){
+            Candidates C= (Candidates)o;
+            System.out.println(C);
+        }
 }}

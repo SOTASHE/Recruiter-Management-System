@@ -35,7 +35,7 @@ public class LinkedinService {
 
     public static String profileToJson(String linkedinUrl) throws IOException, InterruptedException {
         StringBuffer output = new StringBuffer();
-        String command = "ruby src/App/Services/getProfileInJson.rb " + linkedinUrl;
+        String command = "ruby src/App/Services/getProfileInJson.rb " + ""+linkedinUrl+"";
         Process p = Runtime.getRuntime().exec(command);
         p.waitFor();
         BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
