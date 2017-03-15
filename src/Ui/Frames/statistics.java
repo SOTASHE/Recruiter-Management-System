@@ -5,8 +5,8 @@
  */
 package Ui.Frames;
 
-import App.Services.ChartService;
-import App.Services.StatsService;
+import App.Services.Stats.ChartService;
+import App.Services.Stats.StatsService;
 import com.alee.laf.WebLookAndFeel;
 import java.awt.GridLayout;
 import java.util.List;

@@ -1,24 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import App.Orm.DaoCandidates;
-import App.Services.CandidatesSortByRateService;
-import App.Services.ChartService;
-import App.Services.LinkedinService;
-import App.Services.StatsService;
-import OrmMapping.Candidates;
-import Ui.Services.StarRater;
+
+
+import App.Services.Ui.FormService;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Iterator;
-import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 
 /**
@@ -30,6 +14,12 @@ public class main {
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
       /* JFrame frame = new JFrame();
+=======
+       
+        /*List<Object> L = new DaoCandidates().ge
+        LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
+        /* JFrame frame = new JFrame();
+>>>>>>> origin/master (f27aa4a) - Bug Fixed (con
         JPanel panel = new JPanel();
         StarRater starRater = new StarRater(5, 2);       
         panel.add(starRater);
@@ -39,8 +29,8 @@ public class main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
          
        // List L = StatsService.getStatsPorcentage();
-        String test = LinkedinService.profileToJson("https://www.linkedin.com/in/chaabi-abdelkader-75706a130/");
-        System.out.println(test);
+       /* String test = LinkedinService.profileToJson("https://www.linkedin.com/in/chaabi-abdelkader-75706a130/");
+        System.out.println(test);*/
 //ChartService.CamembertJob(L,"Job");
         
       /* StringBuffer output = new StringBuffer();
@@ -81,17 +71,22 @@ public class main {
        */
        
      /* if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
+=======
+    /*  if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
+>>>>>>> origin/master (f27aa4a) - Bug Fixed (con
            System.out.println("je m'appelle ilias");
       }
       else{
           System.out.println("hahouwa");
       }*/
-      
+
+      /*
         
         DaoCandidates dc = new DaoCandidates();
         List c = CandidatesSortByRateService.sortCandidates(1, "C#", "php");
         for(Object o : c){
             Candidates C= (Candidates)o;
             System.out.println(C);
-        }
+        }*/
+        FormService.insertJob("Php Developer", "A la recherche d'un php developer full stack", 1);
 }}

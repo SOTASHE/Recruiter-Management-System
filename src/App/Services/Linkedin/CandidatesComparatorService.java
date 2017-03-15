@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Services;
+package App.Services.Linkedin;
 
 import OrmMapping.Candidates;
 import java.io.IOException;
@@ -40,14 +40,14 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
     public int compare(Candidates c1, Candidates c2) {
         int rateC1 = 0;int rateC2 = 0;
         try {
-            rateC2 = LinkedinService.rateLinkedinProfil(c2, principalSkillsC, secondarySkillsC);
-            rateC1 = LinkedinService.rateLinkedinProfil(c1, principalSkillsC, secondarySkillsC);
+            rateC2 = LinkedinService.rateLinkedinProfil(c2,principalSkillsC, secondarySkillsC);
+            rateC1 = LinkedinService.rateLinkedinProfil(c1,principalSkillsC, secondarySkillsC);
         } catch (JSONException ex) {
-             
+             System.out.println("HHHHHH");
         } catch (IOException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("HHHHHH");
         } catch (InterruptedException ex) {
-            Logger.getLogger(CandidatesComparatorService.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println("HHHHHH");
         }
         if(rateC1 > rateC2)
             return 1;
@@ -56,5 +56,4 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
         else
             return -1 ;
     }
-    
 }

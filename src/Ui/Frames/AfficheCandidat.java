@@ -6,11 +6,11 @@
 package Ui.Frames;
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
-import App.Services.CandidatesComparatorService;
-import App.Services.CandidatesSortByRateService;
-import App.Services.FilljTableService;
-import App.Services.MailService;
-import App.Services.PatternService;
+import App.Services.Linkedin.CandidatesComparatorService;
+import App.Services.Linkedin.CandidatesSortByRateService;
+import App.Services.Ui.FilljTableService;
+import App.Services.Mail.MailService;
+import App.Services.Ui.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.util.List;
@@ -162,7 +162,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                         .addComponent(chercher)))
                 .addGap(39, 39, 39))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -175,7 +175,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(9, 9, 9)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(769, Short.MAX_VALUE)))
+                    .addContainerGap(792, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +232,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            CandidatesComparatorService.TestRuby(new Candidates()) ;
+            CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());

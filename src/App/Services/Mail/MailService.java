@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Services;
+package App.Services.Mail;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -61,7 +61,7 @@ public class MailService {
         Transport transport = null;
         transport = session.getTransport("smtp");
         transport.connect("UtilisateurJava@gmail.com", "JavaProject");
-        transport.sendMessage(message, new Address[]{new InternetAddress(destinataire)});
+        transport.sendMessage(message, new Address[]{new InternetAddress("mhhidorgr@gmail.com")});
         if (transport != null) {
             transport.close();
         }

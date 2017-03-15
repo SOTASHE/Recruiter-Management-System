@@ -6,8 +6,8 @@
 package Ui.Frames;
 
 import App.Orm.DaoJobs;
-import App.Services.CandidatesSortByRateService;
-import App.Services.FilljTableService;
+import App.Services.Linkedin.CandidatesSortByRateService;
+import App.Services.Ui.FilljTableService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import com.alee.laf.WebLookAndFeel;

@@ -5,6 +5,8 @@
  */
 package Ui.Frames;
 
+import App.Orm.DaoRecruiter;
+import App.Services.Login.loginAgencyService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,7 +46,7 @@ public class loginRec extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(getBounds());
@@ -90,8 +92,8 @@ public class loginRec extends javax.swing.JFrame {
         });
         center.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 431, 105, 31));
 
-        jPasswordField1.setBackground(new java.awt.Color(240, 240, 240));
-        center.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 220, 40));
+        password.setBackground(new java.awt.Color(240, 240, 240));
+        center.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 220, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,15 +122,25 @@ public class loginRec extends javax.swing.JFrame {
         return matcher.find();
     }
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        
+       
         boolean b = validate(email.getText());
         if(!b)
         {
-            JOptionPane.showMessageDialog(this,"cant log in");
+            JOptionPane.showMessageDialog(this,"Email Invalid","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else {
-        dispose();
-        new AfficheCandidat().setVisible(true);
+            try {
+            String SS = new String(password.getPassword()) ;
+            if(new DaoRecruiter().getAdmin(email.getText(),SS)) {
+                dispose();
+                new mainRecruit().setVisible(true);        
+            }
+            else {
+                JOptionPane.showMessageDialog(this,"Email ou Password incorrect","Erreur",JOptionPane.ERROR_MESSAGE);
+            }
+            } catch(Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -183,7 +195,7 @@ public class loginRec extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton login;
+    private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
 }

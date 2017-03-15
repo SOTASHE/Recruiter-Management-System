@@ -40,6 +40,8 @@ public class LoginEntre extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         pass = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +60,7 @@ public class LoginEntre extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        center.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 250, 216, 41));
+        center.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 216, 41));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/user (1).png"))); // NOI18N
         center.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 259, -1, -1));
@@ -95,20 +97,20 @@ public class LoginEntre extends javax.swing.JFrame {
             }
         });
         center.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 220, 40));
+        center.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 10));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Frames/username.png"))); // NOI18N
+        center.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(center, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
 
         pack();
@@ -186,6 +188,8 @@ public class LoginEntre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton login;
     private javax.swing.JPasswordField pass;
     // End of variables declaration//GEN-END:variables

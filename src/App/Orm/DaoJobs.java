@@ -20,6 +20,10 @@ public class DaoJobs extends DaoAbstract {
         super(Jobs.class);
     }
    
+    public void create(Jobs j) {
+        super.create(j);
+    }
+    
    @Override
    public List  getAll(){
       return super.getAll();    
@@ -29,10 +33,10 @@ public class DaoJobs extends DaoAbstract {
        return super.getHqlQuery("select j from Jobs j where id = "+id);
    }
    
-   
    public List getRelevantJobsPourcentage(){
        session.beginTransaction(); 
-       Query query = session.createSQLQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
+       Query query = session.createSQLQuery("select profil,count(*)/(select count(*) from Jobs) "
+               + "from Jobs group by profil order by 2 desc limit 0,5");
        session.getTransaction().commit();
        return query.list();
        //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
@@ -40,7 +44,8 @@ public class DaoJobs extends DaoAbstract {
    
    public List getRelevantJobs(){
        session.beginTransaction(); 
-       Query query = session.createSQLQuery("select profil,count(*) from Jobs group by profil order by 2 desc limit 0,5");
+       Query query = session.createSQLQuery("select profil,count(*) from Jobs group by profil "
+               + "order by 2 desc limit 0,5");
        session.getTransaction().commit();
        return query.list();
        //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
@@ -50,5 +55,5 @@ public class DaoJobs extends DaoAbstract {
        return super.getHqlQuery("from Jobs j where j.status <> -1");
    }
    
-
+   
 }

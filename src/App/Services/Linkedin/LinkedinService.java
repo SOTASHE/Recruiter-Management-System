@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Services;
+package App.Services.Linkedin;
 
 import OrmMapping.Candidates;
 import java.io.BufferedReader;
@@ -34,8 +34,8 @@ public class LinkedinService {
     }
 
     public static String profileToJson(String linkedinUrl) throws IOException, InterruptedException {
-        StringBuffer output = new StringBuffer();
-        String command = "ruby src/App/Services/getProfileInJson.rb " + ""+linkedinUrl+"";
+        StringBuilder output = new StringBuilder();
+        String command = "ruby src/App/Services/Linkedin/getProfileInJson.rb " + ""+linkedinUrl+"";
         Process p = Runtime.getRuntime().exec(command);
         p.waitFor();
         BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -45,10 +45,6 @@ public class LinkedinService {
             output.append(line + "\n");
 
         }
-           
-
-        
-
         return output.toString();
     }
     
