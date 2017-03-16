@@ -25,6 +25,7 @@ public class jobEnCours extends javax.swing.JPanel {
     /**
      * Creates new form jobEnCours
      */
+    
     public jobEnCours() {
         initComponents();
         FilljTableService.displayJobs(JobsTable);  
@@ -143,6 +144,11 @@ public class jobEnCours extends javax.swing.JPanel {
         btnValider.setEnabled(b);
         btnVisualiser.setEnabled(b);
     } 
+    
+    private int getIdJob() {
+        return (int) JobsTable.getValueAt(JobsTable.getSelectedRow(),0) ;
+    }
+    
     private void JobsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JobsTableMouseClicked
         if(JobsTable.getSelectedRow() != -1) {
             if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
@@ -161,7 +167,6 @@ public class jobEnCours extends javax.swing.JPanel {
             int Row = JobsTable.getSelectedRow() ;
             new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
             Refresh();
-            
         }
     }//GEN-LAST:event_btnValiderActionPerformed
 
@@ -170,7 +175,7 @@ public class jobEnCours extends javax.swing.JPanel {
         JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
     }
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
-        FenetreCandidat(1);
+        JOptionPane.showMessageDialog(null,this.getIdJob());
     }//GEN-LAST:event_btnVisualiserActionPerformed
     
     private void FenetreCandidat(int idJob) {

@@ -16,9 +16,8 @@ public class DaoCandidatesEntretien extends DaoAbstract {
     public DaoCandidatesEntretien() {
         super(CandidatesEntretien.class);
     }
+    
     public void create(CandidatesEntretien ce){
         super.create(ce);
     }
-    
-   
 }

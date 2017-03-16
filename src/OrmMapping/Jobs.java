@@ -87,7 +87,12 @@ public class Jobs  implements java.io.Serializable {
         this.candidatesJobses = candidatesJobses;
     }
 
+    @Override
+    public String toString() {
+        return this.profil ;
+    }
 
+    
 
 
 }

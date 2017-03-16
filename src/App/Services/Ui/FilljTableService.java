@@ -73,8 +73,7 @@ public class FilljTableService {
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
 
-
-// 
+ 
     public static void displayEmployees(JTable T){
         DaoCandidates dc = new DaoCandidates();
         List L = dc.getAllEmployees();
@@ -104,22 +103,8 @@ public class FilljTableService {
           
            
         }
-       /* for (Object o : L) {            
-            
-            Vector<Object> oneRow = new Vector<Object>();
-            oneRow.add(C.getId());
-            oneRow.add(C.getName());
-            oneRow.add(CJ.getSatisfaction());
-            oneRow.add(J.getStatus());
-            // oneRow.add();
-              //oneRow.add(C.getName());
-            tableData.add(oneRow);
-        }*/
+
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
-       /* StarRater starRater = new StarRater(5, 2, 1);
-        
-        T.setDefaultRenderer(columnClass, renderer);*/
-        
     }
     
     public static void displayJobs(JTable T) {
@@ -128,6 +113,7 @@ public class FilljTableService {
         
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("id");
+        
         tableHeaders.add("profil recherché");
         tableHeaders.add("Statut") ;
         Vector tableData = new Vector();
@@ -140,8 +126,8 @@ public class FilljTableService {
             else oneRow.add("En cours") ;
             tableData.add(oneRow);
         }
-        T.setModel(new DefaultTableModel(tableData, tableHeaders));
-    }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders)); 
+   }
     
     public static void displaySearchCandidates(JTable T,List L ){
         
