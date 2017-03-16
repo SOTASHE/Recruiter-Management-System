@@ -232,15 +232,22 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            //CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
+            CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
             }
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e) {
-            JOptionPane.showMessageDialog(tCandidat, e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+        catch (NullPointerException n) {
+            
+        }
+        catch(org.json.JSONException j) {
+            //e.printStackTrace();
+        } catch (IOException ex) {
+            // Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_chercherActionPerformed
 
@@ -289,11 +296,16 @@ public class AfficheCandidat extends javax.swing.JPanel {
   /**
      * @param args the command line arguments
      */
-    private List getCandidat() {
+    private List getCandidat() throws NullPointerException{
+        List L = null;
         Jobs j = (Jobs) jobs.getSelectedItem();
         idJob = j.getId();
-        List L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
+        L = CandidatesSortByRateService.sortCandidates(idJob, principale.getText(), secondaire.getText());
         return L ;
+      
+           //  JOptionPane.showMessageDialog(tCandidat,"Veuillez specifier un Job","Erreur",JOptionPane.WARNING_MESSAGE);
+           
+        
     } 
       
 
