@@ -219,6 +219,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
         return b1 && b2 && b3 ;
     }
+     
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
             Candidates c = new Candidates() ;
