@@ -1,17 +1,13 @@
+package App ;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Orm.DaoRecruiter;
-import static App.Services.LinkedinService.profileToJson;
-import App.Services.ChartService;
-import App.Services.LinkedinService;
-import App.Services.StatsService;
-import App.Services.loginAgencyService;
-import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;

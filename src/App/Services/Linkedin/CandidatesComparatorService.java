@@ -22,7 +22,6 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
 
     private final String principalSkillsC;
     private final String secondarySkillsC;
-    public static  String Erreur ="" ;
    //public static final javax.swing.JTable H =  ; 
 
     public CandidatesComparatorService(String principalSkillsC, String secondarySkillsC) {
@@ -30,10 +29,8 @@ public class CandidatesComparatorService implements Comparator<Candidates> {
         this.secondarySkillsC = secondarySkillsC;
     }
     
-   
-    
     public static void TestRuby(Candidates c1) throws JSONException, IOException, InterruptedException {
-        LinkedinService.rateLinkedinProfil(c1, "", "");
+        LinkedinService.rateLinkedinProfil(c1,"","");
     }
     
     @Override

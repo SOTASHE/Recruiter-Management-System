@@ -6,6 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
+import App.Services.Ui.PatternService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -153,16 +154,14 @@ public class LoginEntre extends javax.swing.JFrame {
     }//GEN-LAST:event_emailActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        boolean b = validate(email.getText());
-        if (!b) {
+ 
+        if (!PatternService.validateEmail(email.getText())) {
             JOptionPane.showMessageDialog(this, "Email Invalid", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                String SS = new String(pass.getPassword());
-                if (new DaoClients().isConnect(email.getText(), SS)) {
+                if (new DaoClients().isConnect(email.getText(),new String(pass.getPassword()))) {
                     dispose();
                     new offreEmploi().setVisible(true);
-                   // this.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(this, "Email ou Password incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -175,14 +174,6 @@ public class LoginEntre extends javax.swing.JFrame {
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passActionPerformed
-
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",Pattern.CASE_INSENSITIVE);
-    
-    public static boolean validate(String emailstr)
-    {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailstr);
-        return matcher.matches();
-    }
     
     /**
      * @param args the command line arguments

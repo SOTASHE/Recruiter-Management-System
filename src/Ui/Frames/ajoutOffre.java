@@ -85,8 +85,6 @@ public class ajoutOffre extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Ajouter Offre");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/line-chart.png"))); // NOI18N
-
         jLabel2.setText("Profil demande");
 
         jLabel4.setText("Nombre de personnes");

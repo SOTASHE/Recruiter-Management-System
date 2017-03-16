@@ -238,14 +238,17 @@ public class AfficheCandidat extends javax.swing.JPanel {
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }
         catch (NullPointerException n) {
-            
+            JOptionPane.showMessageDialog(tCandidat,"Veuillez spécifier un Job","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         }
-        catch(org.json.JSONException j) {
-            //e.printStackTrace();
+        catch(JSONException j) {
+            JOptionPane.showMessageDialog(tCandidat,"Erreur Librairie LinkedIn scraper manquante","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         } catch (IOException ex) {
-            // Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+         // JOptionPane.showMessageDialog(tCandidat,ex.getMessage(),"ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         } catch (InterruptedException ex) {
-            Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(tCandidat,ex.getMessage(),"ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
+        }
+        catch (ClassFormatError ex) {
+           JOptionPane.showMessageDialog(tCandidat,"Ruby non instalé","Erreur",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_chercherActionPerformed
 

@@ -177,8 +177,8 @@ public class jobEnCours extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualiserActionPerformed
     
     private void FenetreCandidat(int idJob) {
-        Candidats C = new Candidats(idJob) ;
-        C.setLocationRelativeTo(this);
+        CandidatsJob C = new CandidatsJob(idJob) ;
+        //C.setLocationRelativeTo(null);
         C.setResizable(false);
         C.setVisible(true);
     }
