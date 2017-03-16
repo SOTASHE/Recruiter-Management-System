@@ -140,4 +140,26 @@ public class FilljTableService {
         }
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
+    
+    public static void displayJobs(JTable T, List L){
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("id");
+        tableHeaders.add("name");
+        tableHeaders.add("age");
+        tableHeaders.add("ville");
+        tableHeaders.add("email");
+
+        for (Object o : L) {
+            Candidates C = (Candidates) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(C.getId());
+            oneRow.add(C.getName());
+            oneRow.add(C.getAge());
+            oneRow.add(C.getVille());
+            oneRow.add(C.getEmail());
+            tableData.add(oneRow);
+        }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders));
+    }
 }
