@@ -5,6 +5,8 @@
  */
 package Ui.Frames;
 
+import App.Services.Ui.FilljTableService;
+
 /**
  *
  * @author regragui
@@ -17,6 +19,7 @@ public class CandidatsJob extends javax.swing.JFrame {
     public CandidatsJob(int id) {
         initComponents();
         this.setLocationRelativeTo(null);
+        FilljTableService.displayCandidatesWithInterviewByJob(jTable1,id);
     }
 
     /**

@@ -5,11 +5,13 @@
  */
 package Ui.Frames;
 import App.Orm.DaoCandidates;
+import App.Orm.DaoCandidatesEntretien;
 import App.Orm.DaoJobs;
 import App.Services.Linkedin.CandidatesComparatorService;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Ui.FilljTableService;
 import App.Services.Mail.MailService;
+import App.Services.Ui.InsertService;
 import App.Services.Ui.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
@@ -224,7 +226,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         try {
             Candidates c = new Candidates() ;
             c.setLinkedinUrl("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/");
-            CandidatesComparatorService.TestRuby(c) ;
+            //CandidatesComparatorService.TestRuby(c) ;
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
@@ -234,7 +236,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         catch (NullPointerException n) {
             JOptionPane.showMessageDialog(tCandidat,"Veuillez spécifier un Job","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         }
-        catch(JSONException j) {
+        /*catch(JSONException j) {
             JOptionPane.showMessageDialog(tCandidat,"Erreur Librairie LinkedIn scraper manquante","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         } catch (IOException ex) {
          // JOptionPane.showMessageDialog(tCandidat,ex.getMessage(),"ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
@@ -243,7 +245,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         }
         catch (ClassFormatError ex) {
            JOptionPane.showMessageDialog(tCandidat,"Ruby non instalé","Erreur",JOptionPane.WARNING_MESSAGE);
-        }
+        }*/
         // Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
 
     }//GEN-LAST:event_chercherActionPerformed
@@ -255,15 +257,18 @@ public class AfficheCandidat extends javax.swing.JPanel {
             for(int rowid = 0 ; rowid < Rows.length ; rowid++){
                 String email = (String) tCandidat.getValueAt(rowid, 4);
                 String name = (String) tCandidat.getValueAt(rowid, 1);
+                int idCandidate = (int) tCandidat.getValueAt(rowid,0) ;
                 try{
                     
                     MailService.sendMail("Convocation pour passage d'entretien",
                     MailService.BodyMessage(name,getJobName(idJob)),email) ;
-                    JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
+                    JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
+                    InsertService.insertCandidateEntretien(idCandidate,idJob);
+                   
                 }
                 catch(MessagingException Me){
-                    JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr/MMe/Mlle "+name+"\n" +
+                    JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr(MMe) "+name+"\n" +
                         "Veullez Verifier la connexion internet","Error",
                         JOptionPane.ERROR_MESSAGE);
                 }

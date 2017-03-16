@@ -32,7 +32,7 @@ public class DaoCandidates extends DaoAbstract{
     
     public List getCandidatesWithInterviewByJob(int idJob){
         return getHqlQuery("select c,ce from Candidates c join c.candidatesEntretien ce"
-                + " join c.candidatesJobses cj  where cj.jobs.status <> -1 and cj.id.jobsid ="+idJob);
+                + " join c.candidatesJobses cj  where cj.id.jobsid ="+idJob);
     }
     // add function to get all current candidat by job with details phase entretien etc..
     

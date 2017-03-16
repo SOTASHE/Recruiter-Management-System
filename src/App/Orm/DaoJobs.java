@@ -60,6 +60,6 @@ public class DaoJobs extends DaoAbstract {
     }
     
     public void updateStatus(int idJob) {
-       super.UpdateQuery("update jobs set status = -1 where id ="+idJob);
+       super.UpdateQuery("update Jobs set status = -1 where id ="+idJob);
     } 
 }

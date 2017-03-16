@@ -8,6 +8,7 @@ package App ;
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Orm.DaoRecruiter;
+import App.Services.Ui.InsertService;
 import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;
@@ -32,7 +33,7 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-       
+        InsertService.insertCandidateEntretien(2,1);
         /*List<Object> L = new DaoCandidates().ge
         LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
         /* JFrame frame = new JFrame();
@@ -106,7 +107,7 @@ public class main {
             System.out.println(argc[i]);
         }*/
 
-     DaoJobs D = new DaoJobs() ;
-     D.updateStatus(1);
+    /* DaoJobs D = new DaoJobs() ;
+     D.updateStatus(1);*/
     }
 }
