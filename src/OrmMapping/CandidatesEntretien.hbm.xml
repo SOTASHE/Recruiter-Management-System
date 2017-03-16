@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 16, 2017 4:24:54 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 16, 2017 7:03:52 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="OrmMapping.CandidatesEntretien" table="Candidates_Entretien" catalog="Java" optimistic-lock="version">
         <id name="candidatesid" type="int">
@@ -11,8 +11,11 @@
             </generator>
         </id>
         <one-to-one name="candidates" class="OrmMapping.Candidates" constrained="true"></one-to-one>
-        <property name="phase" type="string">
-            <column name="phase" length="50" not-null="true" />
+        <many-to-one name="jobs" class="OrmMapping.Jobs" fetch="select">
+            <column name="jobs_id" not-null="true" />
+        </many-to-one>
+        <property name="phase" type="int">
+            <column name="phase" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

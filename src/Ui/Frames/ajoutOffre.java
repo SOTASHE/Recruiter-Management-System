@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Services.Ui.FormService;
+import App.Services.Ui.InsertService;
 import com.alee.laf.WebLookAndFeel;
 
 /**
@@ -191,7 +191,7 @@ public class ajoutOffre extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        FormService.insertJob(profil.getText(),jobDescription.getText(), 1);
+        InsertService.insertJob(profil.getText(),jobDescription.getText(), 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

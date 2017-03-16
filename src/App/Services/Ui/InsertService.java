@@ -5,8 +5,11 @@
  */
 package App.Services.Ui;
 
+import App.Orm.DaoCandidatesEntretien;
 import App.Orm.DaoJobDescription;
 import App.Orm.DaoJobs;
+import OrmMapping.Candidates;
+import OrmMapping.CandidatesEntretien;
 import OrmMapping.Clients;
 import OrmMapping.JobDescription;
 import OrmMapping.Jobs;
@@ -15,7 +18,17 @@ import OrmMapping.Jobs;
  *
  * @author Ilias Naamane
  */
-public class FormService {
+public class InsertService {
+    
+    public static void insertCandidateEntretien(int CandidateId,int JobId){
+        Candidates c = new Candidates();
+        c.setId(CandidateId);
+        Jobs j = new Jobs();
+        j.setId(JobId);
+        CandidatesEntretien ce = new CandidatesEntretien(c,j,1);
+        DaoCandidatesEntretien dce = new DaoCandidatesEntretien();
+        dce.create(ce);
+    }
     
     public static void insertJob(String profil,String jobDescription,int idClient){
         Jobs j = new Jobs();

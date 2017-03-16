@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 16, 2017 4:24:54 PM by Hibernate Tools 4.3.1
+// Generated Mar 16, 2017 7:03:51 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -96,9 +96,7 @@ public class Candidates  implements java.io.Serializable {
     public void setCandidatesEntretien(CandidatesEntretien candidatesEntretien) {
         this.candidatesEntretien = candidatesEntretien;
     }
-    
-    
-    
+
 
 
 

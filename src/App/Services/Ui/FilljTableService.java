@@ -38,7 +38,7 @@ public class FilljTableService {
             oneRow.add((int) o[0]);
             oneRow.add((String) o[1]);
             oneRow.add((String) o[2]);
-            oneRow.add("Phase "+ o[3].toString());
+            oneRow.add((String)o[3]);
             
             tableData.add(oneRow);
 
