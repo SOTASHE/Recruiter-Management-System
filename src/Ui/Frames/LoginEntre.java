@@ -5,6 +5,7 @@
  */
 package Ui.Frames;
 
+import App.Orm.DaoClients;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -32,26 +33,16 @@ public class LoginEntre extends javax.swing.JFrame {
     private void initComponents() {
 
         center = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         pass = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/left-arrow.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        center.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, -1));
 
         email.setBackground(new java.awt.Color(240, 240, 240));
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -60,21 +51,14 @@ public class LoginEntre extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        center.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 216, 41));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/user (1).png"))); // NOI18N
-        center.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 259, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/user.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/padlock.png"))); // NOI18N
-        center.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 332, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/padlock.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("ENTREPRISE LOGIN");
-        center.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 172, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/icons/user.png"))); // NOI18N
-        center.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 26, -1, -1));
 
         login.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(102, 102, 102));
@@ -88,7 +72,6 @@ public class LoginEntre extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        center.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 431, 105, 31));
 
         pass.setBackground(new java.awt.Color(240, 240, 240));
         pass.addActionListener(new java.awt.event.ActionListener() {
@@ -96,21 +79,70 @@ public class LoginEntre extends javax.swing.JFrame {
                 passActionPerformed(evt);
             }
         });
-        center.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 220, 40));
-        center.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 10));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Frames/username.png"))); // NOI18N
-        center.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 30, 30));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/username.png"))); // NOI18N
+
+        javax.swing.GroupLayout centerLayout = new javax.swing.GroupLayout(center);
+        center.setLayout(centerLayout);
+        centerLayout.setHorizontalGroup(
+            centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel4))
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel1))
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(27, 27, 27)
+                        .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        centerLayout.setVerticalGroup(
+            centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(jLabel1)
+                .addGap(59, 59, 59)
+                .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addGap(180, 180, 180)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(center, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,14 +153,22 @@ public class LoginEntre extends javax.swing.JFrame {
     }//GEN-LAST:event_emailActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-         boolean b = validate(email.getText());
-        if(!b)
-        {
-            JOptionPane.showMessageDialog(this,"cant log in");
-        }
-        else {
-        dispose();
-        new AfficheCandidat().setVisible(true);
+        boolean b = validate(email.getText());
+        if (!b) {
+            JOptionPane.showMessageDialog(this, "Email Invalid", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                String SS = new String(pass.getPassword());
+                if (new DaoClients().isConnect(email.getText(), SS)) {
+                    dispose();
+                    new offreEmploi().setVisible(true);
+                   // this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Email ou Password incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -183,10 +223,8 @@ public class LoginEntre extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel center;
     private javax.swing.JTextField email;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

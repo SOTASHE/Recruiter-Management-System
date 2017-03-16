@@ -6,8 +6,8 @@
 package Ui.Frames;
 
 import App.Orm.DaoJobs;
-import App.Services.CandidatesSortByRateService;
-import App.Services.FilljTableService;
+import App.Services.Linkedin.CandidatesSortByRateService;
+import App.Services.Ui.FilljTableService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import com.alee.laf.WebLookAndFeel;
@@ -156,7 +156,7 @@ public class jobEnCours extends javax.swing.JPanel {
     }//GEN-LAST:event_JobsTableMouseClicked
 
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
-        if(JOptionPane.showConfirmDialog(null,"sVous vouler vraiment valider ce job", "Information",
+        if(JOptionPane.showConfirmDialog(null,"Voulez Vous vraiment valider ce job", "Information",
                 JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
             int Row = JobsTable.getSelectedRow() ;
             new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));

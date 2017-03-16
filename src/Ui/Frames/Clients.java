@@ -6,7 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
-import App.Services.FilljTableService;
+import App.Services.Ui.FilljTableService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 /**

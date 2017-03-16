@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Services;
+package App.Services.Ui;
 
 import App.Orm.DaoCandidates;
 import App.Orm.DaoClients;
@@ -100,6 +100,7 @@ public class FilljTableService {
     public static void displayJobs(JTable T) {
         DaoJobs dj = new DaoJobs();
         List L = dj.getJobs();
+        
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("id");
         tableHeaders.add("profil recherché");
@@ -110,7 +111,7 @@ public class FilljTableService {
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(J.getId());
             oneRow.add(J.getProfil());
-            if(J.getStatus() == -1) oneRow.add("Validé") ;
+            if(J.getStatus() == -1) oneRow.add("Validé");
             else oneRow.add("En cours") ;
             tableData.add(oneRow);
         }

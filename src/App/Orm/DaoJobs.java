@@ -23,8 +23,12 @@ public class DaoJobs extends DaoAbstract {
         super(Jobs.class);
     }
    
-    @Override
-    public List  getAll(){
+    public void create(Jobs j) {
+        super.create(j);
+    }
+    
+   @Override
+   public List  getAll(){
       return super.getAll();    
     }
    

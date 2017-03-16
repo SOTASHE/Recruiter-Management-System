@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Services;
+package App.Services.Linkedin;
 
+import App.Services.Linkedin.CandidatesComparatorService;
 import App.Orm.DaoCandidates;
 import java.util.Collections;
 import java.util.List;

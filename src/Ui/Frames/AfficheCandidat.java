@@ -6,11 +6,11 @@
 package Ui.Frames;
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
-import App.Services.CandidatesComparatorService;
-import App.Services.CandidatesSortByRateService;
-import App.Services.FilljTableService;
-import App.Services.MailService;
-import App.Services.PatternService;
+import App.Services.Linkedin.CandidatesComparatorService;
+import App.Services.Linkedin.CandidatesSortByRateService;
+import App.Services.Ui.FilljTableService;
+import App.Services.Mail.MailService;
+import App.Services.Ui.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.util.List;
@@ -78,7 +78,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jTextField4.setToolTipText("");
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +86,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
 
         inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
         inviter.setEnabled(false);
         inviter.addActionListener(new java.awt.event.ActionListener() {
