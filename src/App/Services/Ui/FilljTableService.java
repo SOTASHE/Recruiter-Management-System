@@ -8,7 +8,6 @@ package App.Services.Ui;
 import App.Orm.DaoCandidates;
 import App.Orm.DaoClients;
 import App.Orm.DaoJobs;
-import App.Orm.DaoRecruiter;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesJobs;
 import OrmMapping.Jobs;
@@ -23,6 +22,32 @@ import javax.swing.table.DefaultTableModel;
  * @author Ilias Naamane
  */
 public class FilljTableService {
+    
+    public static void displayCandidatesWithInterviewByJob(JTable T,int idJob){
+        DaoCandidates dc = new DaoCandidates();
+        List L = dc.getCandidatesWithInterviewByJob(idJob);
+        Vector<String> tableHeaders = new Vector<String>();
+        tableHeaders.add("Id");
+        tableHeaders.add("Nom");
+        tableHeaders.add("Email");
+        tableHeaders.add("Phase Entretien");
+        Vector tableData = new Vector();
+        for (Iterator it = L.iterator(); it.hasNext();) {
+            Vector<Object> oneRow = new Vector<Object>();
+            Object[] o = (Object[]) it.next();
+            oneRow.add((int) o[0]);
+            oneRow.add((String) o[1]);
+            oneRow.add((String) o[2]);
+            oneRow.add("Phase "+ o[3].toString());
+            
+            tableData.add(oneRow);
+
+        }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders));
+        
+        
+    }
+    
     
     public static void displayClients(JTable T){
         DaoClients dc = new DaoClients();

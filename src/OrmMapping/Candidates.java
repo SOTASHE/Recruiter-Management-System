@@ -96,7 +96,9 @@ public class Candidates  implements java.io.Serializable {
     public void setCandidatesEntretien(CandidatesEntretien candidatesEntretien) {
         this.candidatesEntretien = candidatesEntretien;
     }
-
+    
+    
+    
 
 
 

@@ -160,17 +160,14 @@ public class jobEnCours extends javax.swing.JPanel {
                 JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
             int Row = JobsTable.getSelectedRow() ;
             new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
-            Refrech();
+            Refresh();
+            
         }
     }//GEN-LAST:event_btnValiderActionPerformed
 
-    private void Refrech() {
+    private void Refresh() {
        // int rowCount = JobsTable.getRowCount() ;
-        DefaultTableModel D = (DefaultTableModel) JobsTable.getModel() ;
-        D.setRowCount(0);
-        JobsTable.clearSelection();
-        Activate(false);
-        FilljTableService.displayJobs(JobsTable);
+        JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
     }
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
         FenetreCandidat(1);
