@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -246,12 +246,13 @@ public class AfficheCandidat extends javax.swing.JPanel {
         if(EnvoiMessge()){
             int[] Rows;
             Rows = tCandidat.getSelectedRows();
-            for(int rowid = 0;rowid < Rows.length;rowid++){
+            for(int rowid = 0 ; rowid < Rows.length ; rowid++){
                 String email = (String) tCandidat.getValueAt(rowid, 4);
                 String name = (String) tCandidat.getValueAt(rowid, 1);
                 try{
+                    
                     MailService.sendMail("Convocation pour passage d'entretien",
-                        MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                    MailService.BodyMessage(name,getJobName(idJob)),email) ;
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr/MMe/Mlle."+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                 }

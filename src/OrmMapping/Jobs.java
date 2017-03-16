@@ -22,6 +22,9 @@ public class Jobs  implements java.io.Serializable {
     public Jobs() {
     }
 
+    public Jobs(int id) {
+        this.id = id ;
+    } 
 	
     public Jobs(Clients clients, String profil, int status) {
         this.clients = clients;

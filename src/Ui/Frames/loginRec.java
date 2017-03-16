@@ -6,7 +6,6 @@
 package Ui.Frames;
 
 import App.Orm.DaoRecruiter;
-import App.Services.Login.loginAgencyService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,6 +22,7 @@ public class loginRec extends javax.swing.JFrame {
      */
     public loginRec() {
         initComponents();
+        this.setResizable(false);
     }
     
     public static void infoBox(String infoMessage)
