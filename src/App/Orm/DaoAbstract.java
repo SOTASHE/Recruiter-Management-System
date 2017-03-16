@@ -83,7 +83,7 @@ abstract public class DaoAbstract {
         return r;
     } 
     
-    public List getSqlQuery(String SqlQuery) {
+   /* public List getSqlQuery(String SqlQuery) {
      List resultList = null;
         try {
             session.beginTransaction();
@@ -108,7 +108,7 @@ abstract public class DaoAbstract {
             he.printStackTrace();
         }
         return r;
-    } 
+    } */
     
     public List getHqlQuery(String query){
         List resultList = null;
