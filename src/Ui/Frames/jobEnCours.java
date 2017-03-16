@@ -175,7 +175,8 @@ public class jobEnCours extends javax.swing.JPanel {
         JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
     }
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
-        JOptionPane.showMessageDialog(null,this.getIdJob());
+        //JOptionPane.showMessageDialog(null,this.getIdJob());
+        this.FenetreCandidat(this.getIdJob()) ;
     }//GEN-LAST:event_btnVisualiserActionPerformed
     
     private void FenetreCandidat(int idJob) {
