@@ -36,4 +36,9 @@ public class DaoCandidates extends DaoAbstract{
     }
     // add function to get all current candidat by job with details phase entretien etc..
     
+    public void delete(int idCandidate){
+        super.UpdateQuery("delete from Candidates c INNER JOIN Candidates_Jobs cj INNER JOIN Candidates_Entretien ce"
+                + "where c.id = cj.Jobsid and cj.Jobsid = ce.Candidatesid and c.id="+idCandidate);
+       
+    }
 }

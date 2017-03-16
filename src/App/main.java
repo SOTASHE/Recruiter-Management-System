@@ -33,7 +33,8 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-        InsertService.insertCandidateEntretien(2,1);
+        //InsertService.insertCandidateEntretien(2,1);
+           
         /*List<Object> L = new DaoCandidates().ge
         LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
         /* JFrame frame = new JFrame();
