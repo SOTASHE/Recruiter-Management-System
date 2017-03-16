@@ -52,7 +52,6 @@ Contributor(s):
     <mapping resource="OrmMapping/CandidatesJobs.hbm.xml"/>
     <mapping resource="OrmMapping/JobDescription.hbm.xml"/>
     <mapping resource="OrmMapping/Clients.hbm.xml"/>
-    <mapping resource="OrmMapping/Entretien.hbm.xml"/>
     <mapping resource="OrmMapping/CandidatesEntretien.hbm.xml"/>
     <mapping resource="OrmMapping/Jobs.hbm.xml"/>
     <mapping resource="OrmMapping/Recruiters.hbm.xml"/>

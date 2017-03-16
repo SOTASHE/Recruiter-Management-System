@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
+// Generated Mar 16, 2017 4:24:54 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,27 +9,24 @@ package OrmMapping;
 public class CandidatesEntretien  implements java.io.Serializable {
 
 
-     private CandidatesEntretienId id;
+     private int candidatesid;
      private Candidates candidates;
-     private Entretien entretien;
      private String phase;
 
     public CandidatesEntretien() {
     }
 
-    public CandidatesEntretien(CandidatesEntretienId id, Candidates candidates, Entretien entretien, String phase) {
-       this.id = id;
+    public CandidatesEntretien(Candidates candidates, String phase) {
        this.candidates = candidates;
-       this.entretien = entretien;
        this.phase = phase;
     }
    
-    public CandidatesEntretienId getId() {
-        return this.id;
+    public int getCandidatesid() {
+        return this.candidatesid;
     }
     
-    public void setId(CandidatesEntretienId id) {
-        this.id = id;
+    public void setCandidatesid(int candidatesid) {
+        this.candidatesid = candidatesid;
     }
     public Candidates getCandidates() {
         return this.candidates;
@@ -37,13 +34,6 @@ public class CandidatesEntretien  implements java.io.Serializable {
     
     public void setCandidates(Candidates candidates) {
         this.candidates = candidates;
-    }
-    public Entretien getEntretien() {
-        return this.entretien;
-    }
-    
-    public void setEntretien(Entretien entretien) {
-        this.entretien = entretien;
     }
     public String getPhase() {
         return this.phase;

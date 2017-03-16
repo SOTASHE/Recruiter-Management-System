@@ -9,7 +9,7 @@ import org.json.JSONException;
  *
  * @author youpi
  */
-public class main {
+public class main{
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
@@ -88,5 +88,5 @@ public class main {
             Candidates C= (Candidates)o;
             System.out.println(C);
         }*/
-        FormService.insertJob("Php Developer", "A la recherche d'un php developer full stack", 1);
+       // FormService.insertJob("Php Developer", "A la recherche d'un php developer full stack", 1);
 }}

@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 package App.Orm;
 
 import static App.Orm.DaoAbstract.session;
@@ -14,6 +16,7 @@ import org.hibernate.Query;
  *
  * @author Ilias Naamane
  */
+
 public class DaoJobs extends DaoAbstract {
     
     public DaoJobs() {
@@ -27,31 +30,29 @@ public class DaoJobs extends DaoAbstract {
    @Override
    public List  getAll(){
       return super.getAll();    
-   }
+    }
    
-   public List findById(int id){
+    public List findById(int id){
        return super.getHqlQuery("select j from Jobs j where id = "+id);
-   }
+    }
    
-   public List getRelevantJobsPourcentage(){
-        
+    public List getRelevantJobsPourcentage(){      
        return super.getSqlQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
       
-       //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
-   }
+//return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
+    }
    
-   public List getRelevantJobs(){ 
+    public List getRelevantJobs(){ 
        return super.getSqlQuery("select profil,count(*) from Jobs group by profil order by 2 desc limit 0,5");
-       //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
-   }
+    }
    
-   public List getCurrentJobs(){
+    public List getCurrentJobs(){
        return super.getHqlQuery("from Jobs j where j.status <> -1");
-   }
+    }
    
-   public List getJobs() {
+    public List getJobs() {
        return super.getHqlQuery("from Jobs order by status desc , id desc ");
-   }
+    }
 
     @Override
     public void update(Object oldObj, Object newObj) {
