@@ -23,6 +23,7 @@ public class loginRec extends javax.swing.JFrame {
      */
     public loginRec() {
         initComponents();
+        this.setResizable(false);
     }
     
     public static void infoBox(String infoMessage)

@@ -47,13 +47,40 @@ abstract public class DaoAbstract {
         }
     }
 
-    protected void update(Object oldObj, Object newObj) {
-
+    public void update(Object oldObj, Object newObj) {
+              
     }
 
-    protected void delete(Object obj) {
+    public void delete(Object obj) {
 
     }
+    
+    public List getSqlQuery(String SqlQuery) {
+     List resultList = null;
+        try {
+            session.beginTransaction();
+            resultList = session.createSQLQuery(SqlQuery).list();
+            session.getTransaction().commit();
+
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+        return resultList;   
+    }
+    
+    public int UpdateQuery(String query) {
+        int r = 0 ;
+        try {
+            session.beginTransaction();
+            Query q = session.createSQLQuery(query) ;
+            r = q.executeUpdate() ;
+            session.getTransaction().commit();
+
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+        return r;
+    } 
     
     public List getHqlQuery(String query){
         List resultList = null;

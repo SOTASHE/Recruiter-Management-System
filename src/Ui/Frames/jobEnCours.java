@@ -13,6 +13,7 @@ import OrmMapping.Jobs;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,7 +27,7 @@ public class jobEnCours extends javax.swing.JPanel {
      */
     public jobEnCours() {
         initComponents();
-        FilljTableService.displayJobs(jTable1);  
+        FilljTableService.displayJobs(JobsTable);  
     }
 
     /**
@@ -41,15 +42,17 @@ public class jobEnCours extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JobsTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnVisualiser = new javax.swing.JButton();
+        btnValider = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(780, 540));
         setMinimumSize(new java.awt.Dimension(780, 540));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JobsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -60,11 +63,32 @@ public class jobEnCours extends javax.swing.JPanel {
 
             }
         ));
-        jTable1.setName("CurrentJobs"); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
+        JobsTable.setName("CurrentJobs"); // NOI18N
+        JobsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JobsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JobsTable);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Offre d'emploi");
+
+        btnVisualiser.setText("Visualiser");
+        btnVisualiser.setEnabled(false);
+        btnVisualiser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualiserActionPerformed(evt);
+            }
+        });
+
+        btnValider.setText("Valider");
+        btnValider.setEnabled(false);
+        btnValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,6 +102,11 @@ public class jobEnCours extends javax.swing.JPanel {
                         .addGap(644, 644, 644))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -95,7 +124,11 @@ public class jobEnCours extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVisualiser)
+                    .addComponent(btnValider))
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(86, 86, 86)
@@ -106,12 +139,57 @@ public class jobEnCours extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Activate(boolean b) {
+        btnValider.setEnabled(b);
+        btnVisualiser.setEnabled(b);
+    } 
+    private void JobsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JobsTableMouseClicked
+        if(JobsTable.getSelectedRow() != -1) {
+            if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
+                btnVisualiser.setEnabled(true);
+                btnValider.setEnabled(false);
+            }
+                
+            else Activate(true);
+        }
+        else Activate(false) ;
+    }//GEN-LAST:event_JobsTableMouseClicked
+
+    private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
+        if(JOptionPane.showConfirmDialog(null,"sVous vouler vraiment valider ce job", "Information",
+                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+            int Row = JobsTable.getSelectedRow() ;
+            new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
+            Refrech();
+        }
+    }//GEN-LAST:event_btnValiderActionPerformed
+
+    private void Refrech() {
+       // int rowCount = JobsTable.getRowCount() ;
+        DefaultTableModel D = (DefaultTableModel) JobsTable.getModel() ;
+        D.setRowCount(0);
+        JobsTable.clearSelection();
+        Activate(false);
+        FilljTableService.displayJobs(JobsTable);
+    }
+    private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
+        FenetreCandidat(1);
+    }//GEN-LAST:event_btnVisualiserActionPerformed
+    
+    private void FenetreCandidat(int idJob) {
+        Candidats C = new Candidats(idJob) ;
+        C.setLocationRelativeTo(this);
+        C.setResizable(false);
+        C.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JobsTable;
+    private javax.swing.JButton btnValider;
+    private javax.swing.JButton btnVisualiser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

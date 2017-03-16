@@ -30,22 +30,31 @@ public class DaoJobs extends DaoAbstract {
    }
    
    public List getRelevantJobsPourcentage(){
-       session.beginTransaction(); 
-       Query query = session.createSQLQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
-       session.getTransaction().commit();
-       return query.list();
+        
+       return super.getSqlQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
+      
        //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
    }
    
-   public List getRelevantJobs(){
-       session.beginTransaction(); 
-       Query query = session.createSQLQuery("select profil,count(*) from Jobs group by profil order by 2 desc limit 0,5");
-       session.getTransaction().commit();
-       return query.list();
+   public List getRelevantJobs(){ 
+       return super.getSqlQuery("select profil,count(*) from Jobs group by profil order by 2 desc limit 0,5");
        //return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
    }
    
    public List getCurrentJobs(){
        return super.getHqlQuery("from Jobs j where j.status <> -1");
    }
+   
+   public List getJobs() {
+       return super.getHqlQuery("from Jobs order by status desc , id desc ");
+   }
+
+    @Override
+    public void update(Object oldObj, Object newObj) {
+       
+    }
+    
+    public void updateStatus(int idJob) {
+       super.UpdateQuery("update jobs set status = -1 where id ="+idJob);
+    } 
 }

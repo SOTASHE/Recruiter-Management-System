@@ -12,6 +12,7 @@ import App.Services.LinkedinService;
 import App.Services.StatsService;
 import App.Services.loginAgencyService;
 import OrmMapping.Candidates;
+import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -95,7 +96,7 @@ public class main {
           System.out.println("hahouwa");
       }*/
    // Test("fff","xxx") ;
-   int rate= 0 ;
+/*   int rate= 0 ;
     DaoCandidates D = new DaoCandidates() ;
     List L = D.getAllByJob(1) ;
     for(Object o : L) {
@@ -107,6 +108,9 @@ public class main {
     public static void Test(String... argc) {
         for(int i = 0 ;i < argc.length ; i++) {
             System.out.println(argc[i]);
-        }
+        }*/
+
+     DaoJobs D = new DaoJobs() ;
+     D.updateStatus(1);
     }
 }
