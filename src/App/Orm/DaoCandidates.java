@@ -22,17 +22,18 @@ public class DaoCandidates extends DaoAbstract{
     }
    
     public List getAllByJob(int idJob){
-        List result = getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.id.jobsid ="+idJob);
-        return result;
+        return getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.id.jobsid ="+idJob);
     }
     
     
     public List getAllEmployees(){
-        List result = getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
-         return result;
+        return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
     }
     
-    
+    public List getCandidatesWithInterviewByJob(int idJob){
+        return getHqlQuery("select c,ce from Candidates c join c.candidatesEntretien ce"
+                + " join c.candidatesJobses cj  where cj.jobs.status <> -1 and cj.id.jobsid ="+idJob);
+    }
     // add function to get all current candidat by job with details phase entretien etc..
     
 }

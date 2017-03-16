@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
+// Generated Mar 16, 2017 4:24:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,30 +18,26 @@ public class Candidates  implements java.io.Serializable {
      private String email;
      private String linkedinUrl;
      private Set candidatesJobses = new HashSet(0);
-     private Set candidatesEntretiens = new HashSet(0);
+     private CandidatesEntretien candidatesEntretien;
 
     public Candidates() {
     }
-    
-    public Candidates(String url) {
-        this.linkedinUrl = url ;
-    }
 
+	
     public Candidates(String name, int age, String ville, String email) {
         this.name = name;
         this.age = age;
         this.ville = ville;
         this.email = email;
     }
-    
-    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesJobses, Set candidatesEntretiens) {
+    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesJobses, CandidatesEntretien candidatesEntretien) {
        this.name = name;
        this.age = age;
        this.ville = ville;
        this.email = email;
        this.linkedinUrl = linkedinUrl;
        this.candidatesJobses = candidatesJobses;
-       this.candidatesEntretiens = candidatesEntretiens;
+       this.candidatesEntretien = candidatesEntretien;
     }
    
     public Integer getId() {
@@ -51,7 +47,6 @@ public class Candidates  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    
     public String getName() {
         return this.name;
     }
@@ -59,7 +54,6 @@ public class Candidates  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
     public int getAge() {
         return this.age;
     }
@@ -67,7 +61,6 @@ public class Candidates  implements java.io.Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-    
     public String getVille() {
         return this.ville;
     }
@@ -75,7 +68,6 @@ public class Candidates  implements java.io.Serializable {
     public void setVille(String ville) {
         this.ville = ville;
     }
-    
     public String getEmail() {
         return this.email;
     }
@@ -90,7 +82,6 @@ public class Candidates  implements java.io.Serializable {
     public void setLinkedinUrl(String linkedinUrl) {
         this.linkedinUrl = linkedinUrl;
     }
-    
     public Set getCandidatesJobses() {
         return this.candidatesJobses;
     }
@@ -98,13 +89,17 @@ public class Candidates  implements java.io.Serializable {
     public void setCandidatesJobses(Set candidatesJobses) {
         this.candidatesJobses = candidatesJobses;
     }
-    public Set getCandidatesEntretiens() {
-        return this.candidatesEntretiens;
+    public CandidatesEntretien getCandidatesEntretien() {
+        return this.candidatesEntretien;
     }
     
-    public void setCandidatesEntretiens(Set candidatesEntretiens) {
-        this.candidatesEntretiens = candidatesEntretiens;
+    public void setCandidatesEntretien(CandidatesEntretien candidatesEntretien) {
+        this.candidatesEntretien = candidatesEntretien;
     }
+
+
+
+
 }
 
 

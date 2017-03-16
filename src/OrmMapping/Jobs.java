@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 12, 2017 1:35:18 PM by Hibernate Tools 4.3.1
+// Generated Mar 16, 2017 4:24:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,27 +17,22 @@ public class Jobs  implements java.io.Serializable {
      private int status;
      private Set jobDescriptions = new HashSet(0);
      private Set candidatesJobses = new HashSet(0);
-     private Set entretiens = new HashSet(0);
 
     public Jobs() {
     }
 
-    public Jobs(int id) {
-        this.id = id ;
-    } 
 	
     public Jobs(Clients clients, String profil, int status) {
         this.clients = clients;
         this.profil = profil;
         this.status = status;
     }
-    public Jobs(Clients clients, String profil, int status, Set jobDescriptions, Set candidatesJobses, Set entretiens) {
+    public Jobs(Clients clients, String profil, int status, Set jobDescriptions, Set candidatesJobses) {
        this.clients = clients;
        this.profil = profil;
        this.status = status;
        this.jobDescriptions = jobDescriptions;
        this.candidatesJobses = candidatesJobses;
-       this.entretiens = entretiens;
     }
    
     public Integer getId() {
@@ -82,18 +77,7 @@ public class Jobs  implements java.io.Serializable {
     public void setCandidatesJobses(Set candidatesJobses) {
         this.candidatesJobses = candidatesJobses;
     }
-    public Set getEntretiens() {
-        return this.entretiens;
-    }
-    
-    public void setEntretiens(Set entretiens) {
-        this.entretiens = entretiens;
-    }
-    
-     @Override
-    public String toString(){
-        return profil+"-"+this.getClients().getName();
-    }
+
 
 
 

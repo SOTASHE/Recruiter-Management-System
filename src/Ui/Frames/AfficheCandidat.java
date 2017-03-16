@@ -14,18 +14,9 @@ import App.Services.Ui.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.util.List;
-import java.util.Vector;
-import javax.swing.table.DefaultTableModel;
-import com.alee.laf.WebLookAndFeel;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.mail.MessagingException;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import org.json.JSONException;
 /**
  *
@@ -230,7 +221,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
+            Candidates c = new Candidates() ;
+            c.setLinkedinUrl("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/");
+            CandidatesComparatorService.TestRuby(c) ;
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
@@ -250,6 +243,8 @@ public class AfficheCandidat extends javax.swing.JPanel {
         catch (ClassFormatError ex) {
            JOptionPane.showMessageDialog(tCandidat,"Ruby non instalé","Erreur",JOptionPane.WARNING_MESSAGE);
         }
+        // Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+
     }//GEN-LAST:event_chercherActionPerformed
 
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed

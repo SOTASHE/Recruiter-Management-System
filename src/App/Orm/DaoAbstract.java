@@ -20,7 +20,7 @@ import org.hibernate.Session;
 abstract public class DaoAbstract {
 
     static final Session session = HibernateUtil.getSessionFactory().openSession();
-    private Class<?> Class;
+    private final Class<?> Class;
     
     protected DaoAbstract(Class <?> Class){
     this.Class = Class;
@@ -83,6 +83,7 @@ abstract public class DaoAbstract {
         return r;
     } 
     
+
 
     
     public List getHqlQuery(String query){
