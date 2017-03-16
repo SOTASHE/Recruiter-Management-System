@@ -86,7 +86,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
 
         inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
         inviter.setEnabled(false);
         inviter.addActionListener(new java.awt.event.ActionListener() {

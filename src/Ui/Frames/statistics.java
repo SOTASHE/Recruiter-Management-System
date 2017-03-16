@@ -46,11 +46,9 @@ public class statistics extends javax.swing.JPanel {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/analytics.png"))); // NOI18N
         jButton2.setText("    Statistiques de feedbacks fournipar les entreprises clientes");
 
         jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/analytics.png"))); // NOI18N
         jButton1.setText("     Statistiques des profiles les plus recherches");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
