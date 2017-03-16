@@ -78,7 +78,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jTextField4.setToolTipText("");
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

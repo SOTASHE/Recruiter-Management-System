@@ -83,9 +83,6 @@ public class mainRecruit extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(981, 560));
 
-        recruitment.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
         statistics.setIconTextGap(20);
         statistics.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +91,7 @@ public class mainRecruit extends javax.swing.JFrame {
             }
         });
 
-        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/clients.png"))); // NOI18N
+        clients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/clients.png"))); // NOI18N
         clients.setText("  Clients");
         clients.setIconTextGap(15);
         clients.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +100,7 @@ public class mainRecruit extends javax.swing.JFrame {
             }
         });
 
-        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/employe.png"))); // NOI18N
+        employes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/employe.png"))); // NOI18N
         employes.setText("  Employes");
         employes.setIconTextGap(15);
         employes.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +109,7 @@ public class mainRecruit extends javax.swing.JFrame {
             }
         });
 
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
+        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.setIconTextGap(20);
         dashbord.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +118,7 @@ public class mainRecruit extends javax.swing.JFrame {
             }
         });
 
-        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/jobsearch.png"))); // NOI18N
+        cndEnCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/jobsearch.png"))); // NOI18N
         cndEnCours.setText("Job en cours");
         cndEnCours.setIconTextGap(20);
         cndEnCours.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +127,7 @@ public class mainRecruit extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logout.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/logout.png"))); // NOI18N
         jButton1.setText("Sign out");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButton1.setIconTextGap(20);
@@ -151,7 +148,7 @@ public class mainRecruit extends javax.swing.JFrame {
                     .addComponent(employes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(clients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(statistics, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashbord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(dashbord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -173,7 +170,7 @@ public class mainRecruit extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/logo.PNG"))); // NOI18N
 
         javax.swing.GroupLayout fixMenuLayout = new javax.swing.GroupLayout(fixMenu);
         fixMenu.setLayout(fixMenuLayout);
@@ -198,8 +195,6 @@ public class mainRecruit extends javax.swing.JFrame {
                 .addGap(4, 4, 4))
         );
 
-        recruitment.add(fixMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 530));
-
         dynamic.setMaximumSize(new java.awt.Dimension(780, 540));
         dynamic.setMinimumSize(new java.awt.Dimension(780, 540));
 
@@ -214,7 +209,20 @@ public class mainRecruit extends javax.swing.JFrame {
             .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        recruitment.add(dynamic, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 780, 540));
+        javax.swing.GroupLayout recruitmentLayout = new javax.swing.GroupLayout(recruitment);
+        recruitment.setLayout(recruitmentLayout);
+        recruitmentLayout.setHorizontalGroup(
+            recruitmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recruitmentLayout.createSequentialGroup()
+                .addComponent(fixMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(dynamic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        recruitmentLayout.setVerticalGroup(
+            recruitmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fixMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(dynamic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         jMenu1.setText("File");
 
@@ -235,7 +243,7 @@ public class mainRecruit extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(recruitment, javax.swing.GroupLayout.PREFERRED_SIZE, 981, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(recruitment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

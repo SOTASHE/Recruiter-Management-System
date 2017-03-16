@@ -5,6 +5,7 @@
  */
 package Ui.Frames;
 
+import App.Services.Ui.FormService;
 import com.alee.laf.WebLookAndFeel;
 
 /**
@@ -47,10 +48,8 @@ public class ajoutOffre extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/statistics.png"))); // NOI18N
         statistics.setText("Statistiques");
 
-        dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +85,7 @@ public class ajoutOffre extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Ajouter Offre");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/logo.PNG"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/line-chart.png"))); // NOI18N
 
         jLabel2.setText("Profil demande");
 
@@ -194,6 +193,7 @@ public class ajoutOffre extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        FormService.insertJob(profil.getText(),jobDescription.getText(), 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

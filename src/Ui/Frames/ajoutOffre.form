@@ -145,17 +145,11 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="statistics">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/statistics.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Statistiques"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="dashbord">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Ui/icons/dashboard.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Tableau de bord"/>
           </Properties>
           <Events>
@@ -182,7 +176,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Ui/icons/logo.PNG"/>
+          <Image iconType="3" name="/Ui/icons/line-chart.png"/>
         </Property>
       </Properties>
     </Component>

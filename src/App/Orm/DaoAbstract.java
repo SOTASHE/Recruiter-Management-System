@@ -23,7 +23,7 @@ abstract public class DaoAbstract {
     private Class<?> Class;
     
     protected DaoAbstract(Class <?> Class){
-        this.Class = Class;
+    this.Class = Class;
     }
     
     protected List getAll() {

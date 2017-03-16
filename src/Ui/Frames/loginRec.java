@@ -50,10 +50,7 @@ public class loginRec extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(getBounds());
-        setMaximumSize(getPreferredSize());
         setMinimumSize(getPreferredSize());
-
-        center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         email.setBackground(new java.awt.Color(240, 240, 240));
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -62,21 +59,16 @@ public class loginRec extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        center.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 250, 216, 41));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/username.png"))); // NOI18N
-        center.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 259, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/username.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/padlock.png"))); // NOI18N
-        center.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 332, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/padlock.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("RECRUTEUR LOGIN");
-        center.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 172, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/icons/user.png"))); // NOI18N
-        center.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 26, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/user.png"))); // NOI18N
 
         login.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(102, 102, 102));
@@ -90,10 +82,55 @@ public class loginRec extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        center.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 431, 105, 31));
 
         password.setBackground(new java.awt.Color(240, 240, 240));
-        center.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 220, 40));
+
+        javax.swing.GroupLayout centerLayout = new javax.swing.GroupLayout(center);
+        center.setLayout(centerLayout);
+        centerLayout.setHorizontalGroup(
+            centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jLabel3))
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel1))
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel2)
+                .addGap(14, 14, 14)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(223, 223, 223)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        centerLayout.setVerticalGroup(
+            centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(49, 49, 49)
+                .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel4))
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel2))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,11 +138,11 @@ public class loginRec extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(center, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(center, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(center, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(center, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
