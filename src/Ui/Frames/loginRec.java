@@ -6,6 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoRecruiter;
+import App.Services.Ui.PatternService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -149,32 +150,22 @@ public class loginRec extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",Pattern.CASE_INSENSITIVE);
-    
-    public static boolean validate(String emailstr)
-    {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailstr);
-        return matcher.find();
-    }
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
        
-        boolean b = validate(email.getText());
-        if(!b)
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+
+        if(!PatternService.validateEmail(email.getText()))
         {
             JOptionPane.showMessageDialog(this,"Email Invalid","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else {
             try {
-            String SS = new String(password.getPassword()) ;
-            if(new DaoRecruiter().getAdmin(email.getText(),SS)) {
-                dispose();
-                new mainRecruit().setVisible(true);        
-            }
-            else {
-                JOptionPane.showMessageDialog(this,"Email ou Password incorrect","Erreur",JOptionPane.ERROR_MESSAGE);
-            }
+                if(new DaoRecruiter().getAdmin(email.getText(),new String(password.getPassword()))) {
+                    dispose();
+                    new mainRecruit().setVisible(true);        
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"Email ou Password incorrect","Erreur",JOptionPane.ERROR_MESSAGE);
+                }
             } catch(Exception e) {
                 System.out.println(e.getMessage());
             }

@@ -24,8 +24,9 @@ public class mainRecruit extends javax.swing.JFrame {
      * Creates new form mainRecruit
      */
     public mainRecruit() {
-        this.setResizable(false);
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         candidat = new AfficheCandidat();
         clt = new Clients();
         emp = new employes();
