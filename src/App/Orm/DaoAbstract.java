@@ -83,6 +83,33 @@ abstract public class DaoAbstract {
         return r;
     } 
     
+    public List getSqlQuery(String SqlQuery) {
+     List resultList = null;
+        try {
+            session.beginTransaction();
+            resultList = session.createSQLQuery(SqlQuery).list();
+            session.getTransaction().commit();
+
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+        return resultList;   
+    }
+    
+    public int UpdateQuery(String query) {
+        int r = 0 ;
+        try {
+            session.beginTransaction();
+            Query q = session.createSQLQuery(query) ;
+            r = q.executeUpdate() ;
+            session.getTransaction().commit();
+
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+        return r;
+    } 
+    
     public List getHqlQuery(String query){
         List resultList = null;
         try {

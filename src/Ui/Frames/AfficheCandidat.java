@@ -230,7 +230,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
-            CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
+            //CandidatesComparatorService.TestRuby(new Candidates("https://www.linkedin.com/in/ilias-naamane-a0bab3b0/")) ;
             if(FieldValidate()) {
                 ActivateButton(false);
                 FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
