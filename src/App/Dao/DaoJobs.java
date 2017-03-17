@@ -5,7 +5,7 @@
  */
 
 
-package App.Orm;
+package App.Dao;
 
 import OrmMapping.Jobs;
 import java.util.List;

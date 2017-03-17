@@ -5,7 +5,7 @@
  */
 package App.Services.Ui;
 
-import App.Orm.DaoCandidatesEntretien;
+import App.Dao.DaoCandidatesEntretien;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesEntretien;
 import OrmMapping.Jobs;

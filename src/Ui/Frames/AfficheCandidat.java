@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Ui.Frames;
-import App.Orm.DaoCandidates;
-import App.Orm.DaoJobs;
+import App.Dao.DaoCandidates;
+import App.Dao.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Mail.MailService;
 import App.Services.Ui.PatternService;

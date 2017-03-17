@@ -6,9 +6,9 @@ package App ;
  */
 
 
-import App.Orm.DaoCandidates;
-import App.Orm.DaoJobs;
-import App.Orm.DaoRecruiter;
+import App.Dao.DaoCandidates;
+import App.Dao.DaoJobs;
+import App.Dao.DaoRecruiter;
 import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;

@@ -6,7 +6,7 @@
 package Ui.Frames;
 
 
-import App.Orm.DaoCandidates;
+import App.Dao.DaoCandidates;
 import App.Services.Ui.ServiceEmployes;
 import OrmMapping.Candidates;
 import com.alee.laf.WebLookAndFeel;
