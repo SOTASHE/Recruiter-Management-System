@@ -12,9 +12,30 @@ import App.Services.Ui.PatternService;
 import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import com.sun.jndi.toolkit.url.Uri;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 /**
  *
  * @author Sony
@@ -31,9 +52,10 @@ public class AfficheCandidat extends javax.swing.JPanel {
     public AfficheCandidat() {
         initComponents();
         Refresh();
-        
     }
-
+    
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -228,6 +250,8 @@ public class AfficheCandidat extends javax.swing.JPanel {
         if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
         return b1 && b2 && b3 ;
     }
+    
+    
      
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
@@ -243,6 +267,69 @@ public class AfficheCandidat extends javax.swing.JPanel {
         catch (NullPointerException n) {
             JOptionPane.showMessageDialog(tCandidat,"Veuillez spécifier un Job","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         }
+        
+        tCandidat.addMouseListener(new MouseAdapter() {
+           /* public  void openWebpage(Uri uri) {
+                Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+                    try {
+                        desktop.browse(uri);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }*/
+
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = tCandidat.rowAtPoint(new Point(e.getX(), e.getY()));
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                System.out.println(row + " " + col);
+
+                String url = (String) tCandidat.getModel().getValueAt(row, col);
+                System.out.println(url + " was clicked");
+                URI uri;
+                try {
+                     uri = new URI(url);
+                    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                    desktop.browse(uri);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
+                
+                // DO here what you want to do with your url
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                if (col == 0) {
+                    tCandidat.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                if (col != 0) {
+                    tCandidat.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                }
+            }
+        });
+
+        tCandidat.getColumnModel().getColumn(5).setCellRenderer(new TableCellRenderer() {
+
+            @Override
+            public Component getTableCellRendererComponent(JTable table, final Object value, boolean arg2,
+                    boolean arg3, int arg4, int arg5) {
+                final JLabel lab = new JLabel("<html><a href=\"" + value + "\">" + value + "</a>");
+                return lab;
+            }
+        });
         /*catch(JSONException j) {
             JOptionPane.showMessageDialog(tCandidat,"Erreur Librairie LinkedIn scraper manquante","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         } catch (IOException ex) {

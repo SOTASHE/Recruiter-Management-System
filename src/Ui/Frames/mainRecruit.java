@@ -314,7 +314,8 @@ public class mainRecruit extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
+           
     /**
      * @param args the command line arguments
      */
