@@ -63,7 +63,7 @@ public class CandidatsJob extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(candidatesJTable);
 
-        jLabel1.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 204));
         jLabel1.setText("Les Candidats");
 
