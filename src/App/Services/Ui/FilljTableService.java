@@ -175,6 +175,7 @@ public class FilljTableService {
         tableHeaders.add("age");
         tableHeaders.add("ville");
         tableHeaders.add("email");
+        tableHeaders.add("Linkedin URL");
 
         for (Object o : L) {
             Candidates C = (Candidates) o;

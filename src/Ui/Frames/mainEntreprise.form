@@ -196,6 +196,9 @@
                 <Property name="text" type="java.lang.String" value="Employe"/>
                 <Property name="iconTextGap" type="int" value="20"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="employeActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ajout">
               <Properties>

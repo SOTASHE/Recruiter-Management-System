@@ -126,6 +126,11 @@ public class mainEntreprise extends javax.swing.JFrame {
         employe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/employes.png"))); // NOI18N
         employe.setText("Employe");
         employe.setIconTextGap(20);
+        employe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeActionPerformed(evt);
+            }
+        });
 
         ajout.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         ajout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/plus-button.png"))); // NOI18N
@@ -275,6 +280,14 @@ public class mainEntreprise extends javax.swing.JFrame {
         joob.setVisible(true);
         emp.setVisible(false);
     }//GEN-LAST:event_jobActionPerformed
+
+    private void employeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeActionPerformed
+        offre.setVisible(false);
+        add.setVisible(false);
+        stat.setVisible(false);
+        joob.setVisible(false);
+        emp.setVisible(true);
+    }//GEN-LAST:event_employeActionPerformed
 
     /**
      * @param args the command line arguments
