@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Orm.DaoJobs;
+import App.Dao.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Ui.ConfirmeDialog;
 import App.Services.Ui.ServiceJobEnCours;

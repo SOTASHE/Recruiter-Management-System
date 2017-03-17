@@ -5,9 +5,9 @@
  */
 package App.Services.Ui;
 
-import App.Orm.DaoCandidatesEntretien;
-import App.Orm.DaoJobDescription;
-import App.Orm.DaoJobs;
+import App.Dao.DaoCandidatesEntretien;
+import App.Dao.DaoJobDescription;
+import App.Dao.DaoJobs;
 import OrmMapping.Clients;
 import OrmMapping.JobDescription;
 import OrmMapping.Jobs;

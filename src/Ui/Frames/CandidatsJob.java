@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Orm.DaoCandidatesEntretien;
+import App.Dao.DaoCandidatesEntretien;
 import App.Services.Ui.ConfirmeDialog;
 import App.Services.Ui.ServiceCandidatsJob;
 import javax.swing.JOptionPane;

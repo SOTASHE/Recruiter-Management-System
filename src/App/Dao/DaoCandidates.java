@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Orm;
+package App.Dao;
 
 import OrmMapping.Candidates;
 import java.util.List;
