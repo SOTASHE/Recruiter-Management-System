@@ -164,7 +164,7 @@ public class LoginEntre extends javax.swing.JFrame {
             try {
                 if (new DaoClients().isConnect(email.getText(),new String(pass.getPassword()))) {
                     dispose();
-                    new offreEmploi().setVisible(true);
+                    new mainEntreprise().setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(this, "Email ou Password incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }

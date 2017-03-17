@@ -16,32 +16,32 @@ import java.awt.GridBagLayout;
 public class mainEntreprise extends javax.swing.JFrame {
 
     GridBagLayout layout = new GridBagLayout();
-    offreEmploi offre;
-    statisticsEntreprise stat;
     ajoutOffre add;
+    JobEntreprise joob;
+    EmpEntreprise emp;
     /**
      * Creates new form mainEntreprise
      */
     public mainEntreprise() {
         this.setResizable(false);
         initComponents();
-        offre = new offreEmploi();
-        stat = new statisticsEntreprise();
+        joob = new JobEntreprise();
+        emp = new EmpEntreprise();
         add = new ajoutOffre();
         dynamic.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
         c.gridy = 0;
-        dynamic.add(offre,c);
-        c.gridx = 0;
-        c.gridy = 0;
-        dynamic.add(stat,c);
-        c.gridx = 0;
-        c.gridy = 0;
         dynamic.add(add,c);
-        offre.setVisible(true);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(joob,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        dynamic.add(emp,c);
         add.setVisible(false);
-        stat.setVisible(false);
+        joob.setVisible(true);
+        emp.setVisible(false);
     }
 
     /**
@@ -55,12 +55,10 @@ public class mainEntreprise extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        statistics = new javax.swing.JButton();
         dashbord = new javax.swing.JButton();
         logout = new javax.swing.JButton();
-        job = new javax.swing.JButton();
         employe = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        ajout = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         dynamic = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -69,16 +67,6 @@ public class mainEntreprise extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1110, 650));
-
-        statistics.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
-        statistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/stat.png"))); // NOI18N
-        statistics.setText("Statistiques");
-        statistics.setIconTextGap(20);
-        statistics.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statisticsActionPerformed(evt);
-            }
-        });
 
         dashbord.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/dashboard.png"))); // NOI18N
@@ -100,23 +88,23 @@ public class mainEntreprise extends javax.swing.JFrame {
             }
         });
 
-        job.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
-        job.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/jobsearch.png"))); // NOI18N
-        job.setText("Job");
-        job.setIconTextGap(20);
-
         employe.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         employe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/employes.png"))); // NOI18N
         employe.setText("Employe");
         employe.setIconTextGap(20);
-
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/plus-button.png"))); // NOI18N
-        jButton1.setText("Ajouter Offre");
-        jButton1.setIconTextGap(15);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        employe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                employeActionPerformed(evt);
+            }
+        });
+
+        ajout.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        ajout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/plus-button.png"))); // NOI18N
+        ajout.setText("Ajouter Offre");
+        ajout.setIconTextGap(15);
+        ajout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajoutActionPerformed(evt);
             }
         });
 
@@ -127,29 +115,24 @@ public class mainEntreprise extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashbord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(job, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(statistics, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(employe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(employe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ajout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dashbord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addComponent(dashbord, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(job, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(45, 45, 45)
+                .addComponent(ajout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addComponent(employe, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(statistics, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(45, 45, 45)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/logo.PNG"))); // NOI18N
@@ -167,8 +150,9 @@ public class mainEntreprise extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout dynamicLayout = new javax.swing.GroupLayout(dynamic);
@@ -221,8 +205,10 @@ public class mainEntreprise extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void dashbordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbordActionPerformed
-        offre.setVisible(true);
-        stat.setVisible(false);
+      
+        add.setVisible(false);
+        joob.setVisible(true);
+        emp.setVisible(false);
     }//GEN-LAST:event_dashbordActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
@@ -232,17 +218,19 @@ public class mainEntreprise extends javax.swing.JFrame {
         new LoginEntre().setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
 
-    private void statisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsActionPerformed
-        add.setVisible(false);
-        offre.setVisible(false);
-        stat.setVisible(true);
-    }//GEN-LAST:event_statisticsActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
+       
         add.setVisible(true);
-        offre.setVisible(false);
-        stat.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        joob.setVisible(false);
+        emp.setVisible(false);
+    }//GEN-LAST:event_ajoutActionPerformed
+
+    private void employeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeActionPerformed
+        
+        add.setVisible(false);
+        joob.setVisible(false);
+        emp.setVisible(true);
+    }//GEN-LAST:event_employeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,18 +271,16 @@ public class mainEntreprise extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ajout;
     private javax.swing.JButton dashbord;
     private javax.swing.JPanel dynamic;
     private javax.swing.JButton employe;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton job;
     private javax.swing.JButton logout;
-    private javax.swing.JButton statistics;
     // End of variables declaration//GEN-END:variables
 }
