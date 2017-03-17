@@ -7,10 +7,8 @@
 
 package App.Orm;
 
-import static App.Orm.DaoAbstract.session;
 import OrmMapping.Jobs;
 import java.util.List;
-import org.hibernate.Query;
 
 /**
  *
@@ -52,11 +50,6 @@ public class DaoJobs extends DaoAbstract {
    
     public List getJobs() {
        return super.getHqlQuery("from Jobs order by status desc , id desc ");
-    }
-
-    @Override
-    public void update(Object oldObj, Object newObj) {
-       
     }
     
     public void updateStatus(int idJob) {

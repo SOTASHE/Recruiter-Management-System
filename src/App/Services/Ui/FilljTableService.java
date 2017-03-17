@@ -6,6 +6,7 @@
 package App.Services.Ui;
 
 import App.Orm.DaoCandidates;
+import App.Orm.DaoCandidatesEntretien;
 import App.Orm.DaoClients;
 import App.Orm.DaoJobs;
 import OrmMapping.Candidates;
@@ -23,9 +24,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FilljTableService {
     
-    public static void displayCandidatesWithInterviewByJob(JTable T,int idJob){
+    
+    public static void nextInterviewPhase(int idCandidat,int idJob){
+        DaoCandidatesEntretien de = new DaoCandidatesEntretien();
+        int phase = de.getPhaseById(idCandidat, idJob);
+        de.updatePhase(idCandidat, idJob, ++phase);
+    }
+    
+    
+    /**
+     * method to delete Candidat from list of Candidates during the interview process
+     * @param idCandidat 
+     */
+    public static void removeCandidateFromInterview(int idCandidat){
         DaoCandidates dc = new DaoCandidates();
-        List L = dc.getCandidatesWithInterviewByJob(idJob);
+        dc.delete(idCandidat);
+    }
+    
+    /**
+     * update candidate interview phase
+     * @param idCandidat 
+     */
+    public static void updateCandidateInterviewPhase(int idCandidat,int phase){
+        
+    }
+    
+    public static void displayCandidatesWithInterviewByJob(JTable T,int idJob){
+        DaoCandidatesEntretien de = new DaoCandidatesEntretien();
+        List L = de.getCandidatesWithInterviewByJob(idJob);
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("Id");
         tableHeaders.add("Nom");

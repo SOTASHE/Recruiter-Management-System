@@ -12,14 +12,19 @@ import App.Services.Ui.FilljTableService;
  * @author regragui
  */
 public class CandidatsJob extends javax.swing.JFrame {
-
+    
+    private int idJob;
+    
     /**
      * Creates new form Candidats
      */
     public CandidatsJob(int id) {
+        int idJob = id;
         initComponents();
         this.setLocationRelativeTo(null);
-        FilljTableService.displayCandidatesWithInterviewByJob(jTable1,id);
+        FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,id);
+        //active(true);
+        
     }
 
     /**
@@ -32,14 +37,14 @@ public class CandidatsJob extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        candidatesJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        editButton = new javax.swing.JToggleButton();
+        deleteButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        candidatesJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -50,17 +55,32 @@ public class CandidatsJob extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        candidatesJTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                candidatesJTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(candidatesJTable);
 
         jLabel1.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 204));
         jLabel1.setText("Les Candidats");
 
-        jToggleButton1.setText("Modifier");
-        jToggleButton1.setEnabled(false);
+        editButton.setText("Phase suivante");
+        editButton.setEnabled(false);
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
-        jToggleButton2.setText("Supprimer");
-        jToggleButton2.setEnabled(false);
+        deleteButton.setText("Supprimer");
+        deleteButton.setEnabled(false);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,9 +93,9 @@ public class CandidatsJob extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -92,14 +112,40 @@ public class CandidatsJob extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
+                    .addComponent(editButton)
+                    .addComponent(deleteButton))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+         int row = candidatesJTable.getSelectedRow();
+         FilljTableService.removeCandidateFromInterview((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())));
+         Refresh(idJob);
+    }//GEN-LAST:event_deleteButtonActionPerformed
+    private void active(boolean b){
+        editButton.setEnabled(b);
+        deleteButton.setEnabled(b);
+    }
+    private void candidatesJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesJTableMouseClicked
+        // TODO add your handling code here:
+        if(candidatesJTable.getSelectedRow() != -1)
+            active(true);
+        else
+        active(false);
+    }//GEN-LAST:event_candidatesJTableMouseClicked
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButtonActionPerformed
+    
+    private void Refresh(int idJob){
+       candidatesJTable.removeAll();
+       FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,idJob); 
+    }
     /**
      * @param args the command line arguments
      */
@@ -133,10 +179,10 @@ public class CandidatsJob extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable candidatesJTable;
+    private javax.swing.JToggleButton deleteButton;
+    private javax.swing.JToggleButton editButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }
