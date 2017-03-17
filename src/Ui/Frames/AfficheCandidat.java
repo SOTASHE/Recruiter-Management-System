@@ -325,7 +325,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }//GEN-LAST:event_inviterActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
-
+        
     }//GEN-LAST:event_jobsActionPerformed
 
     private void tCandidatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tCandidatMouseClicked
