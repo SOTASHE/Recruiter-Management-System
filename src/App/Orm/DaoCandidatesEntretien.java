@@ -51,7 +51,7 @@ public class DaoCandidatesEntretien extends DaoAbstract {
      */
     public List getCandidatesWithInterviewByJob(int idJob) {
         return getHqlQuery("select c.id,c.name,c.email, ce.phase from Candidates c "
-                + "join c.candidatesEntretien ce  where ce.jobs.id =" + idJob);
+                + "join c.candidatesEntretiens ce  where ce.jobs.id =" + idJob);
     }
     
     /**
