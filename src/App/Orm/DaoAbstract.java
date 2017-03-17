@@ -48,14 +48,6 @@ abstract public class DaoAbstract {
         }
     }
 
-    public void update(Object oldObj, Object newObj) {
-              
-    }
-
-    public void delete(Object obj) {
-
-    }
-    
     public List getSqlQuery(String SqlQuery) {
      List resultList = null;
         try {
@@ -83,8 +75,6 @@ abstract public class DaoAbstract {
         return r;
     } 
     
-
-
     
     public List getHqlQuery(String query){
         List resultList = null;
