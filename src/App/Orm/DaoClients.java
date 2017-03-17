@@ -36,4 +36,5 @@ public class DaoClients extends DaoAbstract {
                 "email", email, "pass", pass);
         return !L.isEmpty();
     }
+    
 }

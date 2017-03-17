@@ -155,7 +155,7 @@ public class loginRec extends javax.swing.JFrame {
 
        
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-
+                   
         if(!PatternService.validateEmail(email.getText()))
         {
             JOptionPane.showMessageDialog(this,"Email Invalid","Warning",JOptionPane.WARNING_MESSAGE);
