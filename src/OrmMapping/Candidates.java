@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 16, 2017 7:03:51 PM by Hibernate Tools 4.3.1
+// Generated Mar 17, 2017 5:20:45 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,8 +17,8 @@ public class Candidates  implements java.io.Serializable {
      private String ville;
      private String email;
      private String linkedinUrl;
+     private Set candidatesEntretiens = new HashSet(0);
      private Set candidatesJobses = new HashSet(0);
-     private CandidatesEntretien candidatesEntretien;
 
     public Candidates() {
     }
@@ -30,14 +30,14 @@ public class Candidates  implements java.io.Serializable {
         this.ville = ville;
         this.email = email;
     }
-    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesJobses, CandidatesEntretien candidatesEntretien) {
+    public Candidates(String name, int age, String ville, String email, String linkedinUrl, Set candidatesEntretiens, Set candidatesJobses) {
        this.name = name;
        this.age = age;
        this.ville = ville;
        this.email = email;
        this.linkedinUrl = linkedinUrl;
+       this.candidatesEntretiens = candidatesEntretiens;
        this.candidatesJobses = candidatesJobses;
-       this.candidatesEntretien = candidatesEntretien;
     }
    
     public Integer getId() {
@@ -82,19 +82,19 @@ public class Candidates  implements java.io.Serializable {
     public void setLinkedinUrl(String linkedinUrl) {
         this.linkedinUrl = linkedinUrl;
     }
+    public Set getCandidatesEntretiens() {
+        return this.candidatesEntretiens;
+    }
+    
+    public void setCandidatesEntretiens(Set candidatesEntretiens) {
+        this.candidatesEntretiens = candidatesEntretiens;
+    }
     public Set getCandidatesJobses() {
         return this.candidatesJobses;
     }
     
     public void setCandidatesJobses(Set candidatesJobses) {
         this.candidatesJobses = candidatesJobses;
-    }
-    public CandidatesEntretien getCandidatesEntretien() {
-        return this.candidatesEntretien;
-    }
-    
-    public void setCandidatesEntretien(CandidatesEntretien candidatesEntretien) {
-        this.candidatesEntretien = candidatesEntretien;
     }
 
 

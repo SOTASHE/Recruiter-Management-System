@@ -37,7 +37,6 @@ public class ServiceJobEnCours {
         Jd.setJobs(j);
         DaoJobDescription Djd = new DaoJobDescription();
         Djd.create(Jd);
-
     }
 
     public static boolean VerifierPhaseValide(int idJob) {
