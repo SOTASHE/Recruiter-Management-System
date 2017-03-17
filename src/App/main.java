@@ -5,12 +5,10 @@ package App ;
  * and open the template in the editor.
  */
 
-import com.toedter.calendar.JCalendar;
+
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Orm.DaoRecruiter;
-import App.Services.Ui.FilljTableService;
-import App.Services.Ui.InsertService;
 import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;
@@ -28,7 +26,7 @@ public class main {
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
        // InsertService.insertCandidateEntretien(2,1);
-  JFrame frame = new JFrame("Test JCalendar");
+ /* JFrame frame = new JFrame("Test JCalendar");
           JCalendar dateChooser = new JCalendar();
           frame.add(dateChooser);
           frame.pack();
@@ -37,7 +35,7 @@ public class main {
           frame.setVisible(true) ;
           FilljTableService.nextInterviewPhase(1, 1);
 
-        FilljTableService.nextInterviewPhase(1, 1);
+        FilljTableService.nextInterviewPhase(1, 1);*/
 //InsertService.insertCandidateEntretien(2,1);
            
         /*List<Object> L = new DaoCandidates().ge

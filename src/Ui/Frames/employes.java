@@ -7,7 +7,7 @@ package Ui.Frames;
 
 
 import App.Orm.DaoCandidates;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ServiceEmployes;
 import OrmMapping.Candidates;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
@@ -27,7 +27,7 @@ public class employes extends javax.swing.JPanel {
     }
 
     public void init(){
-        FilljTableService.displayEmployees(employeesJtable);
+        ServiceEmployes.displayEmployees(employeesJtable);
     }
     /**
      * This method is called from within the constructor to initialize the form.

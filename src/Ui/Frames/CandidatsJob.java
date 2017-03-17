@@ -7,7 +7,7 @@ package Ui.Frames;
 
 import App.Orm.DaoCandidatesEntretien;
 import App.Services.Ui.ConfirmeDialog;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ServiceCandidatsJob;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +25,7 @@ public class CandidatsJob extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.idJob = id;
-        FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,this.idJob);
+        ServiceCandidatsJob.displayCandidatesWithInterviewByJob(candidatesJTable,this.idJob);
         //active(true);    
     }
 
@@ -65,7 +65,7 @@ public class CandidatsJob extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(candidatesJTable);
 
-        jLabel1.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 204));
         jLabel1.setText("Les Candidats");
 
@@ -152,7 +152,7 @@ public class CandidatsJob extends javax.swing.JFrame {
         if(ConfirmeDialog.getReponse(null,"Voulez vous vraiment passer l'enretien a l'etape suivante",
                 "Information",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE)) {
             int idCandidates = (int) candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(),0) ;
-            FilljTableService.nextInterviewPhase(idCandidates,idJob) ;
+            ServiceCandidatsJob.nextInterviewPhase(idCandidates,idJob) ;
             Refresh(idJob);
         }
     }//GEN-LAST:event_editButtonActionPerformed
@@ -161,7 +161,7 @@ public class CandidatsJob extends javax.swing.JFrame {
        candidatesJTable.clearSelection();
        candidatesJTable.removeAll();
        this.Active(false);
-       FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,idJob); 
+       ServiceCandidatsJob.displayCandidatesWithInterviewByJob(candidatesJTable,idJob); 
     }
     /**
      * @param args the command line arguments

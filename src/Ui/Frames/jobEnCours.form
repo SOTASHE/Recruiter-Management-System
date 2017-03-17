@@ -36,9 +36,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnVisualiser" min="-2" pref="117" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnValider" min="-2" pref="135" max="-2" attributes="0"/>
+                      <Component id="btnVisualiser" min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="btnValider" min="-2" pref="118" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -65,10 +65,10 @@
               <Component id="jScrollPane1" min="-2" pref="320" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnVisualiser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnValider" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVisualiser" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="btnValider" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -121,8 +121,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnVisualiser">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Ui/Resources/icons/eye.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Visualiser"/>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="15"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisualiserActionPerformed"/>
@@ -130,8 +134,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnValider">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Ui/Resources/icons/checked.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Valider"/>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="20"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValiderActionPerformed"/>

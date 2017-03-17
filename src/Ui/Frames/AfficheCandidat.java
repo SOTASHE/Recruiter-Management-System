@@ -5,13 +5,11 @@
  */
 package Ui.Frames;
 import App.Orm.DaoCandidates;
-import com.toedter.calendar.* ;
 import App.Orm.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
-import App.Services.Ui.FilljTableService;
 import App.Services.Mail.MailService;
-import App.Services.Ui.InsertService;
 import App.Services.Ui.PatternService;
+import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import java.text.DateFormat;
@@ -70,6 +68,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jTextField4.setToolTipText("");
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +77,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
 
         inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
         inviter.setEnabled(false);
         inviter.addActionListener(new java.awt.event.ActionListener() {
@@ -149,9 +149,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(chercher)))
-                .addGap(39, 39, 39))
+                .addGap(31, 31, 31))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +187,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(inviter)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(146, Short.MAX_VALUE)
@@ -230,7 +230,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
             //CandidatesComparatorService.TestRuby(c) ;
             if(FieldValidate()) {
                 ActivateButton(false);
-                FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+                ServiceAfficheCandidat.displaySearchCandidates(tCandidat, getCandidat());
             }
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }
@@ -266,7 +266,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                   //Mail();
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
-                    InsertService.insertCandidateEntretien(idCandidate,idJob);
+                    ServiceAfficheCandidat.insertCandidateEntretien(idCandidate,idJob);
                    
                 }
                 catch(Exception Me){
