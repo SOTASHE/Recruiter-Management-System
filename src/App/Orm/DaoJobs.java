@@ -47,6 +47,10 @@ public class DaoJobs extends DaoAbstract {
     public List getCurrentJobs(){
        return super.getHqlQuery("from Jobs j where j.status <> -1");
     }
+    
+   /* public List getValidateJobs(int id) {
+        return super.getHqlQuery("select j.id,j.profil from Jobs join candidates_entretien ce where j.id ="+id +" j. = and status = 1 and ")
+    }*/
    
     public List getJobs() {
        return super.getHqlQuery("select j.id,j.profil,jc.name,j.status from Jobs j join j.clients jc  order by status desc , j.id desc ");

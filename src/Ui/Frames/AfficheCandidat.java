@@ -12,9 +12,12 @@ import App.Services.Ui.PatternService;
 import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import java.awt.Color;
+import java.awt.TextField;
 import java.text.DateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author Sony
@@ -65,7 +68,33 @@ public class AfficheCandidat extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jTextField4.setForeground(java.awt.Color.gray);
+        jTextField4.setText("ex:Rabat");
         jTextField4.setToolTipText("");
+        jTextField4.setDisabledTextColor(java.awt.Color.lightGray);
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
+        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField4MouseClicked(evt);
+            }
+        });
+
+        secondaire.setForeground(java.awt.Color.gray);
+        secondaire.setText("ex:Laravel,Php");
+        secondaire.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                secondaireFocusLost(evt);
+            }
+        });
+        secondaire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                secondaireMouseClicked(evt);
+            }
+        });
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/search.png"))); // NOI18N
@@ -89,6 +118,19 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jobs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobsActionPerformed(evt);
+            }
+        });
+
+        principale.setForeground(java.awt.Color.gray);
+        principale.setText("ex:C#,C++");
+        principale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                principaleFocusLost(evt);
+            }
+        });
+        principale.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                principaleMouseClicked(evt);
             }
         });
 
@@ -127,43 +169,41 @@ public class AfficheCandidat extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(81, 81, 81)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(chercher))
-                            .addComponent(jLabel1))
-                        .addGap(34, 34, 34))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(621, 621, 621)
-                                .addComponent(inviter)))
-                        .addContainerGap(20, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(82, 82, 82)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addGap(81, 81, 81))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(chercher))
+                        .addComponent(jLabel1))
+                    .addGap(34, 34, 34))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(11, 11, 11)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(20, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inviter)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -191,9 +231,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(inviter)
-                .addGap(20, 20, 20))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(121, Short.MAX_VALUE)
@@ -294,7 +334,49 @@ public class AfficheCandidat extends javax.swing.JPanel {
         }
         else ActivateButton(false) ;
     }//GEN-LAST:event_tCandidatMouseClicked
- public void Refresh(){
+
+    
+    private void PlaceHolder(String Text,Color C,JTextField T) {
+        T.setText(Text);
+        T.setForeground(C); 
+    }
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        if(jTextField4.getText().equals("")) {
+           PlaceHolder("ex:Rabat",Color.GRAY,jTextField4);
+        }
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+       if(jTextField4.getText().equals("ex:Rabat")) {
+             PlaceHolder("",Color.BLACK,jTextField4);
+        }
+    }//GEN-LAST:event_jTextField4MouseClicked
+
+    private void principaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principaleMouseClicked
+         if(principale.getText().equals("ex:C#,C++")) {
+             PlaceHolder("",Color.BLACK,principale);
+        }
+    }//GEN-LAST:event_principaleMouseClicked
+
+    private void principaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_principaleFocusLost
+       if(principale.getText().equals("")) {
+           PlaceHolder("ex:C#,C++",Color.GRAY,principale);
+        }
+    }//GEN-LAST:event_principaleFocusLost
+
+    private void secondaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondaireMouseClicked
+       if(secondaire.getText().equals("ex:Laravel,Php")) {
+             PlaceHolder("",Color.BLACK,secondaire);
+       }
+    }//GEN-LAST:event_secondaireMouseClicked
+
+    private void secondaireFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_secondaireFocusLost
+        if(secondaire.getText().equals("")) {
+           PlaceHolder("ex:Laravel,Php",Color.GRAY,secondaire);
+        }
+    }//GEN-LAST:event_secondaireFocusLost
+    
+    public void Refresh(){
        jobs.removeAllItems();
        DaoJobs dj = new DaoJobs();
        List L = dj.getCurrentJobs();

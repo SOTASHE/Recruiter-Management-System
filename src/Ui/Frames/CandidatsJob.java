@@ -8,6 +8,7 @@ package Ui.Frames;
 import App.Orm.DaoCandidatesEntretien;
 import App.Services.Ui.ConfirmeDialog;
 import App.Services.Ui.ServiceCandidatsJob;
+import com.alee.laf.WebLookAndFeel;
 import javax.swing.JOptionPane;
 
 /**
@@ -181,19 +182,25 @@ public class CandidatsJob extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CandidatsJob.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CandidatsJob.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CandidatsJob.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CandidatsJob.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         //</editor-fold>
 
         /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
+                new CandidatsJob(1).setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

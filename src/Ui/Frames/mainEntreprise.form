@@ -79,8 +79,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" pref="99" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,12 +95,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="employe" max="32767" attributes="0"/>
                           <Component id="ajout" max="32767" attributes="0"/>
-                          <Component id="dashbord" alignment="1" max="32767" attributes="0"/>
-                          <Component id="job" alignment="0" max="32767" attributes="0"/>
-                          <Component id="statistics" alignment="0" pref="185" max="32767" attributes="0"/>
+                          <Component id="dashbord" alignment="1" pref="185" max="32767" attributes="0"/>
                           <Component id="logout" alignment="0" max="32767" attributes="0"/>
-                          <Component id="employe" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -108,38 +107,20 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="dashbord" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
-                      <Component id="job" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="employe" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="ajout" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="statistics" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="employe" min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="logout" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="statistics">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="12" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Ui/Resources/icons/stat.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Statistiques"/>
-                <Property name="iconTextGap" type="int" value="20"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statisticsActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="dashbord">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -168,21 +149,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="job">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="12" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Ui/Resources/icons/jobsearch.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Job"/>
-                <Property name="iconTextGap" type="int" value="20"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jobActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="employe">

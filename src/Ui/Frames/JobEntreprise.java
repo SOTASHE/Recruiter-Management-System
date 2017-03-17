@@ -56,7 +56,7 @@ public class JobEntreprise extends javax.swing.JPanel {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jLabel1.setText("Job");
+        jLabel1.setText("Offre d'emploi en cours");
 
         visualiser.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         visualiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/eye.png"))); // NOI18N

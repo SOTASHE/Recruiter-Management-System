@@ -5,6 +5,8 @@
  */
 package Ui.Frames;
 
+import com.alee.laf.WebLookAndFeel;
+
 /**
  *
  * @author Sony
@@ -36,6 +38,7 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
         jLabel1.setText("Les Candidats");
 
         candidatesJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,19 +117,22 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JobCandidatsEntre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JobCandidatsEntre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JobCandidatsEntre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JobCandidatsEntre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainEntreprise.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new JobCandidatsEntre().setVisible(true);
             }
         });

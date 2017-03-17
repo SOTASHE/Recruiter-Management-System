@@ -6,7 +6,9 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
+import App.Services.Connexion.ConnexionClient;
 import App.Services.Ui.PatternService;
+import com.alee.laf.WebLookAndFeel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -20,11 +22,19 @@ public class LoginEntre extends javax.swing.JFrame {
     /**
      * Creates new form LoginEntre
      */
+    
+    private static int idEntreprise ;
+    
+    
+    
     public LoginEntre() {
         this.setResizable(false);
         initComponents();
     }
-
+  
+    public static int getIdEntreprise() {
+        return idEntreprise ;
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,12 +108,9 @@ public class LoginEntre extends javax.swing.JFrame {
                             .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(centerLayout.createSequentialGroup()
                                 .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(centerLayout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6))
-                                    .addGroup(centerLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(6, 6, 6)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addGap(6, 6, 6)
                                 .addGroup(centerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(pass, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(email)))))
@@ -157,14 +164,16 @@ public class LoginEntre extends javax.swing.JFrame {
     }//GEN-LAST:event_emailActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
- 
+
         if (!PatternService.validateEmail(email.getText())) {
             JOptionPane.showMessageDialog(this, "Email Invalid", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                if (new DaoClients().isConnect(email.getText(),new String(pass.getPassword()))) {
+                int id = ConnexionClient.isConnect(email.getText(),new String(pass.getPassword())) ;
+                if (id != -1) {
+                    idEntreprise = id ;
                     dispose();
-                    new offreEmploi().setVisible(true);
+                    new mainEntreprise().setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(this, "Email ou Password incorrect", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -209,6 +218,8 @@ public class LoginEntre extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                WebLookAndFeel.install(true);
+                WebLookAndFeel.setDecorateAllWindows(true);
                 new LoginEntre().setVisible(true);
             }
         });

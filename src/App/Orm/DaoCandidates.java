@@ -20,7 +20,7 @@ public class DaoCandidates extends DaoAbstract{
     }
    
     public List getAllByJob(int idJob){
-        return getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.id.jobsid ="+idJob);
+        return getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.id.jobsid ="+idJob );
     }
     
     
