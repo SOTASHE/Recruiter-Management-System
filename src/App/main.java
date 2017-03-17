@@ -5,24 +5,10 @@ package App ;
  * and open the template in the editor.
  */
 
-import App.Orm.DaoCandidates;
-import App.Orm.DaoJobs;
-import App.Orm.DaoRecruiter;
-import App.Services.Ui.InsertService;
-import OrmMapping.Jobs;
-import Ui.Services.StarRater;
-import java.io.BufferedReader;
+import com.toedter.calendar.JCalendar;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 
 /**
@@ -33,7 +19,15 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-        InsertService.insertCandidateEntretien(2,1);
+       // InsertService.insertCandidateEntretien(2,1);
+  JFrame frame = new JFrame("Test JCalendar");
+          JCalendar dateChooser = new JCalendar();
+          frame.add(dateChooser);
+          frame.pack();
+          //frame.add(jButton1);
+          frame.setLocationRelativeTo(null); // pour centrer
+          frame.setVisible(true);
+        
         /*List<Object> L = new DaoCandidates().ge
         LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
         /* JFrame frame = new JFrame();
@@ -109,5 +103,5 @@ public class main {
 
     /* DaoJobs D = new DaoJobs() ;
      D.updateStatus(1);*/
-    }
+}
 }

@@ -29,7 +29,8 @@ public class ChartService {
             autre = autre.subtract(valeur);
             pieDataset.setValue(nom+" "+ valeur.multiply(new BigDecimal(100)).setScale(2)+"%",valeur) ;
         }
-        if(autre.equals(new BigDecimal(0))) {
+        if(autre.floatValue() > 0) {
+            System.out.println(autre.intValue());
             pieDataset.setValue("autre"+" "+autre.multiply(new BigDecimal(100)).setScale(2)+"%",autre) ;
         }
         JFreeChart pieChart = ChartFactory.createPieChart3D(nomGraphe, 

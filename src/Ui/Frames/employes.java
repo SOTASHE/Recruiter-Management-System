@@ -52,6 +52,7 @@ public class employes extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        employeesJtable.setAutoCreateRowSorter(true);
         employeesJtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

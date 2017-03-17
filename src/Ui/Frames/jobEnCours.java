@@ -53,6 +53,7 @@ public class jobEnCours extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        JobsTable.setAutoCreateRowSorter(true);
         JobsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

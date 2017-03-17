@@ -5,9 +5,8 @@
  */
 package Ui.Frames;
 import App.Orm.DaoCandidates;
-import App.Orm.DaoCandidatesEntretien;
+import com.toedter.calendar.* ;
 import App.Orm.DaoJobs;
-import App.Services.Linkedin.CandidatesComparatorService;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Ui.FilljTableService;
 import App.Services.Mail.MailService;
@@ -15,11 +14,9 @@ import App.Services.Ui.InsertService;
 import App.Services.Ui.PatternService;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import java.text.DateFormat;
 import java.util.List;
-import java.io.IOException;
-import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
-import org.json.JSONException;
 /**
  *
  * @author Sony
@@ -29,12 +26,14 @@ public class AfficheCandidat extends javax.swing.JPanel {
     DaoCandidates candidates = new DaoCandidates();
     DaoJobs daoJobs = new DaoJobs() ;
     int idJob ;
+    DateFormat df = DateFormat.getDateInstance() ;  
     /**
      * Creates new form AfficheCandidat
      */
     public AfficheCandidat() {
         initComponents();
         Refresh();
+        
     }
 
     /**
@@ -102,6 +101,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel2.setText("Ville");
 
+        tCandidat.setAutoCreateRowSorter(true);
         tCandidat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -153,14 +153,11 @@ public class AfficheCandidat extends javax.swing.JPanel {
                         .addComponent(chercher)))
                 .addGap(39, 39, 39))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inviter))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inviter, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -188,9 +185,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(inviter)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(146, Short.MAX_VALUE)
@@ -204,8 +201,12 @@ public class AfficheCandidat extends javax.swing.JPanel {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         return  JOptionPane.showConfirmDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")
                 ,"Message",dialogButton) == JOptionPane.YES_OPTION ;
-       
     }
+    
+    private void Mail() {
+       JOptionPane.showInputDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")) ;
+    }
+    
      private String getJobName(int idJob) {
         List L = daoJobs.findById(idJob) ;
         return ((Jobs)L.get(0)).getProfil() ;
@@ -260,14 +261,15 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 int idCandidate = (int) tCandidat.getValueAt(rowid,0) ;
                 try{
                     
-                    MailService.sendMail("Convocation pour passage d'entretien",
-                    MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                    //MailService.sendMail("Convocation pour passage d'entretien",
+                 //  MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                  Mail();
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                     InsertService.insertCandidateEntretien(idCandidate,idJob);
                    
                 }
-                catch(MessagingException Me){
+                catch(Exception Me){
                     JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr(MMe) "+name+"\n" +
                         "Veullez Verifier la connexion internet","Error",
                         JOptionPane.ERROR_MESSAGE);
