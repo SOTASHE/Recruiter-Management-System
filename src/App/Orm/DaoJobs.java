@@ -49,7 +49,7 @@ public class DaoJobs extends DaoAbstract {
     }
    
     public List getJobs() {
-       return super.getHqlQuery("from Jobs order by status desc , id desc ");
+       return super.getHqlQuery("select j.id,j.profil,jc.name,j.status from Jobs j join j.clients jc  order by status desc , j.id desc ");
     }
     
     public void updateStatus(int idJob) {

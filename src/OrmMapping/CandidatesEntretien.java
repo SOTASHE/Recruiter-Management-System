@@ -1,5 +1,5 @@
 package OrmMapping;
-// Generated Mar 16, 2017 7:03:51 PM by Hibernate Tools 4.3.1
+// Generated Mar 17, 2017 5:20:45 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package OrmMapping;
 public class CandidatesEntretien  implements java.io.Serializable {
 
 
-     private int candidatesid;
+     private Integer id;
      private Candidates candidates;
      private Jobs jobs;
      private int phase;
@@ -23,12 +23,12 @@ public class CandidatesEntretien  implements java.io.Serializable {
        this.phase = phase;
     }
    
-    public int getCandidatesid() {
-        return this.candidatesid;
+    public Integer getId() {
+        return this.id;
     }
     
-    public void setCandidatesid(int candidatesid) {
-        this.candidatesid = candidatesid;
+    public void setId(Integer id) {
+        this.id = id;
     }
     public Candidates getCandidates() {
         return this.candidates;

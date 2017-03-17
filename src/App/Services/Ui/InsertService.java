@@ -25,7 +25,7 @@ public class InsertService {
         c.setId(CandidateId);
         Jobs j = new Jobs();
         j.setId(JobId);
-        CandidatesEntretien ce = new CandidatesEntretien(c,j,1);
+        CandidatesEntretien ce = new CandidatesEntretien(c, j, JobId);
         DaoCandidatesEntretien dce = new DaoCandidatesEntretien();
         dce.create(ce);
     }
