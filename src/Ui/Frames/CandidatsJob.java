@@ -5,6 +5,7 @@
  */
 package Ui.Frames;
 
+import App.Orm.DaoCandidatesEntretien;
 import App.Services.Ui.FilljTableService;
 
 /**
@@ -19,7 +20,7 @@ public class CandidatsJob extends javax.swing.JFrame {
      * Creates new form Candidats
      */
     public CandidatsJob(int id) {
-        int idJob = id;
+         idJob = id;
         initComponents();
         this.setLocationRelativeTo(null);
         FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,id);
@@ -123,8 +124,8 @@ public class CandidatsJob extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
          int row = candidatesJTable.getSelectedRow();
-         FilljTableService.removeCandidateFromInterview((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())));
-         candidatesJTable.clearSelection();
+         new DaoCandidatesEntretien().delete(Integer.parseInt(candidatesJTable.getValueAt(row,0).toString()),idJob);
+         new DaoCandidatesEntretien().delete((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())),idJob);
          Refresh(idJob);
     }//GEN-LAST:event_deleteButtonActionPerformed
     private void active(boolean b){
@@ -133,14 +134,22 @@ public class CandidatsJob extends javax.swing.JFrame {
     }
     private void candidatesJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesJTableMouseClicked
         // TODO add your handling code here:
-        if(candidatesJTable.getSelectedRow() != -1)
+        if(candidatesJTable.getSelectedRow() != -1) {
             active(true);
-        else
-        active(false);
+            boolean b = candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(), 3).toString().equals("Validé") ; 
+            if(b) editButton.setEnabled(false);
+            else editButton.setEnabled(true);
+        }
+        else active(false);
     }//GEN-LAST:event_candidatesJTableMouseClicked
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        int id = (int) candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(), 0) ;
+        editButton.setEnabled(false);
+        FilljTableService.nextInterviewPhase(id,idJob);
+        Refresh(idJob);
+       
     }//GEN-LAST:event_editButtonActionPerformed
     
     private void Refresh(int idJob){

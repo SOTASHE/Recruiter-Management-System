@@ -6,6 +6,14 @@ package App ;
  */
 
 import com.toedter.calendar.JCalendar;
+import App.Orm.DaoCandidates;
+import App.Orm.DaoJobs;
+import App.Orm.DaoRecruiter;
+import App.Services.Ui.FilljTableService;
+import App.Services.Ui.InsertService;
+import OrmMapping.Jobs;
+import Ui.Services.StarRater;
+import java.io.BufferedReader;
 import java.io.IOException;
 import javax.swing.JFrame;
 import org.json.JSONException;
@@ -26,8 +34,10 @@ public class main {
           frame.pack();
           //frame.add(jButton1);
           frame.setLocationRelativeTo(null); // pour centrer
-          frame.setVisible(true);
-        
+          frame.setVisible(true) ;
+          FilljTableService.nextInterviewPhase(1, 1);
+//InsertService.insertCandidateEntretien(2,1);
+           
         /*List<Object> L = new DaoCandidates().ge
         LinkedinService.rateLinkedinProfil(c, "ddd", secondarySkills)
         /* JFrame frame = new JFrame();
