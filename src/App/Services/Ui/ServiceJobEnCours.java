@@ -55,45 +55,25 @@ public class ServiceJobEnCours {
     public static void displayJobs(JTable T) {
         DaoJobs dj = new DaoJobs();
         List L = dj.getJobs();
-
         Vector<String> tableHeaders = new Vector<String>();
-
         tableHeaders.add("id");
-
         tableHeaders.add("profil recherché");
-
-        tableHeaders.add("Entreprise");
-
+        tableHeaders.add("Entreprise") ;
         tableHeaders.add("Statut");
-
         Vector tableData = new Vector();
-
         for (Iterator it = L.iterator(); it.hasNext();) {
-
             Vector<Object> oneRow = new Vector<Object>();
-
             Object[] o = (Object[]) it.next();
-
             oneRow.add((int) o[0]);
-
             oneRow.add((String) o[1]);
-
             oneRow.add((String) o[2]);
-
             if ((int) o[3] == -1) {
-
                 oneRow.add("Validé");
-
             } else {
-
                 oneRow.add("En cours");
-
             }
-
             tableData.add(oneRow);
-
         }
-
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
 }
