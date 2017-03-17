@@ -55,4 +55,8 @@ public class DaoJobs extends DaoAbstract {
     public void updateStatus(int idJob) {
        super.UpdateQuery("update Jobs set status = -1 where id ="+idJob);
     } 
+    
+    public List getJobsValidByClient(int idClient){
+        return super.getHqlQuery("from Jobs j where j.clients.id= 1 and j.status = -1");
+    }
 }
