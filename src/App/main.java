@@ -36,6 +36,8 @@ public class main {
           frame.setLocationRelativeTo(null); // pour centrer
           frame.setVisible(true) ;
           FilljTableService.nextInterviewPhase(1, 1);
+
+        FilljTableService.nextInterviewPhase(1, 1);
 //InsertService.insertCandidateEntretien(2,1);
            
         /*List<Object> L = new DaoCandidates().ge

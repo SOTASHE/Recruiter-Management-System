@@ -123,9 +123,8 @@ public class CandidatsJob extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-         int row = candidatesJTable.getSelectedRow();
-         new DaoCandidatesEntretien().delete(Integer.parseInt(candidatesJTable.getValueAt(row,0).toString()),idJob);
-         new DaoCandidatesEntretien().delete((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())),idJob);
+        int row = candidatesJTable.getSelectedRow();
+        new DaoCandidatesEntretien().delete((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())),idJob);
          Refresh(idJob);
     }//GEN-LAST:event_deleteButtonActionPerformed
     private void active(boolean b){
