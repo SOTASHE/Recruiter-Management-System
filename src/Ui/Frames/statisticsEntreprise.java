@@ -5,23 +5,16 @@
  */
 package Ui.Frames;
 
-import App.Services.Stats.ChartService;
-import App.Services.Stats.StatsService;
-import com.alee.laf.WebLookAndFeel;
-import java.awt.GridLayout;
-import java.util.List;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 /**
  *
  * @author Sony
  */
-public class statistics extends javax.swing.JPanel {
+public class statisticsEntreprise extends javax.swing.JPanel {
 
     /**
-     * Creates new form statistics
+     * Creates new form statisticsEntreprise
      */
-    public statistics() {
+    public statisticsEntreprise() {
         initComponents();
     }
 
@@ -34,29 +27,29 @@ public class statistics extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator2 = new javax.swing.JSeparator();
+        feedback = new javax.swing.JButton();
+        plusCherch = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setMaximumSize(new java.awt.Dimension(780, 540));
         setMinimumSize(new java.awt.Dimension(780, 540));
         setPreferredSize(new java.awt.Dimension(780, 540));
 
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        feedback.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        feedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/analytics.png"))); // NOI18N
+        feedback.setText("    Statistiques de feedbacks fournipar les entreprises clientes");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/analytics.png"))); // NOI18N
-        jButton2.setText("    Statistiques de feedbacks fournipar les entreprises clientes");
-
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/analytics.png"))); // NOI18N
-        jButton1.setText("     Statistiques des profiles les plus recherches");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        plusCherch.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        plusCherch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/analytics.png"))); // NOI18N
+        plusCherch.setText("     Statistiques des profiles les plus recherches");
+        plusCherch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                plusCherchActionPerformed(evt);
             }
         });
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,9 +60,9 @@ public class statistics extends javax.swing.JPanel {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(144, 144, 144)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .addComponent(plusCherch, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(feedback, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(107, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -85,35 +78,22 @@ public class statistics extends javax.swing.JPanel {
                         .addGap(85, 85, 85)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(105, 105, 105)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(plusCherch, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(feedback, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-     private JDialog StatisticsFrame(List L,List L1,String nomGraph,String horisontalName,String VerticalName ) {
-        JDialog JD1 =new JDialog() ;
-        JD1.setLayout(new GridLayout());
-        JD1.setSize(1200,450); 
-        JD1.add(ChartService.CamembertJob(L, nomGraph)) ;
-        JD1.add(ChartService.HistogrammeJob(L1, nomGraph,horisontalName,VerticalName)) ;
-        JD1.setLocationRelativeTo(null);
-        return JD1 ;
-   }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        List L = StatsService.getStatsPorcentage() ;
-        List L1 = StatsService.getStats() ;
-        StatisticsFrame(L,L1,"Les Profils les plus demandés","Job","Nombre de demande").setVisible(true);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void plusCherchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusCherchActionPerformed
+       
+    }//GEN-LAST:event_plusCherchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton feedback;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton plusCherch;
     // End of variables declaration//GEN-END:variables
 }

@@ -61,7 +61,7 @@ public class MailService {
         Transport transport = null;
         transport = session.getTransport("smtp");
         transport.connect("UtilisateurJava@gmail.com", "JavaProject");
-        transport.sendMessage(message, new Address[]{new InternetAddress("mhhidorgr@gmail.com")});
+        transport.sendMessage(message, new Address[]{new InternetAddress(destinataire)});
         if (transport != null) {
             transport.close();
         }

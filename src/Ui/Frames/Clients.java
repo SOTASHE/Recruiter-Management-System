@@ -6,7 +6,7 @@
 package Ui.Frames;
 
 import App.Orm.DaoClients;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ServiceCleints;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 /**
@@ -20,7 +20,7 @@ public class Clients extends javax.swing.JPanel {
      */
     public Clients() {
         initComponents();
-        FilljTableService.displayClients(clientsTable);
+        ServiceCleints.displayClients(clientsTable);
     }
 
     /**

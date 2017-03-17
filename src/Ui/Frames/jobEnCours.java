@@ -7,12 +7,14 @@ package Ui.Frames;
 
 import App.Orm.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ConfirmeDialog;
+import App.Services.Ui.ServiceJobEnCours;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,7 +30,7 @@ public class jobEnCours extends javax.swing.JPanel {
     
     public jobEnCours() {
         initComponents();
-        FilljTableService.displayJobs(JobsTable);  
+        ServiceJobEnCours.displayJobs(JobsTable);  
     }
 
     /**
@@ -53,6 +55,7 @@ public class jobEnCours extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        JobsTable.setAutoCreateRowSorter(true);
         JobsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -75,16 +78,20 @@ public class jobEnCours extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Offre d'emploi");
 
+        btnVisualiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/eye.png"))); // NOI18N
         btnVisualiser.setText("Visualiser");
         btnVisualiser.setEnabled(false);
+        btnVisualiser.setIconTextGap(15);
         btnVisualiser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisualiserActionPerformed(evt);
             }
         });
 
+        btnValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/checked.png"))); // NOI18N
         btnValider.setText("Valider");
         btnValider.setEnabled(false);
+        btnValider.setIconTextGap(20);
         btnValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValiderActionPerformed(evt);
@@ -105,9 +112,9 @@ public class jobEnCours extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -127,9 +134,9 @@ public class jobEnCours extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVisualiser)
-                    .addComponent(btnValider))
-                .addContainerGap(53, Short.MAX_VALUE))
+                    .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(86, 86, 86)
@@ -154,36 +161,41 @@ public class jobEnCours extends javax.swing.JPanel {
             if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
                 btnVisualiser.setEnabled(true);
                 btnValider.setEnabled(false);
-            }
-                
+            }   
             else Activate(true);
         }
         else Activate(false) ;
     }//GEN-LAST:event_JobsTableMouseClicked
 
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
-        if(JOptionPane.showConfirmDialog(null,"Voulez Vous vraiment valider ce job", "Information",
-                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
-            int Row = JobsTable.getSelectedRow() ;
-            new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
-            Refresh();
+        if(ConfirmeDialog.getReponse(null,"Voulez Vous vraiment valider ce job", "Information",
+                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE)) {
+            if(ServiceJobEnCours.VerifierPhaseValide(getIdJob())) {
+                int Row = JobsTable.getSelectedRow() ;
+                new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
+                Refresh();
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"Impossible de valider ce Job, Merci de valider à tout les candidats","Erreur",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void Refresh() {
-       // int rowCount = JobsTable.getRowCount() ;
         JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
     }
+    
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
-        //JOptionPane.showMessageDialog(null,this.getIdJob());
+       
         this.FenetreCandidat(this.getIdJob()) ;
     }//GEN-LAST:event_btnVisualiserActionPerformed
     
     private void FenetreCandidat(int idJob) {
         CandidatsJob C = new CandidatsJob(idJob) ;
-        //C.setLocationRelativeTo(null);
         C.setResizable(false);
+        // mainRecruit.getFrame().setEnabled(false);
         C.setVisible(true);
+        //mainRecruit.getFrame().setEnabled(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

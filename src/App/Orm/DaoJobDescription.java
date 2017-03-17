@@ -19,7 +19,5 @@ public class DaoJobDescription extends DaoAbstract {
     
     public void create(JobDescription jd){
        super.create(jd);
-    }
-    
-    
+    }  
 }
