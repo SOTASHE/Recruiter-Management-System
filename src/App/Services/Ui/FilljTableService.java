@@ -27,7 +27,8 @@ public class FilljTableService {
     
     public static void nextInterviewPhase(int idCandidat,int idJob){
         DaoCandidatesEntretien de = new DaoCandidatesEntretien();
-        int phase = de.getPhaseById(idCandidat, idJob);
+        int phase = de.getPhaseById(idCandidat,idJob);
+        System.out.println(phase);
         de.updatePhase(idCandidat, idJob, ++phase);
     }
     
@@ -54,9 +55,7 @@ public class FilljTableService {
             else if((int)o[3] == 4) oneRow.add("Validé");
             else
                 oneRow.add("phase "+(int)o[3]);
-            
             tableData.add(oneRow);
-
         }
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
         

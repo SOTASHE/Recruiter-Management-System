@@ -74,11 +74,8 @@ public class main {
         }
          
        System.out.println(output);
-        
        JSONObject jsonObj = new JSONObject(output.toString());
        JSONArray projects = jsonObj.getJSONArray("projects");
-       
-       
        for(int i=0;i<projects.length();i++){
            JSONObject project = projects.getJSONObject(i);
            String projectTitle = project.getString("title");
@@ -86,10 +83,6 @@ public class main {
            System.out.println(projectTitle);
            System.out.println(projectDescription);
        }
-        
-        
-      
-        
        */
        
     /*  if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
@@ -115,5 +108,7 @@ public class main {
 
     /* DaoJobs D = new DaoJobs() ;
      D.updateStatus(1);*/
-}
+//    InsertService.insertCandidateEntretien(1, 4);
+  //  InsertService.insertCandidateEntretien(1, 5); 
+    }
 }

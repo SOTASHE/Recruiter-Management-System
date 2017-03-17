@@ -22,9 +22,10 @@ public class DaoCandidatesEntretien extends DaoAbstract {
         super.create(ce);
     }
     
-    public int getPhaseById(int idCandidate,int idJob){
-        return Integer.parseInt(super.getHqlQuery("select ce.phase from CandidatesEntretien ce "
-                + "where ce.candidatesid = " +idCandidate+ " and ce.jobs.id ="+idJob).get(0).toString());
+    public int getPhaseById(int idCandidate,int idJob) {
+        List L = super.getHqlQuery("select ce.phase from CandidatesEntretien ce "
+                + "where ce.candidatesid = " +idCandidate+ " and ce.jobs.id ="+idJob);
+       return (int) L.get(0) ;
     }
     
     public void updatePhase(int idCandidate, int idJob, int phase) {
@@ -34,12 +35,10 @@ public class DaoCandidatesEntretien extends DaoAbstract {
     
     public List getCandidatesWithInterviewByJob(int idJob) {
         return getHqlQuery("select c.id,c.name,c.email, ce.phase from Candidates c "
-                + "join c.candidatesEntretien ce  where ce.jobs.id = 1 =" + idJob);
+                + "join c.candidatesEntretien ce  where ce.jobs.id =" + idJob);
     }
     
     public void delete(int idCandidate,int idjob) {
-        //super.UpdateQuery("delete from Candidates_Jobs where Candidatesid ="+idCandidate);
-      //  System.out.println(idCandidate);
         super.UpdateQuery("delete from Candidates_Entretien where Candidatesid =" + idCandidate +
         " and jobs_id = "+idjob);
     }

@@ -261,9 +261,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 int idCandidate = (int) tCandidat.getValueAt(rowid,0) ;
                 try{
                     
-                    //MailService.sendMail("Convocation pour passage d'entretien",
-                 //  MailService.BodyMessage(name,getJobName(idJob)),email) ;
-                  Mail();
+                   MailService.sendMail("Convocation pour passage d'entretien",
+                   MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                  //Mail();
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                     InsertService.insertCandidateEntretien(idCandidate,idJob);

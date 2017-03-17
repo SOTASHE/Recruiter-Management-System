@@ -67,8 +67,7 @@ abstract public class DaoAbstract {
             session.beginTransaction();
             Query q = session.createSQLQuery(query) ;
             r = q.executeUpdate() ;
-            session.getTransaction().commit();
-
+            session.getTransaction().commit() ;
         } catch (HibernateException he) {
             he.printStackTrace();
         }
