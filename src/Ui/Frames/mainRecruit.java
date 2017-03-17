@@ -7,6 +7,7 @@ package Ui.Frames;
 
 import com.alee.laf.WebLookAndFeel;
 import java.awt.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,12 +21,20 @@ public class mainRecruit extends javax.swing.JFrame {
     employes emp;
     jobEnCours job;
     statistics stat;
+    private static JFrame frame ;
+    
     /**
      * Creates new form mainRecruit
      */
+    
+    public static JFrame getFrame() {
+        return frame ;
+    }
+    
     public mainRecruit() {
         initComponents();
         this.setResizable(false);
+        frame = this ;
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         candidat = new AfficheCandidat();
         clt = new Clients();

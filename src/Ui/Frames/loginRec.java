@@ -10,6 +10,7 @@ import App.Services.Ui.PatternService;
 import com.alee.laf.WebLookAndFeel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**

@@ -5,25 +5,16 @@ package App ;
  * and open the template in the editor.
  */
 
+
 import App.Orm.DaoCandidates;
 import App.Orm.DaoJobs;
 import App.Orm.DaoRecruiter;
-import App.Services.Ui.FilljTableService;
-import App.Services.Ui.InsertService;
 import OrmMapping.Jobs;
 import Ui.Services.StarRater;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 
 /**
@@ -34,8 +25,17 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-        
-        FilljTableService.nextInterviewPhase(1, 1);
+       // InsertService.insertCandidateEntretien(2,1);
+ /* JFrame frame = new JFrame("Test JCalendar");
+          JCalendar dateChooser = new JCalendar();
+          frame.add(dateChooser);
+          frame.pack();
+          //frame.add(jButton1);
+          frame.setLocationRelativeTo(null); // pour centrer
+          frame.setVisible(true) ;
+          FilljTableService.nextInterviewPhase(1, 1);
+
+        FilljTableService.nextInterviewPhase(1, 1);*/
 //InsertService.insertCandidateEntretien(2,1);
            
         /*List<Object> L = new DaoCandidates().ge
@@ -72,11 +72,8 @@ public class main {
         }
          
        System.out.println(output);
-        
        JSONObject jsonObj = new JSONObject(output.toString());
        JSONArray projects = jsonObj.getJSONArray("projects");
-       
-       
        for(int i=0;i<projects.length();i++){
            JSONObject project = projects.getJSONObject(i);
            String projectTitle = project.getString("title");
@@ -84,10 +81,6 @@ public class main {
            System.out.println(projectTitle);
            System.out.println(projectDescription);
        }
-        
-        
-      
-        
        */
        
     /*  if(loginAgencyService.getConnected("ilias.naamane1@gmail.com", "123456")){
@@ -113,5 +106,7 @@ public class main {
 
     /* DaoJobs D = new DaoJobs() ;
      D.updateStatus(1);*/
+//    InsertService.insertCandidateEntretien(1, 4);
+  //  InsertService.insertCandidateEntretien(1, 5); 
     }
 }

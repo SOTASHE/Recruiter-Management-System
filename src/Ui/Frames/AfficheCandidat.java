@@ -5,21 +5,16 @@
  */
 package Ui.Frames;
 import App.Orm.DaoCandidates;
-import App.Orm.DaoCandidatesEntretien;
 import App.Orm.DaoJobs;
-import App.Services.Linkedin.CandidatesComparatorService;
 import App.Services.Linkedin.CandidatesSortByRateService;
-import App.Services.Ui.FilljTableService;
 import App.Services.Mail.MailService;
-import App.Services.Ui.InsertService;
 import App.Services.Ui.PatternService;
+import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import java.text.DateFormat;
 import java.util.List;
-import java.io.IOException;
-import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
-import org.json.JSONException;
 /**
  *
  * @author Sony
@@ -29,12 +24,14 @@ public class AfficheCandidat extends javax.swing.JPanel {
     DaoCandidates candidates = new DaoCandidates();
     DaoJobs daoJobs = new DaoJobs() ;
     int idJob ;
+    DateFormat df = DateFormat.getDateInstance() ;  
     /**
      * Creates new form AfficheCandidat
      */
     public AfficheCandidat() {
         initComponents();
         Refresh();
+        
     }
 
     /**
@@ -104,6 +101,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel2.setText("Ville");
 
+        tCandidat.setAutoCreateRowSorter(true);
         tCandidat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -209,8 +207,12 @@ public class AfficheCandidat extends javax.swing.JPanel {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         return  JOptionPane.showConfirmDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")
                 ,"Message",dialogButton) == JOptionPane.YES_OPTION ;
-       
     }
+    
+    private void Mail() {
+       JOptionPane.showInputDialog(tCandidat,MailService.BodyMessage("(nom)","(Job)")) ;
+    }
+    
      private String getJobName(int idJob) {
         List L = daoJobs.findById(idJob) ;
         return ((Jobs)L.get(0)).getProfil() ;
@@ -234,7 +236,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
             //CandidatesComparatorService.TestRuby(c) ;
             if(FieldValidate()) {
                 ActivateButton(false);
-                FilljTableService.displaySearchCandidates(tCandidat, getCandidat());
+                ServiceAfficheCandidat.displaySearchCandidates(tCandidat, getCandidat());
             }
             else JOptionPane.showMessageDialog(tCandidat,"Vous avez inserer des données non valides","Erreur",JOptionPane.ERROR_MESSAGE);
         }
@@ -265,14 +267,15 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 int idCandidate = (int) tCandidat.getValueAt(rowid,0) ;
                 try{
                     
-                    MailService.sendMail("Convocation pour passage d'entretien",
-                    MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                   MailService.sendMail("Convocation pour passage d'entretien",
+                   MailService.BodyMessage(name,getJobName(idJob)),email) ;
+                  //Mail();
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
-                    InsertService.insertCandidateEntretien(idCandidate,idJob);
+                    ServiceAfficheCandidat.insertCandidateEntretien(idCandidate,idJob);
                    
                 }
-                catch(MessagingException Me){
+                catch(Exception Me){
                     JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr(MMe) "+name+"\n" +
                         "Veullez Verifier la connexion internet","Error",
                         JOptionPane.ERROR_MESSAGE);

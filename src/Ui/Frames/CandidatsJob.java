@@ -6,7 +6,9 @@
 package Ui.Frames;
 
 import App.Orm.DaoCandidatesEntretien;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ConfirmeDialog;
+import App.Services.Ui.ServiceCandidatsJob;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,12 +22,11 @@ public class CandidatsJob extends javax.swing.JFrame {
      * Creates new form Candidats
      */
     public CandidatsJob(int id) {
-         idJob = id;
         initComponents();
         this.setLocationRelativeTo(null);
-        FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,id);
-        //active(true);
-        
+        this.idJob = id;
+        ServiceCandidatsJob.displayCandidatesWithInterviewByJob(candidatesJTable,this.idJob);
+        //active(true);    
     }
 
     /**
@@ -45,6 +46,7 @@ public class CandidatsJob extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        candidatesJTable.setAutoCreateRowSorter(true);
         candidatesJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -123,40 +125,44 @@ public class CandidatsJob extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
-        int row = candidatesJTable.getSelectedRow();
-        new DaoCandidatesEntretien().delete((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())),idJob);
-         Refresh(idJob);
+        if(ConfirmeDialog.getReponse(null,"Voulez vous vraiment supprimer le candidat",
+                "Avertissement",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE)) {
+            int row = candidatesJTable.getSelectedRow();
+            new DaoCandidatesEntretien().delete((Integer.parseInt(candidatesJTable.getValueAt(row,0).toString())),idJob);
+            Refresh(idJob);
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
-    private void active(boolean b){
+    
+    private void Active(boolean b){
         editButton.setEnabled(b);
         deleteButton.setEnabled(b);
     }
     private void candidatesJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesJTableMouseClicked
         // TODO add your handling code here:
-        if(candidatesJTable.getSelectedRow() != -1)
-            active(true);
-        else
-        active(false);
+        if(candidatesJTable.getSelectedRow() != -1) {
+            Active(true);
+            boolean b = candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(), 3).toString().equals("Validé") ; 
+            if(b) editButton.setEnabled(false);
+            else editButton.setEnabled(true);
+        }
+        else Active(false);
     }//GEN-LAST:event_candidatesJTableMouseClicked
 
+            
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
-        boolean b = candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(), 3).toString().equals("Validé") ; ;
-        int id = (int) candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(), 0) ;
-        if(b) {
-           editButton.setEnabled(false);
-        }
-        else {
-            editButton.setEnabled(false);
-            FilljTableService.nextInterviewPhase(id,idJob);
+        if(ConfirmeDialog.getReponse(null,"Voulez vous vraiment passer l'enretien a l'etape suivante",
+                "Information",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE)) {
+            int idCandidates = (int) candidatesJTable.getValueAt(candidatesJTable.getSelectedRow(),0) ;
+            ServiceCandidatsJob.nextInterviewPhase(idCandidates,idJob) ;
             Refresh(idJob);
         }
     }//GEN-LAST:event_editButtonActionPerformed
     
     private void Refresh(int idJob){
+       candidatesJTable.clearSelection();
        candidatesJTable.removeAll();
-       FilljTableService.displayCandidatesWithInterviewByJob(candidatesJTable,idJob); 
+       this.Active(false);
+       ServiceCandidatsJob.displayCandidatesWithInterviewByJob(candidatesJTable,idJob); 
     }
     /**
      * @param args the command line arguments

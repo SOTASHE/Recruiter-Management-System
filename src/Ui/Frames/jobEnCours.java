@@ -7,12 +7,14 @@ package Ui.Frames;
 
 import App.Orm.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
-import App.Services.Ui.FilljTableService;
+import App.Services.Ui.ConfirmeDialog;
+import App.Services.Ui.ServiceJobEnCours;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,7 +30,7 @@ public class jobEnCours extends javax.swing.JPanel {
     
     public jobEnCours() {
         initComponents();
-        FilljTableService.displayJobs(JobsTable);  
+        ServiceJobEnCours.displayJobs(JobsTable);  
     }
 
     /**
@@ -56,6 +58,7 @@ public class jobEnCours extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        JobsTable.setAutoCreateRowSorter(true);
         JobsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -188,28 +191,32 @@ public class jobEnCours extends javax.swing.JPanel {
             if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
                 btnVisualiser.setEnabled(true);
                 btnValider.setEnabled(false);
-            }
-                
+            }   
             else Activate(true);
         }
         else Activate(false) ;
     }//GEN-LAST:event_JobsTableMouseClicked
 
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
-        if(JOptionPane.showConfirmDialog(null,"Voulez Vous vraiment valider ce job", "Information",
-                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
-            int Row = JobsTable.getSelectedRow() ;
-            new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
-            Refresh();
+        if(ConfirmeDialog.getReponse(null,"Voulez Vous vraiment valider ce job", "Information",
+                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE)) {
+            if(ServiceJobEnCours.VerifierPhaseValide(getIdJob())) {
+                int Row = JobsTable.getSelectedRow() ;
+                new DaoJobs().updateStatus(Integer.parseInt(JobsTable.getValueAt(Row,0).toString()));
+                Refresh();
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"Impossible de valider ce Job, Merci de valider à tout les candidats","Erreur",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void Refresh() {
-       // int rowCount = JobsTable.getRowCount() ;
         JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
     }
+    
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
-        //JOptionPane.showMessageDialog(null,this.getIdJob());
+       
         this.FenetreCandidat(this.getIdJob()) ;
     }//GEN-LAST:event_btnVisualiserActionPerformed
 
@@ -223,9 +230,10 @@ public class jobEnCours extends javax.swing.JPanel {
     
     private void FenetreCandidat(int idJob) {
         CandidatsJob C = new CandidatsJob(idJob) ;
-        //C.setLocationRelativeTo(null);
         C.setResizable(false);
+        // mainRecruit.getFrame().setEnabled(false);
         C.setVisible(true);
+        //mainRecruit.getFrame().setEnabled(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
