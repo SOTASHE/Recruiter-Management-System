@@ -31,10 +31,7 @@ public class DaoCandidates extends DaoAbstract{
    
     // add function to get all current candidat by job with details phase entretien etc..
     
-    public void delete(int idCandidate){
-        //super.UpdateQuery("delete from Candidates_Jobs where Candidatesid ="+idCandidate);
-        super.UpdateQuery("delete from Candidates_Entretien where Candidatesid ="+idCandidate);
-    }
+   
     
     
 }

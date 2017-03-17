@@ -32,22 +32,7 @@ public class FilljTableService {
     }
     
     
-    /**
-     * method to delete Candidat from list of Candidates during the interview process
-     * @param idCandidat 
-     */
-    public static void removeCandidateFromInterview(int idCandidat){
-        DaoCandidates dc = new DaoCandidates();
-        dc.delete(idCandidat);
-    }
     
-    /**
-     * update candidate interview phase
-     * @param idCandidat 
-     */
-    public static void updateCandidateInterviewPhase(int idCandidat,int phase){
-        
-    }
     
     public static void displayCandidatesWithInterviewByJob(JTable T,int idJob){
         DaoCandidatesEntretien de = new DaoCandidatesEntretien();
@@ -66,6 +51,7 @@ public class FilljTableService {
             oneRow.add((String) o[2]);
             if((int)o[3] == 3) 
                 oneRow.add("Final");
+            else if((int)o[3] == 4) oneRow.add("Validé");
             else
                 oneRow.add("phase "+(int)o[3]);
             
