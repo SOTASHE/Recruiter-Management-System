@@ -25,8 +25,8 @@ public class DaoJobs extends DaoAbstract {
         super.create(j);
     }
     
-   @Override
-   public List  getAll(){
+    @Override
+    public List  getAll(){
       return super.getAll();    
     }
    
@@ -59,4 +59,5 @@ public class DaoJobs extends DaoAbstract {
     public List getJobsValidByClient(int idClient){
         return super.getHqlQuery("from Jobs j where j.clients.id= 1 and j.status = -1");
     }
+    
 }

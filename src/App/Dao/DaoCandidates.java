@@ -20,14 +20,23 @@ public class DaoCandidates extends DaoAbstract{
     }
    
     public List getAllByJob(int idJob){
-        return getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.satisfaction = -2 and  cj.id.jobsid ="+idJob);
+        return getHqlQuery("select c from Candidates "
+                + "c join c.candidatesJobses cj where cj.satisfaction = -2 and  cj.id.jobsid ="+idJob);
     }
     
     
     public List getAllEmployees(){
-        return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
+        return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj "
+                + "where cj.jobs.status = -1");
     }
     
+    public void updateSatisfaction(int idcandidate,int idjob, int satisfaction){  
+        System.out.println(idcandidate);
+        System.out.println(idjob);
+        System.out.println(satisfaction);
+        super.UpdateQuery("update Candidates_Jobs cj  set satisfaction = "+satisfaction+ 
+                "where CandidatesId = " + idcandidate + " and Jobsid = " + idjob );
+    }
    
     // add function to get all current candidat by job with details phase entretien etc..
     

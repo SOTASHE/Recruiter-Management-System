@@ -25,7 +25,10 @@ public class main {
    
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
-       // InsertService.insertCandidateEntretien(2,1);
+       
+        DaoCandidates dc = new DaoCandidates();
+        dc.updateSatisfaction(1, 1, -1);
+// InsertService.insertCandidateEntretien(2,1);
  /* JFrame frame = new JFrame("Test JCalendar");
           JCalendar dateChooser = new JCalendar();
           frame.add(dateChooser);

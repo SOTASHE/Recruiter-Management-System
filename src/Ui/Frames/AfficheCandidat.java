@@ -285,20 +285,23 @@ public class AfficheCandidat extends javax.swing.JPanel {
             public void mouseClicked(MouseEvent e) {
                 int row = tCandidat.rowAtPoint(new Point(e.getX(), e.getY()));
                 int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
-                System.out.println(row + " " + col);
+                if(col == 5){
+                    System.out.println(row + " " + col);
 
-                String url = (String) tCandidat.getModel().getValueAt(row, col);
-                System.out.println(url + " was clicked");
-                URI uri;
-                try {
-                     uri = new URI(url);
-                    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-                    desktop.browse(uri);
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    String url = (String) tCandidat.getModel().getValueAt(row, col);
+                    System.out.println(url + " was clicked");
+                    URI uri;
+                    try {
+                        uri = new URI(url);
+                        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                        desktop.browse(uri);
+                    } catch (URISyntaxException ex) {
+                        Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
                 }
+                
                
                 
                 // DO here what you want to do with your url
@@ -360,6 +363,8 @@ public class AfficheCandidat extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                     ServiceAfficheCandidat.insertCandidateEntretien(idCandidate,idJob);
+                    DaoCandidates dc = new DaoCandidates();
+                    dc.updateSatisfaction(idCandidate,idJob,-1);
                    
                 }
                 catch(Exception Me){
@@ -369,6 +374,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 }
             }
         }
+        
     }//GEN-LAST:event_inviterActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed
