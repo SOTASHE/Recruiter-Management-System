@@ -195,7 +195,7 @@ public class jobEnCours extends javax.swing.JPanel {
     
     private void JobsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JobsTableMouseClicked
         if(JobsTable.getSelectedRow() != -1) {
-            if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
+            if(JobsTable.getValueAt(JobsTable.getSelectedRow(),3).toString().equals("Validé")) {
                 btnVisualiser.setEnabled(true);
                 btnValider.setEnabled(false);
             }   
@@ -219,7 +219,7 @@ public class jobEnCours extends javax.swing.JPanel {
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void Refresh() {
-        JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
+        JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),3);
     }
     
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed

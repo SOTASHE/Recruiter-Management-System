@@ -31,11 +31,8 @@ public class DaoCandidates extends DaoAbstract{
     }
     
     public void updateSatisfaction(int idcandidate,int idjob, int satisfaction){  
-        System.out.println(idcandidate);
-        System.out.println(idjob);
-        System.out.println(satisfaction);
         super.UpdateQuery("update Candidates_Jobs cj  set satisfaction = "+satisfaction+ 
-                "where CandidatesId = " + idcandidate + " and Jobsid = " + idjob );
+                " where CandidatesId = " + idcandidate + " and Jobsid = " + idjob );
     }
    
     // add function to get all current candidat by job with details phase entretien etc..

@@ -29,8 +29,10 @@ public class DaoCandidatesEntretien extends DaoAbstract {
      * @return phase
      */
     public int getPhaseById(int idCandidate,int idJob){
-        return Integer.parseInt(super.getHqlQuery("select ce.phase from CandidatesEntretien ce "
-                + "where ce.candidatesid = " +idCandidate+ " and ce.jobs.id ="+idJob).get(0).toString());
+        int result = Integer.parseInt(super.getHqlQuery("select ce.phase from CandidatesEntretien ce"
+                + " where ce.candidates.id = " + idCandidate + " and ce.jobs.id = " + idJob).get(0).toString());
+        
+        return result ;
     }
     
     /**
