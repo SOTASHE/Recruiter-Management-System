@@ -36,6 +36,9 @@ public class EmpEntreprise extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(850, 570));
+        setMinimumSize(new java.awt.Dimension(850, 570));
+
         jobTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -59,11 +62,11 @@ public class EmpEntreprise extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(41, 41, 41))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,23 +76,23 @@ public class EmpEntreprise extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(42, Short.MAX_VALUE)))
+                    .addContainerGap(50, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addGap(110, 110, 110)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(104, 104, 104)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(48, 48, 48)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(33, Short.MAX_VALUE)))
+                    .addContainerGap(102, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

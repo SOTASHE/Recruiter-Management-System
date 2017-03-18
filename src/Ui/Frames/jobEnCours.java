@@ -85,6 +85,7 @@ public class jobEnCours extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel1.setText("Offre d'emploi");
 
+        btnVisualiser.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         btnVisualiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/eye.png"))); // NOI18N
         btnVisualiser.setText("Visualiser");
         btnVisualiser.setEnabled(false);
@@ -95,6 +96,7 @@ public class jobEnCours extends javax.swing.JPanel {
             }
         });
 
+        btnValider.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         btnValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/checked.png"))); // NOI18N
         btnValider.setText("Valider");
         btnValider.setEnabled(false);
@@ -142,8 +144,8 @@ public class jobEnCours extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)
+                            .addComponent(btnVisualiser)
+                            .addGap(44, 44, 44)
                             .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1)
@@ -161,8 +163,11 @@ public class jobEnCours extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(28, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(47, 47, 47)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,14 +186,12 @@ public class jobEnCours extends javax.swing.JPanel {
                     .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(94, 94, 94)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(102, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(100, Short.MAX_VALUE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(468, 468, 468)))
+                    .addGap(40, 40, 40)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(102, 102, 102)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -62,7 +62,7 @@ public class mainEntreprise extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1110, 650));
 
-        dashbord.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        dashbord.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         dashbord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/dashboard.png"))); // NOI18N
         dashbord.setText("Tableau de bord");
         dashbord.setIconTextGap(15);
@@ -72,7 +72,7 @@ public class mainEntreprise extends javax.swing.JFrame {
             }
         });
 
-        logout.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        logout.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/logout.png"))); // NOI18N
         logout.setText("Sign out");
         logout.setIconTextGap(20);
@@ -82,7 +82,7 @@ public class mainEntreprise extends javax.swing.JFrame {
             }
         });
 
-        employe.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        employe.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         employe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/employes.png"))); // NOI18N
         employe.setText("Employe");
         employe.setIconTextGap(20);
@@ -92,7 +92,7 @@ public class mainEntreprise extends javax.swing.JFrame {
             }
         });
 
-        ajout.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        ajout.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         ajout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/plus-button.png"))); // NOI18N
         ajout.setText("Ajouter Offre");
         ajout.setIconTextGap(15);
@@ -106,13 +106,13 @@ public class mainEntreprise extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(employe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ajout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashbord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ajout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -123,10 +123,10 @@ public class mainEntreprise extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(ajout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(employe, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addComponent(employe, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/logo.PNG"))); // NOI18N
@@ -149,11 +149,15 @@ public class mainEntreprise extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        dynamic.setMaximumSize(new java.awt.Dimension(850, 570));
+        dynamic.setMinimumSize(new java.awt.Dimension(850, 570));
+        dynamic.setPreferredSize(new java.awt.Dimension(850, 570));
+
         javax.swing.GroupLayout dynamicLayout = new javax.swing.GroupLayout(dynamic);
         dynamic.setLayout(dynamicLayout);
         dynamicLayout.setHorizontalGroup(
             dynamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 769, Short.MAX_VALUE)
+            .addGap(0, 850, Short.MAX_VALUE)
         );
         dynamicLayout.setVerticalGroup(
             dynamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

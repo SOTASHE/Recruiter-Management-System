@@ -63,7 +63,7 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(candidatesJTable);
 
-        invite.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        invite.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         invite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/envelope.png"))); // NOI18N
         invite.setText("Inviter");
         invite.setIconTextGap(15);

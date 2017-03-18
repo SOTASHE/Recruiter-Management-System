@@ -72,7 +72,7 @@ public class CandidatsJob extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel1.setText("Les Candidats");
 
-        editButton.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        editButton.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         editButton.setText("Phase suivante");
         editButton.setEnabled(false);
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class CandidatsJob extends javax.swing.JFrame {
             }
         });
 
-        deleteButton.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        deleteButton.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         deleteButton.setText("Supprimer");
         deleteButton.setEnabled(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class CandidatsJob extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
