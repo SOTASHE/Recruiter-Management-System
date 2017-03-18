@@ -12,7 +12,6 @@ import App.Services.Ui.PatternService;
 import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
-import com.sun.jndi.toolkit.url.Uri;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -37,7 +36,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
 import javax.swing.JTextField;
 /**
  *
@@ -83,13 +81,12 @@ public class AfficheCandidat extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(850, 560));
-        setMinimumSize(new java.awt.Dimension(850, 560));
+        setMaximumSize(new java.awt.Dimension(850, 570));
+        setMinimumSize(new java.awt.Dimension(850, 570));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(850, 560));
+        setPreferredSize(new java.awt.Dimension(850, 570));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator2);
 
         jTextField4.setForeground(java.awt.Color.gray);
         jTextField4.setText("ex:Rabat");
@@ -105,7 +102,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 jTextField4MouseClicked(evt);
             }
         });
-        add(jTextField4);
 
         secondaire.setForeground(java.awt.Color.gray);
         secondaire.setText("ex:Laravel,Php");
@@ -119,34 +115,33 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 secondaireMouseClicked(evt);
             }
         });
-        add(secondaire);
 
-        chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
+        chercher.setIconTextGap(10);
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chercherActionPerformed(evt);
             }
         });
-        add(chercher);
 
-        inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/envelope.png"))); // NOI18N
         inviter.setText("Inviter a passer l'entretien");
         inviter.setEnabled(false);
+        inviter.setIconTextGap(10);
         inviter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inviterActionPerformed(evt);
             }
         });
-        add(inviter);
 
         jobs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobsActionPerformed(evt);
             }
         });
-        add(jobs);
 
         principale.setForeground(java.awt.Color.gray);
         principale.setText("ex:C#,C++");
@@ -160,19 +155,15 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 principaleMouseClicked(evt);
             }
         });
-        add(principale);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel3.setText("Job");
-        add(jLabel3);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel1.setText("Competences secondaires");
-        add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel2.setText("Ville");
-        add(jLabel2);
 
         tCandidat.setAutoCreateRowSorter(true);
         tCandidat.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,12 +184,85 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tCandidat);
 
-        add(jScrollPane1);
-        add(jSeparator1);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel4.setText("Competences principaux");
-        add(jLabel4);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(26, Short.MAX_VALUE)
+                                .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(78, 78, 78)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(109, 109, 109))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(secondaire)
+                                .addGap(18, 18, 18)
+                                .addComponent(chercher, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1)))
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(inviter)
+                .addGap(43, 43, 43))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(principale)
+                    .addComponent(secondaire)
+                    .addComponent(chercher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inviter, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     
