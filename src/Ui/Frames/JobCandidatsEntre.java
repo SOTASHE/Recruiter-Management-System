@@ -17,8 +17,12 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
      * Creates new form JobCandidatsEntre
      */
     public JobCandidatsEntre() {
-        this.setResizable(false);
         initComponents();
+    }
+    
+    public JobCandidatsEntre(int idJob) {
+        initComponents();
+        
     }
 
     /**
@@ -133,7 +137,7 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
             public void run() {
                 WebLookAndFeel.install(true);
                 WebLookAndFeel.setDecorateAllWindows(true);
-                new JobCandidatsEntre().setVisible(true);
+                //new JobCandidatsEntre().setVisible(true);
             }
         });
     }

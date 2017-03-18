@@ -26,7 +26,7 @@ public class DaoJobs extends DaoAbstract {
     }
     
    @Override
-   public List  getAll(){
+    public List  getAll(){
       return super.getAll();    
     }
    
@@ -36,8 +36,6 @@ public class DaoJobs extends DaoAbstract {
    
     public List getRelevantJobsPourcentage(){      
        return super.getSqlQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
-      
-//return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
     }
    
     public List getRelevantJobs(){ 
@@ -59,4 +57,8 @@ public class DaoJobs extends DaoAbstract {
     public void updateStatus(int idJob) {
        super.UpdateQuery("update Jobs set status = -1 where id ="+idJob);
     } 
+    
+    public List getJobsValidByClient(int idClient){
+        return super.getHqlQuery("from Jobs j where j.clients.id= "+idClient +" and j.status = -1 order by id desc");
+    }
 }

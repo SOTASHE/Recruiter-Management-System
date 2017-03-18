@@ -5,8 +5,12 @@
  */
 package App.Services.Ui;
 
-import java.awt.List;
+import App.Orm.DaoJobs;
+import OrmMapping.Jobs;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,7 +19,20 @@ import javax.swing.JTable;
 public class ServiceJobEntreprise {
     
     
-    public static void InsertJobs(JTable T , List L) {
-        
+    public static void DisplayClientsJob(JTable T ,int idClient) {
+        DaoJobs DJ= new DaoJobs() ;
+        List L = DJ.getJobsValidByClient(idClient) ;
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("id");
+        tableHeaders.add("profile");
+        for (Object o : L) {
+            Jobs C = (Jobs) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(C.getId());
+            oneRow.add(C.getProfil());
+            tableData.add(oneRow);
+        }
+        T.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
 }

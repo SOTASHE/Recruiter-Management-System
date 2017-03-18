@@ -42,6 +42,7 @@ public class jobEnCours extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radio = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -101,10 +102,13 @@ public class jobEnCours extends javax.swing.JPanel {
             }
         });
 
+        radio.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jRadioButton1.setText("en cours");
 
+        radio.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        jRadioButton4.setSelected(true);
         jRadioButton4.setText("tous");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +116,7 @@ public class jobEnCours extends javax.swing.JPanel {
             }
         });
 
+        radio.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jRadioButton5.setText("valide");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +130,8 @@ public class jobEnCours extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,13 +139,16 @@ public class jobEnCours extends javax.swing.JPanel {
                             .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1)
-                            .addGap(431, 431, 431)
+                            .addGap(694, 694, 694)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
                             .addComponent(jRadioButton1)
                             .addGap(18, 18, 18)
-                            .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -161,7 +168,7 @@ public class jobEnCours extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVisualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
@@ -216,7 +223,7 @@ public class jobEnCours extends javax.swing.JPanel {
     }
     
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
-       
+      
         this.FenetreCandidat(this.getIdJob()) ;
     }//GEN-LAST:event_btnVisualiserActionPerformed
 
@@ -247,5 +254,6 @@ public class jobEnCours extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.ButtonGroup radio;
     // End of variables declaration//GEN-END:variables
 }

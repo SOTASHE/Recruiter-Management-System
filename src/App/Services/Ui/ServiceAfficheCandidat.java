@@ -9,8 +9,17 @@ import App.Orm.DaoCandidatesEntretien;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesEntretien;
 import OrmMapping.Jobs;
+import static com.alee.laf.filechooser.FileChooserViewType.table;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,6 +39,15 @@ public class ServiceAfficheCandidat {
         dce.create(ce);
     }
     
+    private static void open(URI uri) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException e) {
+                /* TODO: error handling */ }
+        } else {
+            /* TODO: error handling */ }
+    }
     public static void displaySearchCandidates(JTable T,List L ){
         
         Vector<String> tableHeaders = new Vector<String>();
@@ -39,6 +57,7 @@ public class ServiceAfficheCandidat {
         tableHeaders.add("age");
         tableHeaders.add("ville");
         tableHeaders.add("email");
+        tableHeaders.add("linkedin");
 
         for (Object o : L) {
             Candidates C = (Candidates) o;
@@ -48,8 +67,11 @@ public class ServiceAfficheCandidat {
             oneRow.add(C.getAge());
             oneRow.add(C.getVille());
             oneRow.add(C.getEmail());
+            oneRow.add(C.getLinkedinUrl());
             tableData.add(oneRow);
         }
+        
         T.setModel(new DefaultTableModel(tableData, tableHeaders));
+
     }
 }

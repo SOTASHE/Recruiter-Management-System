@@ -12,11 +12,32 @@ import App.Services.Ui.PatternService;
 import App.Services.Ui.ServiceAfficheCandidat;
 import OrmMapping.Candidates;
 import OrmMapping.Jobs;
+import com.sun.jndi.toolkit.url.Uri;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.awt.Color;
 import java.awt.TextField;
 import java.text.DateFormat;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 import javax.swing.JTextField;
 /**
  *
@@ -34,9 +55,10 @@ public class AfficheCandidat extends javax.swing.JPanel {
     public AfficheCandidat() {
         initComponents();
         Refresh();
-        
     }
-
+    
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,7 +119,6 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        chercher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/search.png"))); // NOI18N
         chercher.setText("Chercher");
         chercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,42 +190,40 @@ public class AfficheCandidat extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(82, 82, 82)
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addGap(81, 81, 81))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(11, 11, 11)
-                            .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(chercher))
-                        .addComponent(jLabel1))
-                    .addGap(34, 34, 34))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(11, 11, 11)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(inviter)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                .addGap(81, 81, 81)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel4)
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel1)))
+                        .addGap(216, 216, 216))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inviter)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(217, 217, 217)
+                        .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chercher)))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(9, 9, 9)
@@ -214,29 +233,32 @@ public class AfficheCandidat extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chercher)
-                    .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chercher)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(inviter)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(121, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(87, 87, 87)))
         );
@@ -266,8 +288,10 @@ public class AfficheCandidat extends javax.swing.JPanel {
         if(!(b1=PatternService.validateVille(jTextField4.getText()))) jTextField4.setText("");
         if(!(b2=PatternService.validateSkills(principale.getText()))) principale.setText("");
         if(!(b3=PatternService.validateSkills(secondaire.getText()))) secondaire.setText("");
-        return b1 && b2 && b3 ;
+        return (b1 && b2 && b3) ;
     }
+    
+    
      
     private void chercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherActionPerformed
         try {
@@ -283,6 +307,69 @@ public class AfficheCandidat extends javax.swing.JPanel {
         catch (NullPointerException n) {
             JOptionPane.showMessageDialog(tCandidat,"Veuillez spécifier un Job","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         }
+        
+        tCandidat.addMouseListener(new MouseAdapter() {
+           /* public  void openWebpage(Uri uri) {
+                Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+                    try {
+                        desktop.browse(uri);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }*/
+
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = tCandidat.rowAtPoint(new Point(e.getX(), e.getY()));
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                System.out.println(row + " " + col);
+
+                String url = (String) tCandidat.getModel().getValueAt(row, col);
+                System.out.println(url + " was clicked");
+                URI uri;
+                try {
+                     uri = new URI(url);
+                    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                    desktop.browse(uri);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
+                
+                // DO here what you want to do with your url
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                if (col == 0) {
+                    tCandidat.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
+                if (col != 0) {
+                    tCandidat.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                }
+            }
+        });
+
+        tCandidat.getColumnModel().getColumn(5).setCellRenderer(new TableCellRenderer() {
+
+            @Override
+            public Component getTableCellRendererComponent(JTable table, final Object value, boolean arg2,
+                    boolean arg3, int arg4, int arg5) {
+                final JLabel lab = new JLabel("<html><a href=\"" + value + "\">" + value + "</a>");
+                return lab;
+            }
+        });
         /*catch(JSONException j) {
             JOptionPane.showMessageDialog(tCandidat,"Erreur Librairie LinkedIn scraper manquante","ErreJOptionPaneur",JOptionPane.WARNING_MESSAGE);
         } catch (IOException ex) {

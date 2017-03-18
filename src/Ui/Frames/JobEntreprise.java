@@ -5,6 +5,8 @@
  */
 package Ui.Frames;
 
+import App.Services.Ui.ServiceJobEntreprise;
+
 /**
  *
  * @author Sony
@@ -16,7 +18,17 @@ public class JobEntreprise extends javax.swing.JPanel {
      */
     public JobEntreprise() {
         initComponents();
-        
+        ServiceJobEntreprise.DisplayClientsJob(jobTable,LoginEntre.getIdEntreprise());
+    }
+    
+    private void FenetreCandidatAdmis(int idJob) {
+        JobCandidatsEntre C = new JobCandidatsEntre(idJob) ;
+        C.setResizable(false);
+        C.setVisible(true);
+    }
+    
+    private int getJobId() {
+        return (int) jobTable.getValueAt(jobTable.getSelectedRow(),0) ;
     }
 
     /**
@@ -61,6 +73,7 @@ public class JobEntreprise extends javax.swing.JPanel {
         visualiser.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         visualiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/eye.png"))); // NOI18N
         visualiser.setText("Visualiser");
+        visualiser.setEnabled(false);
         visualiser.setIconTextGap(10);
         visualiser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,11 +118,14 @@ public class JobEntreprise extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jobTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobTableMouseClicked
-
+        if(jobTable.getSelectedRow() != -1) {
+            visualiser.setEnabled(true);
+        }
+        else visualiser.setEnabled(false);
     }//GEN-LAST:event_jobTableMouseClicked
 
     private void visualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualiserActionPerformed
-        new JobCandidatsEntre().setVisible(true);
+        new JobCandidatsEntre(getJobId()).setVisible(true);
     }//GEN-LAST:event_visualiserActionPerformed
 
 

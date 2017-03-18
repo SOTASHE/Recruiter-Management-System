@@ -5,6 +5,9 @@
  */
 package Ui.Frames;
 
+import App.Services.Ui.ServiceJobEntreprise;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sony
@@ -15,7 +18,7 @@ public class EmpEntreprise extends javax.swing.JPanel {
      * Creates new form EmpEntreprise
      */
     public EmpEntreprise() {
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -44,11 +47,6 @@ public class EmpEntreprise extends javax.swing.JPanel {
 
             }
         ));
-        jobTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jobTableMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jobTable);
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -94,10 +92,6 @@ public class EmpEntreprise extends javax.swing.JPanel {
                     .addContainerGap(33, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jobTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobTableMouseClicked
-
-    }//GEN-LAST:event_jobTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
