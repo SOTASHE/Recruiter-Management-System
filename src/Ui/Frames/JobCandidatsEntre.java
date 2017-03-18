@@ -5,6 +5,7 @@
  */
 package Ui.Frames;
 
+import App.Services.Ui.ServiceJobCandidatsEntre;
 import com.alee.laf.WebLookAndFeel;
 
 /**
@@ -22,7 +23,8 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
     
     public JobCandidatsEntre(int idJob) {
         initComponents();
-        
+        System.out.println(idJob);
+        ServiceJobCandidatsEntre.displayEmployees(candidatesJTable,idJob);
     }
 
     /**
@@ -40,6 +42,7 @@ public class JobCandidatsEntre extends javax.swing.JFrame {
         invite = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 255));

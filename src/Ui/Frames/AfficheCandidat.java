@@ -389,18 +389,17 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }//GEN-LAST:event_chercherActionPerformed
 
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed
+   
         if(EnvoiMessge()){
             int[] Rows;
             Rows = tCandidat.getSelectedRows();
-            for(int rowid = 0 ; rowid < Rows.length ; rowid++){
-                String email = (String) tCandidat.getValueAt(rowid, 4);
-                String name = (String) tCandidat.getValueAt(rowid, 1);
-                int idCandidate = (int) tCandidat.getValueAt(rowid,0) ;
+            for(int i = 0 ; i < Rows.length ; i++){
+                String email = (String) tCandidat.getValueAt(Rows[i], 4);
+                String name = (String) tCandidat.getValueAt(Rows[i], 1);
+                int idCandidate = (int) tCandidat.getValueAt(Rows[i],0) ;
                 try{
-                    
                    MailService.sendMail("Convocation pour passage d'entretien",
                    MailService.BodyMessage(name,getJobName(idJob)),email) ;
-                  //Mail();
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                     ServiceAfficheCandidat.insertCandidateEntretien(idCandidate,idJob);
