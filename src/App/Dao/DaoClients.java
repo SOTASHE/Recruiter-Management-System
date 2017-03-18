@@ -28,8 +28,10 @@ public class DaoClients extends DaoAbstract {
     }
     
     public List getClientsWithStats(){
-        return super.getHqlQuery("select c.id,c.name,c.email,count(*),avg(cj.satisfaction) from Clients c join c.jobses j   join j.candidatesJobses cj   where j.status = -1   group by c");
+        return super.getHqlQuery("select c.id,c.name,c.email,count(*),avg(cj.satisfaction) from Clients c join c.jobses j   join j.candidatesJobses cj where cj.satisfaction > 0   group by c");
     }
+    
+    
     
     public List isConnect(String email, String pass) {
         List L = super.getHqlPreparedQuery("from Clients c where c.email=:email and c.password=:pass",

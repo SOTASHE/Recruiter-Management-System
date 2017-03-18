@@ -89,7 +89,7 @@ public class Jobs  implements java.io.Serializable {
 
      @Override
     public String toString(){
-        return profil;
+        return profil+"-"+getClients().getName();
     }
 
 

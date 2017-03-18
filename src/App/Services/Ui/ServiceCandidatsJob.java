@@ -5,6 +5,7 @@
  */
 package App.Services.Ui;
 
+import App.Dao.DaoCandidates;
 import App.Dao.DaoCandidatesEntretien;
 import OrmMapping.Candidates;
 import OrmMapping.CandidatesEntretien;
@@ -21,14 +22,13 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class ServiceCandidatsJob {
-    
-    
-    
+   
     public static void nextInterviewPhase(int idCandidat,int idJob){
         DaoCandidatesEntretien de = new DaoCandidatesEntretien();
         int phase = de.getPhaseById(idCandidat,idJob);
-        System.out.println(phase);
         de.updatePhase(idCandidat, idJob, ++phase);
+        System.out.println(phase);
+        if(phase == 4)  new DaoCandidates().updateSatisfaction(idCandidat,idJob,0);
     }
     
     public static void displayCandidatesWithInterviewByJob(JTable T,int idJob){
