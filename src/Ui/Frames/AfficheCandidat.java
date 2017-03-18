@@ -325,6 +325,9 @@ public class AfficheCandidat extends javax.swing.JPanel {
     }//GEN-LAST:event_chercherActionPerformed
 
     private void inviterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inviterActionPerformed
+        
+        
+        
         if(EnvoiMessge()){
             int[] Rows;
             Rows = tCandidat.getSelectedRows();
