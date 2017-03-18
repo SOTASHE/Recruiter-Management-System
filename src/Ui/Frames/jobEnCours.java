@@ -16,7 +16,10 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -105,6 +108,11 @@ public class jobEnCours extends javax.swing.JPanel {
         radio.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jRadioButton1.setText("en cours");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         radio.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
@@ -195,7 +203,7 @@ public class jobEnCours extends javax.swing.JPanel {
     
     private void JobsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JobsTableMouseClicked
         if(JobsTable.getSelectedRow() != -1) {
-            if(JobsTable.getValueAt(JobsTable.getSelectedRow(),2).toString().equals("Validé")) {
+            if(JobsTable.getValueAt(JobsTable.getSelectedRow(),3).toString().equals("Validé")) {
                 btnVisualiser.setEnabled(true);
                 btnValider.setEnabled(false);
             }   
@@ -219,7 +227,7 @@ public class jobEnCours extends javax.swing.JPanel {
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void Refresh() {
-        JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),2);
+        JobsTable.setValueAt("Validé", JobsTable.getSelectedRow(),3);
     }
     
     private void btnVisualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualiserActionPerformed
@@ -228,12 +236,22 @@ public class jobEnCours extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualiserActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) JobsTable.getModel())); 
+        sorter.setRowFilter(RowFilter.regexFilter("Validé"));
+        JobsTable.setRowSorter(sorter);
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) JobsTable.getModel())); 
+        sorter.setRowFilter(RowFilter.regexFilter("En cours|Validé"));
+        JobsTable.setRowSorter(sorter);
     }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) JobsTable.getModel())); 
+        sorter.setRowFilter(RowFilter.regexFilter("En cours"));
+        JobsTable.setRowSorter(sorter);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
     
     private void FenetreCandidat(int idJob) {
         CandidatsJob C = new CandidatsJob(idJob) ;

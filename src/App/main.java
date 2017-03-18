@@ -7,6 +7,7 @@ package App ;
 
 
 import App.Dao.DaoCandidates;
+import App.Dao.DaoCandidatesEntretien;
 import App.Dao.DaoJobs;
 import App.Dao.DaoRecruiter;
 import OrmMapping.Jobs;
@@ -26,8 +27,10 @@ public class main {
     
     public static void main(String[] args) throws JSONException, IOException, InterruptedException {
        
-        DaoCandidates dc = new DaoCandidates();
-        dc.updateSatisfaction(1, 1, -1);
+        /*DaoCandidates dc = new DaoCandidates();
+        dc.updateSatisfaction(1, 1, -1);*/
+        DaoCandidatesEntretien dc = new DaoCandidatesEntretien();
+        dc.getPhaseById(1,1 );
 // InsertService.insertCandidateEntretien(2,1);
  /* JFrame frame = new JFrame("Test JCalendar");
           JCalendar dateChooser = new JCalendar();

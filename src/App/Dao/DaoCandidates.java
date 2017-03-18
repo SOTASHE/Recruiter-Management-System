@@ -33,8 +33,8 @@ public class DaoCandidates extends DaoAbstract{
     }
     
     public void updateSatisfaction(int idcandidate,int idjob, int satisfaction){  
-        super.UpdateQuery("update candidates_jobs  set satisfaction = "+satisfaction+ 
-                " where Candidatesid = " + idcandidate + " and Jobsid = " + idjob );
+        super.UpdateQuery("update Candidates_Jobs cj  set satisfaction = "+satisfaction+ 
+                " where CandidatesId = " + idcandidate + " and Jobsid = " + idjob );
     }
    
     // add function to get all current candidat by job with details phase entretien etc.. 
