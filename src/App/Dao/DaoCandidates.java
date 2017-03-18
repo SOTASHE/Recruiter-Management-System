@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Orm;
+package App.Dao;
 
 import OrmMapping.Candidates;
 import java.util.List;
@@ -20,14 +20,20 @@ public class DaoCandidates extends DaoAbstract{
     }
    
     public List getAllByJob(int idJob){
-        return getHqlQuery("select c from Candidates c join c.candidatesJobses cj where cj.id.jobsid ="+idJob );
+        return getHqlQuery("select c from Candidates "
+                + "c join c.candidatesJobses cj where cj.satisfaction = -2 and  cj.id.jobsid ="+idJob);
     }
     
     
     public List getAllEmployees(){
-        return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj where cj.jobs.status = -1");
+        return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj "
+                + "where cj.jobs.status = -1");
     }
     
+    public void updateSatisfaction(int idcandidate,int idjob, int satisfaction){  
+        super.UpdateQuery("update candidates_jobs  set satisfaction = "+satisfaction+ 
+                " where Candidatesid = " + idcandidate + " and Jobsid = " + idjob );
+    }
    
     // add function to get all current candidat by job with details phase entretien etc..
     

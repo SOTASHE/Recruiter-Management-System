@@ -5,7 +5,7 @@
  */
 
 
-package App.Orm;
+package App.Dao;
 
 import App.Services.Hibernate.HibernateUtil;
 import java.util.List;

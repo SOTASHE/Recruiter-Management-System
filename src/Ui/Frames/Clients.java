@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Orm.DaoClients;
+import App.Dao.DaoClients;
 import App.Services.Ui.ServiceCleints;
 import com.alee.laf.WebLookAndFeel;
 import java.util.List;

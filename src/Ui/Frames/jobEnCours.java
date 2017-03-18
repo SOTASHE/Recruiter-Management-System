@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Orm.DaoJobs;
+import App.Dao.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Ui.ConfirmeDialog;
 import App.Services.Ui.ServiceJobEnCours;
@@ -142,8 +142,8 @@ public class jobEnCours extends javax.swing.JPanel {
                             .addGap(694, 694, 694)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
+                            .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jRadioButton1)
                             .addGap(18, 18, 18)
                             .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -5,7 +5,7 @@
  */
 package Ui.Frames;
 
-import App.Orm.DaoClients;
+import App.Dao.DaoClients;
 import App.Services.Connexion.ConnexionClient;
 import App.Services.Ui.PatternService;
 import com.alee.laf.WebLookAndFeel;

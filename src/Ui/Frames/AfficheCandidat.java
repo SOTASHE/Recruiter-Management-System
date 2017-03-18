@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Ui.Frames;
-import App.Orm.DaoCandidates;
-import App.Orm.DaoJobs;
+import App.Dao.DaoCandidates;
+import App.Dao.DaoJobs;
 import App.Services.Linkedin.CandidatesSortByRateService;
 import App.Services.Mail.MailService;
 import App.Services.Ui.PatternService;
@@ -89,6 +89,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(850, 560));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator2);
 
         jTextField4.setForeground(java.awt.Color.gray);
         jTextField4.setText("ex:Rabat");
@@ -104,6 +105,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 jTextField4MouseClicked(evt);
             }
         });
+        add(jTextField4);
 
         secondaire.setForeground(java.awt.Color.gray);
         secondaire.setText("ex:Laravel,Php");
@@ -117,6 +119,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 secondaireMouseClicked(evt);
             }
         });
+        add(secondaire);
 
         chercher.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         chercher.setText("Chercher");
@@ -125,6 +128,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 chercherActionPerformed(evt);
             }
         });
+        add(chercher);
 
         inviter.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         inviter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ui/Resources/icons/envelope.png"))); // NOI18N
@@ -135,12 +139,14 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 inviterActionPerformed(evt);
             }
         });
+        add(inviter);
 
         jobs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobsActionPerformed(evt);
             }
         });
+        add(jobs);
 
         principale.setForeground(java.awt.Color.gray);
         principale.setText("ex:C#,C++");
@@ -154,15 +160,19 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 principaleMouseClicked(evt);
             }
         });
+        add(principale);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel3.setText("Job");
+        add(jLabel3);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel1.setText("Competences secondaires");
+        add(jLabel1);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel2.setText("Ville");
+        add(jLabel2);
 
         tCandidat.setAutoCreateRowSorter(true);
         tCandidat.setModel(new javax.swing.table.DefaultTableModel(
@@ -183,85 +193,12 @@ public class AfficheCandidat extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tCandidat);
 
+        add(jScrollPane1);
+        add(jSeparator1);
+
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel4.setText("Competences principaux");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel4)
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel1)))
-                        .addGap(216, 216, 216))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(inviter)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(217, 217, 217)
-                        .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chercher)))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(9, 9, 9)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(839, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jobs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(secondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(principale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chercher)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(inviter)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(87, 87, 87)))
-        );
+        add(jLabel4);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -325,20 +262,23 @@ public class AfficheCandidat extends javax.swing.JPanel {
             public void mouseClicked(MouseEvent e) {
                 int row = tCandidat.rowAtPoint(new Point(e.getX(), e.getY()));
                 int col = tCandidat.columnAtPoint(new Point(e.getX(), e.getY()));
-                System.out.println(row + " " + col);
+                if(col == 5){
+                    System.out.println(row + " " + col);
 
-                String url = (String) tCandidat.getModel().getValueAt(row, col);
-                System.out.println(url + " was clicked");
-                URI uri;
-                try {
-                     uri = new URI(url);
-                    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-                    desktop.browse(uri);
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    String url = (String) tCandidat.getModel().getValueAt(row, col);
+                    System.out.println(url + " was clicked");
+                    URI uri;
+                    try {
+                        uri = new URI(url);
+                        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+                        desktop.browse(uri);
+                    } catch (URISyntaxException ex) {
+                        Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AfficheCandidat.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
                 }
+                
                
                 
                 // DO here what you want to do with your url
@@ -400,7 +340,8 @@ public class AfficheCandidat extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(tCandidat,"Message Envoyé à Mr(MMe) "+name,"Success",
                         JOptionPane.INFORMATION_MESSAGE);
                     ServiceAfficheCandidat.insertCandidateEntretien(idCandidate,idJob);
-                   
+                    DaoCandidates dc = new DaoCandidates();
+                    dc.updateSatisfaction(idCandidate,idJob,-1);
                 }
                 catch(Exception Me){
                     JOptionPane.showMessageDialog(tCandidat,"Message Nom Envoyé à Mr(MMe) "+name+"\n" +
@@ -409,6 +350,7 @@ public class AfficheCandidat extends javax.swing.JPanel {
                 }
             }
         }
+        
     }//GEN-LAST:event_inviterActionPerformed
 
     private void jobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobsActionPerformed

@@ -5,7 +5,7 @@
  */
 package App.Services.Ui;
 
-import App.Orm.DaoJobs;
+import App.Dao.DaoJobs;
 import OrmMapping.Jobs;
 import java.util.List;
 import java.util.Vector;

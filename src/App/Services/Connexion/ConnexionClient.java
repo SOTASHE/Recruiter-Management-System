@@ -5,7 +5,7 @@
  */
 package App.Services.Connexion;
 
-import App.Orm.DaoClients;
+import App.Dao.DaoClients;
 import OrmMapping.Clients;
 import java.util.List;
 

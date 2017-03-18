@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Orm;
+package App.Dao;
 
 import Ui.Frames.Clients;
 import java.util.List;
@@ -34,7 +34,6 @@ public class DaoClients extends DaoAbstract {
     public List isConnect(String email, String pass) {
         List L = super.getHqlPreparedQuery("from Clients c where c.email=:email and c.password=:pass",
                 "email", email, "pass", pass);
-        return L ;
+        return L;
     }
-    
 }

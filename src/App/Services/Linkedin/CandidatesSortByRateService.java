@@ -6,7 +6,7 @@
 package App.Services.Linkedin;
 
 import App.Services.Linkedin.CandidatesComparatorService;
-import App.Orm.DaoCandidates;
+import App.Dao.DaoCandidates;
 import java.util.Collections;
 import java.util.List;
 

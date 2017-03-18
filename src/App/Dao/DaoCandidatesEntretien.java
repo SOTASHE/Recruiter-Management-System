@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App.Orm;
+package App.Dao;
 
 import OrmMapping.CandidatesEntretien;
 import java.util.List;
@@ -29,8 +29,9 @@ public class DaoCandidatesEntretien extends DaoAbstract {
      * @return phase
      */
     public int getPhaseById(int idCandidate,int idJob){
-        return Integer.parseInt(super.getHqlQuery("select ce.phase from CandidatesEntretien ce "
-                + "where ce.candidatesid = " +idCandidate+ " and ce.jobs.id ="+idJob).get(0).toString());
+        List L = super.getHqlQuery("select ce.phase from Candidates_Entretien ce "
+                + "where ce.Candidatesid = " +idCandidate+ " and ce.jobs_id ="+  idJob) ;
+        return (int) L.get(0);
     }
     
     /**

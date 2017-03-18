@@ -2,7 +2,7 @@
 
 package App.Services.Stats;
 
-import App.Orm.DaoJobs;
+import App.Dao.DaoJobs;
 import java.util.List;
 
 /**

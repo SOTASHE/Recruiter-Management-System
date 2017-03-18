@@ -5,7 +5,7 @@
  */
 
 
-package App.Orm;
+package App.Dao;
 
 import OrmMapping.Jobs;
 import java.util.List;
@@ -25,7 +25,7 @@ public class DaoJobs extends DaoAbstract {
         super.create(j);
     }
     
-   @Override
+    @Override
     public List  getAll(){
       return super.getAll();    
     }
@@ -36,6 +36,8 @@ public class DaoJobs extends DaoAbstract {
    
     public List getRelevantJobsPourcentage(){      
        return super.getSqlQuery("select profil,count(*)/(select count(*) from Jobs) from Jobs group by profil order by 2 desc limit 0,5");
+      
+//return super.getQuery("select job.profil,count(*)  from Jobs job group by profil order by 2 desc") ;
     }
    
     public List getRelevantJobs(){ 
@@ -45,10 +47,6 @@ public class DaoJobs extends DaoAbstract {
     public List getCurrentJobs(){
        return super.getHqlQuery("from Jobs j where j.status <> -1");
     }
-    
-   /* public List getValidateJobs(int id) {
-        return super.getHqlQuery("select j.id,j.profil from Jobs join candidates_entretien ce where j.id ="+id +" j. = and status = 1 and ")
-    }*/
    
     public List getJobs() {
        return super.getHqlQuery("select j.id,j.profil,jc.name,j.status from Jobs j join j.clients jc  order by status desc , j.id desc ");
@@ -59,6 +57,7 @@ public class DaoJobs extends DaoAbstract {
     } 
     
     public List getJobsValidByClient(int idClient){
-        return super.getHqlQuery("from Jobs j where j.clients.id= "+idClient +" and j.status = -1 order by id desc");
+        return super.getHqlQuery("from Jobs j where j.clients.id= 1 and j.status = -1");
     }
+    
 }

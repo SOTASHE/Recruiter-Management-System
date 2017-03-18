@@ -5,7 +5,6 @@
  */
 package App.Services.Ui;
 
-import App.Orm.DaoCandidatesEntretien;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
