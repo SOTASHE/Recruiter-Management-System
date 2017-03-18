@@ -29,7 +29,7 @@ public class DaoCandidates extends DaoAbstract{
     
     public List getAllEmployees(){
         return getHqlQuery("select c,cj,cj.jobs from Candidates c join c.candidatesJobses cj "
-                + "where cj.jobs.status = -1");
+                + "where cj.satisfaction >= 0");
     }
     
     public void updateSatisfaction(int idcandidate,int idjob, int satisfaction){  
