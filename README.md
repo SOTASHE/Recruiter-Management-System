@@ -1,5 +1,5 @@
 # Recruitment-Software
-Please note that we use this project for a school project and we do not have the financial means to access to APIS. So we have choosen to scrap LinkedIn data from 5 profils just to succeed the demonstration and not for commercial use ( scraping X profiles). 
+Please note that we use this project for a school project and we do not have the financial means to access to APIS. So we have choosen to scrap LinkedIn data from 5 profils just to succeed the demonstration and not for commercial use. 
 
 Please note also that LinkedIn block ip after 10 successive requests.  So it is not really scraping !
 
